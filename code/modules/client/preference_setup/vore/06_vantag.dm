@@ -5,8 +5,8 @@
 
 // Definition of the stuff for Sizing
 /datum/category_item/player_setup_item/vore/vantag
-	name = "VS Events"
-	sort_order = 6
+	//name = "Events"
+	//sort_order = 4
 
 /datum/category_item/player_setup_item/vore/vantag/load_character(var/savefile/S)
 	S["vantag_volunteer"]	>> pref.vantag_volunteer

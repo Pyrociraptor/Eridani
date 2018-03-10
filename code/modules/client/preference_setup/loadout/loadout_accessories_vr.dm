@@ -1,5 +1,5 @@
 // Collars
-
+/*
 /datum/gear/collar
 	display_name = "collar, silver"
 	path = /obj/item/clothing/accessory/collar/silver
@@ -29,13 +29,13 @@
 /datum/gear/collar/holo
 	display_name = "collar, holo"
 	path = /obj/item/clothing/accessory/collar/holo
-
+*/
 /datum/gear/accessory/white_drop_pouches
 	allowed_roles = list("Paramedic","Chief Medical Officer","Medical Doctor","Chemist")
 
 /datum/gear/accessory/white_vest
 	allowed_roles = list("Paramedic","Chief Medical Officer","Medical Doctor","Chemist")
-
+/*
 /datum/gear/accessory/khcrystal
 	display_name = "KH Life Crystal"
 	path = /obj/item/weapon/storage/box/khcrystal
@@ -45,7 +45,7 @@
     display_name = "metal necklace"
     description = "A shiny steel chain with a vague metallic object dangling off it."
     path = /obj/item/clothing/accessory/tronket
-
+*/
 /datum/gear/accessory/flops
     display_name = "drop straps"
     description = "Wearing suspenders over shoulders? That's been so out for centuries and you know better."

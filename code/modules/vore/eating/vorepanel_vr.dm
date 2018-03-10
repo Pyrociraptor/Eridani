@@ -8,9 +8,10 @@
 #define BELLIES_DESC_MAX 1024
 #define FLAVOR_MAX 40
 
+
 /mob/living/proc/insidePanel()
-	set name = "Vore Panel"
-	set category = "IC"
+	//set name = "Vore Panel"
+	//set category = "IC"
 
 	var/datum/vore_look/picker_holder = new()
 	picker_holder.loop = picker_holder
@@ -56,7 +57,7 @@
 
 /datum/vore_look/proc/gen_ui(var/mob/living/user)
 	var/dat
-	
+
 	var/atom/userloc = user.loc
 	if (isbelly(userloc))
 		var/obj/belly/inside_belly = userloc
@@ -410,7 +411,7 @@
 					var/obj/belly/choice = input("Move all where?","Select Belly") as null|anything in user.vore_organs
 					if(!choice)
 						return 0
-								
+
 					for(var/atom/movable/tgt in selected)
 						to_chat(tgt,"<span class='warning'>You're squished from [user]'s [lowertext(selected)] to their [lowertext(choice.name)]!</span>")
 						selected.transfer_contents(tgt, choice, 1)
@@ -602,7 +603,7 @@
 			to_chat(user,"<span class='notice'>Invalid size.</span>")
 		else if(new_bulge)
 			selected.bulge_size = (new_bulge/100)
-	
+
 	if(href_list["b_grow_shrink"])
 		var/new_grow = input(user, "Choose the size that prey will be grown/shrunk to, ranging from 25% to 200%", "Set Growth Shrink Size.", selected.shrink_grow_size) as num|null
 		if (new_grow == null)
@@ -679,7 +680,7 @@
 		var/alert = alert("Are you sure you want to delete your [lowertext(selected.name)]?","Confirmation","Delete","Cancel")
 		if(!alert == "Delete")
 			return 0
-		
+
 		var/failure_msg = ""
 
 		var/dest_for //Check to see if it's the destination of another vore organ.
@@ -696,7 +697,7 @@
 			failure_msg += "This belly is marked as undeletable. "
 		if(user.vore_organs.len == 1)
 			failure_msg += "You must have at least one belly. "
-		
+
 		if(failure_msg)
 			alert(user,failure_msg,"Error!")
 			return 0
@@ -715,7 +716,7 @@
 		var/new_flavor = html_encode(input(usr,"What your character tastes like (40ch limit). This text will be printed to the pred after 'X tastes of...' so just put something like 'strawberries and cream':","Character Flavor",user.vore_taste) as text|null)
 		if(!new_flavor)
 			return 0
-		
+
 		new_flavor = readd_quotes(new_flavor)
 		if(length(new_flavor) > FLAVOR_MAX)
 			alert("Entered flavor/taste text too long. [FLAVOR_MAX] character limit.","Error!")

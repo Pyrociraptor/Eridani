@@ -153,7 +153,7 @@
 	attacker.set_dir(EAST) //face the victim
 	target.set_dir(SOUTH) //face up
 
-/obj/item/weapon/grab/proc/devour(mob/target, mob/user)
+/*obj/item/weapon/grab/proc/devour(mob/target, mob/user)
 	var/can_eat
 	if((FAT in user.mutations) && ismini(target))
 		can_eat = 1
@@ -176,3 +176,4 @@
 		target.loc = user
 		attacker.stomach_contents.Add(target)
 		qdel(src)
+*/

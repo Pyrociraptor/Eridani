@@ -725,28 +725,28 @@ var/datum/announcement/minor/admin_min_announcer = new
 	//Split on pipe or \n
 	decomposed = splittext(message,regex("\\||$","m"))
 	decomposed += "0" //Tack on a final 0 sleep to make 3-per-message evenly
-	
+
 	//Time to find how they screwed up.
 	//Wasn't the right length
 	if((decomposed.len) % 3) //+1 to accomidate the lack of a wait time for the last message
 		to_chat(usr,"<span class='warning'>You passed [decomposed.len] segments (senders+messages+pauses). You must pass a multiple of 3, minus 1 (no pause after the last message). That means a sender and message on every other line (starting on the first), separated by a pipe character (|), and a number every other line that is a pause in seconds.</span>")
 		return
-	
+
 	//Too long a conversation
 	if((decomposed.len / 3) > 20)
 		to_chat(usr,"<span class='warning'>This conversation is too long! 20 messages maximum, please.</span>")
 		return
-	
+
 	//Missed some sleeps, or sanitized to nothing.
 	for(var/i = 1; i < decomposed.len; i++)
-		
+
 		//Sanitize sender
 		var/clean_sender = sanitize(decomposed[i])
 		if(!clean_sender)
 			to_chat(usr,"<span class='warning'>One part of your conversation was not able to be sanitized. It was the sender of the [(i+2)/3]\th message.</span>")
 			return
 		decomposed[i] = clean_sender
-		
+
 		//Sanitize message
 		var/clean_message = sanitize(decomposed[++i])
 		if(!clean_message)
@@ -1053,6 +1053,21 @@ var/datum/announcement/minor/admin_min_announcer = new
 	var/datum/seed/S = plant_controller.seeds[seedtype]
 	S.harvest(usr,0,0,1)
 	log_admin("[key_name(usr)] spawned [seedtype] fruit at ([usr.x],[usr.y],[usr.z])")
+
+/datum/admins/proc/change_cargo_points(points in supply_controller.points)
+	set category = "Debug"
+	set desc = "Change the amount of cargo points available."
+	set name = "Change Cargo Points"
+	var/newpoints
+
+	if(check_rights(R_ADMIN))
+		points = input("Amount of cargo points is currently [supply_controller.points].", newpoints) as null|num
+		if (!isnull(points))
+			supply_controller.points = newpoints
+			var/msg = "[key_name(usr)] has modified cargo points to [newpoints]."
+			message_admins(msg)
+	else
+		usr << "You do not have access to this command."
 
 /datum/admins/proc/spawn_custom_item()
 	set category = "Debug"

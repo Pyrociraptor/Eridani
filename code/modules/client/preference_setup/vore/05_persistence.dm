@@ -13,7 +13,7 @@
 // Definition of the stuff for Sizing
 /datum/category_item/player_setup_item/vore/persistence
 	name = "Persistence"
-	sort_order = 5
+	sort_order = 3
 
 /datum/category_item/player_setup_item/vore/persistence/load_character(var/savefile/S)
 	S["persistence_settings"]		>> pref.persistence_settings
@@ -34,14 +34,14 @@
 	. += make_yesno(PERSIST_SPAWN)
 	. += "</tr>"
 
-	. += "<tr><td title=\"Save your character's weight until next round.\">Save Weight: </td>"
+	/*. += "<tr><td title=\"Save your character's weight until next round.\">Save Weight: </td>"
 	. += make_yesno(PERSIST_WEIGHT)
 	. += "</tr>"
-
+	*/
 	. += "<tr><td title=\"Update organ preferences (normal/amputated/robotic/etc) and model (for robotic) based on what you have at round end.\">Save Organs: </td>"
 	. += make_yesno(PERSIST_ORGANS)
 	. += "</tr>"
-
+	/*
 	. += "<tr><td title=\"Update marking preferences (type and color) based on what you have at round end.\">Save Markings: </td>"
 	. += make_yesno(PERSIST_MARKINGS)
 	. += "</tr>"
@@ -49,7 +49,7 @@
 	. += "<tr><td title=\"Update character scale based on what you were at round end.\">Save Scale: </td>"
 	. += make_yesno(PERSIST_SIZE)
 	. += "</tr>"
-
+	*/
 	. += "</table>"
 	return jointext(., "")
 

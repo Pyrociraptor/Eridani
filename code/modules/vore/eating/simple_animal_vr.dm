@@ -8,8 +8,8 @@
 //
 /mob/living/simple_animal/proc/animal_nom(var/mob/living/T in living_mobs(1))
 	set name = "Animal Nom"
-	set category = "IC"
-	set desc = "Since you can't grab, you get a verb!"
+	//set category = "IC"
+	//set desc = "Since you can't grab, you get a verb!"
 
 	if (stat != CONSCIOUS)
 		return
@@ -27,8 +27,8 @@
 //
 /mob/living/simple_animal/verb/toggle_digestion()
 	set name = "Toggle Animal's Digestion"
-	set desc = "Enables digestion on this mob for 20 minutes."
-	set category = "OOC"
+	//set desc = "Enables digestion on this mob for 20 minutes."
+	//set category = "OOC"
 	set src in oview(1)
 
 	var/mob/living/carbon/human/user = usr

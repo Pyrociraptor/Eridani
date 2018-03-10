@@ -18,13 +18,12 @@
 
 	old_x = -16
 	old_y = 0
-	default_pixel_x = -16
 	pixel_x = -16
 	pixel_y = 0
 
 // Activate Noms!
 /mob/living/simple_animal/hostile/deathclaw
-	vore_active = 1
+	vore_active = 0
 	vore_capacity = 2
 	vore_max_size = RESIZE_HUGE
 	vore_min_size = RESIZE_SMALL

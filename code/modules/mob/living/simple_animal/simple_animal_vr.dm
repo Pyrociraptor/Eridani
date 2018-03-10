@@ -89,7 +89,7 @@
 	if(M.size_multiplier < vore_min_size || M.size_multiplier > vore_max_size)
 		ai_log("vr/wont eat [M] because they too small or too big", 3)
 		return 0
-	if(vore_capacity != 0 && (vore_fullness >= vore_capacity)) // We're too full to fit them
+	if(vore_capacity != 0 && (vore_fullness + M.size_multiplier > vore_capacity)) // We're too full to fit them
 		ai_log("vr/wont eat [M] because I am too full", 3)
 		return 0
 	return 1
@@ -212,8 +212,9 @@
 		return TRUE //Mobs aren't that stupid, probably
 
 //Grab = Nomf
-/mob/living/simple_animal/UnarmedAttack(var/atom/A, var/proximity)
+/*mob/living/simple_animal/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()
 
 	if(a_intent == I_GRAB && isliving(A) && !has_hands)
 		animal_nom(A)
+*/

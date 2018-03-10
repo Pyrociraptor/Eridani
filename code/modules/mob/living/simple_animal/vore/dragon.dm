@@ -26,7 +26,6 @@
 
 	old_x = -16
 	old_y = 0
-	default_pixel_x = -16
 	pixel_x = -16
 	pixel_y = 0
 
@@ -40,7 +39,7 @@
 
 // Activate Noms!
 /mob/living/simple_animal/hostile/dragon
-	vore_active = 1
+	vore_active = 0
 	vore_capacity = 2
 	vore_pounce_chance = 0 // Beat them into crit before eating.
 	vore_icons = SA_ICON_LIVING

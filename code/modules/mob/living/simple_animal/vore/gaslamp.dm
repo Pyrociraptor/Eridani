@@ -51,8 +51,8 @@ TODO: Make them light up and heat the air when exposed to oxygen.
 
 // Activate Noms!
 /mob/living/simple_animal/retaliate/gaslamp
-	vore_active = 1
-	vore_capacity = 2
+	vore_active = 0
+	vore_capacity = 0
 	vore_bump_chance = 90 //they're frickin' jellyfish anenome filterfeeders, get tentacled
 	vore_bump_emote = "lazily wraps its tentacles around"
 	vore_standing_too = 1 // Defaults to trying to give you that big tentacle hug.

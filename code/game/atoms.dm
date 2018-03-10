@@ -502,12 +502,3 @@
 	if(A && A.has_gravity())
 		return TRUE
 	return FALSE
-
-/atom/proc/drop_location()
-	var/atom/L = loc
-	if(!L)
-		return null
-	return L.AllowDrop() ? L : get_turf(L)
-
-/atom/proc/AllowDrop()
-	return FALSE
