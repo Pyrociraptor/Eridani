@@ -29,7 +29,7 @@
 
 // Activate Noms!
 /mob/living/simple_animal/wah
-	vore_active = 1
+	vore_active = 0
 	vore_bump_chance = 10
 	vore_bump_emote	= "playfully lunges at"
 	vore_pounce_chance = 40

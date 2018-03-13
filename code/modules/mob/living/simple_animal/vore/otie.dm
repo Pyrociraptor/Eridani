@@ -41,7 +41,6 @@
 	meat_amount = 6
 	old_x = -16
 	old_y = 0
-	default_pixel_x = -16
 	pixel_x = -16
 	pixel_y = 0
 
@@ -52,7 +51,7 @@
 // Activate Noms!
 
 /mob/living/simple_animal/otie
-	vore_active = 1
+	vore_active = 0
 	vore_capacity = 1
 	vore_pounce_chance = 20
 	vore_icons = SA_ICON_LIVING
@@ -194,7 +193,7 @@
 	. = ..()
 
 /mob/living/simple_animal/otie/security/feed_grabbed_to_self(var/mob/living/user, var/mob/living/prey) // Make the gut start out safe for bellybrigging.
-	if(ishuman(prey))
+	if(ishuman(target_mob))
 		vore_selected.digest_mode = DM_HOLD
 	if(istype(prey,/mob/living/simple_animal/mouse))
 		vore_selected.digest_mode = DM_DIGEST

@@ -114,7 +114,7 @@
 	src.modules += new /obj/item/device/dogborg/boop_module(src) //Boop people on the nose.
 	src.modules += new /obj/item/device/dogborg/tongue(src) //This is so they can clean up bloody evidence after it's examined, and so they can lick crew.
 	src.modules += new /obj/item/taperoll/police(src) //Block out crime scenes.
-	src.modules += new /obj/item/device/dogborg/sleeper/K9(src) //Eat criminals. Bring them to the brig.
+	//src.modules += new /obj/item/device/dogborg/sleeper/K9(src) //Eat criminals. Bring them to the brig.
 	src.modules += new /obj/item/weapon/gun/energy/taser/mounted/cyborg(src) //They /are/ a security borg, after all.
 	src.modules += new /obj/item/weapon/dogborg/pounce(src) //Pounce
 	src.emag 	 = new /obj/item/weapon/gun/energy/laser/mounted(src) //Emag. Not a big problem.
@@ -165,7 +165,7 @@
 	src.modules += new /obj/item/device/dogborg/boop_module(src) //Boop the crew.
 	src.modules += new /obj/item/device/dogborg/tongue(src) //Clean up bloody items by licking them, and eat rubbish for minor energy.
 	src.modules += new /obj/item/device/healthanalyzer(src) // See who's hurt specificially.
-	src.modules += new /obj/item/device/dogborg/sleeper(src) //So they can nom people and heal them
+	//src.modules += new /obj/item/device/dogborg/sleeper(src) //So they can nom people and heal them
 	src.modules += new /obj/item/weapon/reagent_containers/borghypo(src)//So medi-hounds aren't nearly useless
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src) //In case the chemist is nice!
 	src.modules += new /obj/item/weapon/reagent_containers/glass/beaker(src)//For holding the chemicals when the chemist is nice
@@ -198,7 +198,7 @@
 	src.modules += new /obj/item/weapon/melee/baton/robot(src)
 	src.modules += new /obj/item/device/dogborg/tongue(src)
 	src.modules += new /obj/item/taperoll/police(src)
-	src.modules += new /obj/item/device/dogborg/sleeper/K9(src)
+	//src.modules += new /obj/item/device/dogborg/sleeper/K9(src)
 	src.modules += new /obj/item/weapon/gun/energy/taser/mounted/cyborg/ertgun(src)
 	src.modules += new /obj/item/weapon/dogborg/swordtail(src)
 	src.emag     = new /obj/item/weapon/gun/energy/laser/mounted(src)
@@ -254,8 +254,8 @@
 	src.modules += new /obj/item/weapon/dogborg/jaws/small(src)
 	src.modules += new /obj/item/device/dogborg/boop_module(src)
 	src.modules += new /obj/item/device/dogborg/tongue(src)
-	src.modules += new /obj/item/device/dogborg/sleeper/compactor/analyzer(src)
-	//src.modules += new /obj/item/weapon/portable_destructive_analyzer(src) //Belly works now.
+	//src.modules += new /obj/item/device/dogborg/sleeper/compactor/analyzer(src)
+	src.modules += new /obj/item/weapon/portable_destructive_analyzer(src) //Belly works now.
 	src.modules += new /obj/item/weapon/gripper/research(src)
 	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
 	src.modules += new /obj/item/weapon/screwdriver/cyborg(src)

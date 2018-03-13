@@ -50,7 +50,7 @@
 	friendly = list("boops", "pawbs", "mars softly at", "sniffs on")
 	reactions = list("Mar?" = "Marrr!", "Mar!" = "Marrr???", "Mar." = "Marrr.")
 
-	vore_active = TRUE
+	vore_active = 0
 	vore_pounce_chance = 10
 	vore_icons = SA_ICON_LIVING
 	swallowTime = 2 SECONDS

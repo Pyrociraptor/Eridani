@@ -449,11 +449,3 @@
 /datum/gear/uniform/bathrobe
 	display_name = "bathrobe"
 	path = /obj/item/clothing/under/bathrobe
-
-/datum/gear/uniform/flamenco
-	display_name = "flamenco dress"
-	path = /obj/item/clothing/under/dress/flamenco
-
-/datum/gear/uniform/westernbustle
-	display_name = "western bustle"
-	path = /obj/item/clothing/under/dress/westernbustle

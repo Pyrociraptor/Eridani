@@ -24,8 +24,8 @@
 // Hook for generic creation of stuff on new creatures
 //
 /hook/living_new/proc/vore_setup(mob/living/M)
-	M.verbs += /mob/living/proc/escapeOOC
-	M.verbs += /mob/living/proc/lick
+	//M.verbs += /mob/living/proc/escapeOOC
+	//M.verbs += /mob/living/proc/lick
 	if(M.no_vore) //If the mob isn't supposed to have a stomach, let's not give it an insidepanel so it can make one for itself, or a stomach.
 		return 1
 	M.verbs += /mob/living/proc/insidePanel
@@ -51,7 +51,7 @@
 				B.name = "Stomach"
 				B.desc = "It appears to be rather warm and wet. Makes sense, considering it's inside \the [M.name]."
 				B.can_taste = 1
-				
+
 	//Return 1 to hook-caller
 	return 1
 
@@ -67,15 +67,15 @@
 //
 // Handle being clicked, perhaps with something to devour
 //
-/mob/living/proc/vore_attackby(obj/item/I,mob/user)
+/mob/living/proc/vore_attackby(obj/item/I,mob/cheese)
 	//Handle case: /obj/item/weapon/grab
 	if(istype(I,/obj/item/weapon/grab))
 		var/obj/item/weapon/grab/G = I
 
 		//Has to be aggressive grab, has to be living click-er and non-silicon grabbed
-		if((G.state >= GRAB_AGGRESSIVE) && (isliving(user) && !issilicon(G.affecting)))
+		if((G.state >= GRAB_AGGRESSIVE) && (!isliving(cheese) && !issilicon(G.affecting)))
 
-			var/mob/living/attacker = user  // Typecast to living
+			var/mob/living/attacker = cheese  // Typecast to living
 
 			// src is the mob clicked on
 
@@ -85,7 +85,7 @@
 					qdel(G)
 					return 1
 				else
-					log_debug("[attacker] attempted to feed [G.affecting] to [user] ([user.type]) but it failed.")
+					log_debug("[attacker] attempted to feed [G.affecting] to [cheese] ([cheese.type]) but it failed.")
 
 			///// If grab clicked on grabbed
 			else if((src == G.affecting) && (attacker.a_intent == I_GRAB) && (attacker.zone_sel.selecting == BP_TORSO) && (is_vore_predator(G.affecting)))
@@ -93,7 +93,7 @@
 					qdel(G)
 					return 1
 				else
-					log_debug("[attacker] attempted to feed [user] to [G.affecting] ([G.affecting.type]) but it failed.")
+					log_debug("[attacker] attempted to feed [cheese] to [G.affecting] ([G.affecting.type]) but it failed.")
 
 			///// If grab clicked on anyone else
 			else if((src != G.affecting) && (src != G.assailant) && (is_vore_predator(src)))
@@ -107,29 +107,29 @@
 	else if(istype(I,/obj/item/weapon/holder))
 		var/obj/item/weapon/holder/H = I
 
-		if(!isliving(user)) return 0 // Return 0 to continue upper procs
-		var/mob/living/attacker = user  // Typecast to living
+		if(!isliving(cheese)) return 0 // Return 0 to continue upper procs
+		var/mob/living/attacker = cheese  // Typecast to living
 
 		if (is_vore_predator(src))
 			for (var/mob/living/M in H.contents)
 				if (attacker.eat_held_mob(attacker, M, src))
 					H.contents -= M
 					if (H.held_mob == M)
-						H.held_mob = null
+						H.held_mob = cheese
 			return 1 //Return 1 to exit upper procs
 		else
 			log_debug("[attacker] attempted to feed [H.contents] to [src] ([src.type]) but it failed.")
 
 	//Handle case: /obj/item/device/radio/beacon
 	else if(istype(I,/obj/item/device/radio/beacon))
-		var/confirm = alert(user, "[src == user ? "Eat the beacon?" : "Feed the beacon to [src]?"]", "Confirmation", "Yes!", "Cancel")
+		var/confirm = alert(cheese, "[src == cheese ? "Eat the beacon?" : "Feed the beacon to [src]?"]", "Confirmation", "Yes!", "Cancel")
 		if(confirm == "Yes!")
 			var/obj/belly/B = input("Which belly?","Select A Belly") as null|anything in vore_organs
 			if(!istype(B))
 				return 1
-			visible_message("<span class='warning'>[user] is trying to stuff a beacon into [src]'s [lowertext(B.name)]!</span>","<span class='warning'>[user] is trying to stuff a beacon into you!</span>")
-			if(do_after(user,30,src))
-				user.drop_item()
+			visible_message("<span class='warning'>[cheese] is trying to stuff a beacon into [src]'s [lowertext(B.name)]!</span>","<span class='warning'>[cheese] is trying to stuff a beacon into you!</span>")
+			if(do_after(cheese,30,src))
+				cheese.drop_item()
 				I.forceMove(B)
 				return 1
 			else
@@ -147,7 +147,7 @@
 		var/obj/belly/B = loc
 		B.relay_resist(src)
 		return TRUE //resist() on living does this TRUE thing.
-	
+
 	//Other overridden resists go here
 
 	return 0
@@ -192,7 +192,7 @@
 	for(var/belly in src.vore_organs)
 		var/obj/belly/B = belly
 		serialized += list(B.serialize()) //Can't add a list as an object to another list in Byond. Thanks.
-	
+
 	P.belly_prefs = serialized
 
 	return 1
@@ -222,10 +222,10 @@
 //
 // Release everything in every vore organ
 //
-/mob/living/proc/release_vore_contents(var/include_absorbed = TRUE, var/silent = FALSE)
+/mob/living/proc/release_vore_contents(var/include_absorbed = TRUE)
 	for(var/belly in vore_organs)
 		var/obj/belly/B = belly
-		B.release_all_contents(include_absorbed, silent)
+		B.release_all_contents(include_absorbed)
 
 //
 // Returns examine messages for bellies
@@ -321,7 +321,7 @@
 		for(var/mob/living/simple_animal/SA in range(10))
 			SA.prey_excludes[src] = world.time
 		log_and_message_admins("[key_name(src)] used the OOC escape button to get out of [key_name(B.owner)] ([B.owner ? "<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[B.owner.x];Y=[B.owner.y];Z=[B.owner.z]'>JMP</a>" : "null"])")
-		
+
 		if(isanimal(B.owner))
 			var/mob/living/simple_animal/SA = B.owner
 			SA.update_icons()
@@ -465,7 +465,7 @@
 			to_chat(src,"<font color='blue'>You manage to escape \the [C]!</font>")
 			to_chat(H,"<font color='red'>Somone has climbed out of your [C]!</font>")
 			forceMove(H.loc)
-			
+
 		else //Being held by a human
 			to_chat(src,"<font color='blue'>You start to climb out of \the [C]!</font>")
 			to_chat(H,"<font color='red'>Something is trying to climb out of your [C]!</font>")
@@ -522,17 +522,17 @@
 	if(!vore_selected)
 		to_chat(src,"<span class='warning'>You either don't have a belly selected, or don't have a belly!</span>")
 		return
-	
+
 	var/obj/item/I = get_active_hand()
 	if(!I)
 		to_chat(src, "<span class='notice'>You are not holding anything.</span>")
 		return
-		
+
 	if(is_type_in_list(I,edible_trash))
 		drop_item()
 		I.forceMove(vore_selected)
 		updateVRPanel()
-		
+
 		if(istype(I,/obj/item/device/flashlight/flare) || istype(I,/obj/item/weapon/flame/match) || istype(I,/obj/item/weapon/storage/box/matches))
 			to_chat(src, "<span class='notice'>You can taste the flavor of spicy cardboard.</span>")
 		else if(istype(I,/obj/item/device/flashlight/glowstick))

@@ -14,10 +14,10 @@ var/XENOMORPH_EGG 	= "Xenomorph"
 	var/egg_type = "Egg" //The egg type they have.
 
 // Definition of the stuff for the egg type.
-/datum/category_item/player_setup_item/vore/egg
+/*datum/category_item/player_setup_item/vore/egg
 	name = "Egg appearance."
 	sort_order = 3
-
+*/
 /datum/category_item/player_setup_item/vore/egg/load_character(var/savefile/S)
 	S["egg_type"]		>> pref.egg_type
 

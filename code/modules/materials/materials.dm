@@ -667,12 +667,6 @@ var/list/name_to_material
 	icon_base = "dungeon"
 	icon_colour = "#FFFFFF"
 
-/material/alienalloy/bedrock
-	name = "bedrock"
-	display_name = "impassable rock"
-	icon_base = "rock"
-	icon_colour = "#FFFFFF"
-
 /material/alienalloy/alium
 	name = "alium"
 	display_name = "alien"

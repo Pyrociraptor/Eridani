@@ -9,18 +9,18 @@
 					/obj/item/weapon/gun/projectile/sec/flash = 4, /obj/item/ammo_magazine/m45/flash = 8,
 					/obj/item/clothing/glasses/omnihud/sec = 6)
 	..()
-
+/*
 /obj/machinery/vending/tool/New()
 	products += list(/obj/item/weapon/reagent_containers/spray/windowsealant = 5)
 	..()
+*/
 
 /obj/machinery/vending/engivend/New()
 	products += list(/obj/item/clothing/glasses/omnihud/eng = 6)
 	..()
 
 /obj/machinery/vending/medical/New()
-	products += list(/obj/item/weapon/storage/box/khcrystal = 4,/obj/item/weapon/backup_implanter = 3,
-					/obj/item/clothing/glasses/omnihud/med = 4, /obj/item/device/glasses_kit = 1,  /obj/item/weapon/storage/quickdraw/syringe_case = 4)
+	products += list(/obj/item/clothing/glasses/omnihud/med = 4, /obj/item/device/glasses_kit = 1)
 	..()
 
 //Custom vendors

@@ -24,7 +24,7 @@
 //
 
 /mob/living/simple_animal/hostile/alien
-	vore_active = 1
+	vore_active = 0
 	icon = 'icons/mob/vore.dmi'
 	icon_state = "xenohunter"
 	icon_living = "xenohunter"
@@ -33,7 +33,7 @@
 	vore_icons = SA_ICON_LIVING
 
 /mob/living/simple_animal/hostile/alien/drone
-	vore_active = 1
+	vore_active = 0
 	icon = 'icons/mob/vore.dmi'
 	icon_state = "xenodrone"
 	icon_living = "xenodrone"
@@ -42,7 +42,7 @@
 	vore_icons = SA_ICON_LIVING
 
 /mob/living/simple_animal/hostile/alien/sentinel
-	vore_active = 1
+	vore_active = 0
 	icon = 'icons/mob/vore.dmi'
 	icon_state = "xenosentinel"
 	icon_living = "xenosentinel"
@@ -51,7 +51,7 @@
 	vore_icons = SA_ICON_LIVING
 
 /mob/living/simple_animal/hostile/alien/queen
-	vore_active = 1
+	vore_active = 0
 	icon = 'icons/mob/vore.dmi'
 	icon_state = "xenoqueen"
 	icon_living = "xenoqueen"
@@ -60,7 +60,7 @@
 	vore_icons = SA_ICON_LIVING
 
 /mob/living/simple_animal/hostile/alien/queen/empress
-	vore_active = 1
+	vore_active = 0
 	icon = 'icons/mob/vore64x64.dmi'
 	icon_state = "queen_s"
 	icon_living = "queen_s"
@@ -68,7 +68,6 @@
 	vore_icons = SA_ICON_LIVING
 	old_x = -16
 	old_y = 0
-	default_pixel_x = -16
 	pixel_x = -16
 	pixel_y = 0
 
@@ -82,7 +81,7 @@
 	vore_icons = 0 // NO VORE SPRITES
 
 /mob/living/simple_animal/hostile/bear
-	vore_active = 1
+	vore_active = 0
 	icon = 'icons/mob/vore.dmi'
 	icon_state = "spacebear"
 	icon_living = "spacebear"
@@ -94,7 +93,7 @@
 	name = "Hudson"
 
 /mob/living/simple_animal/hostile/bear/brown
-	vore_active = 1
+	vore_active = 0
 	icon = 'icons/mob/vore.dmi'
 	name = "brown bear"
 	icon_state = "brownbear"
@@ -105,11 +104,11 @@
 
 /mob/living/simple_animal/hostile/carp
 	icon = 'icons/mob/vore.dmi'
-	vore_active = 1
+	vore_active = 0
 	vore_icons = SA_ICON_LIVING
 
 /mob/living/simple_animal/hostile/creature/vore
-	vore_active = 1
+	vore_active = 0
 	// NO VORE SPRITES
 	vore_capacity = 0
 	vore_pounce_chance = 0	// Only pounces if you're crit.
@@ -120,7 +119,7 @@
 	maxHealth = 80
 
 /mob/living/simple_animal/hostile/mimic
-	vore_active = 1
+	vore_active = 0
 	// NO VORE SPRITES
 	vore_capacity = 0
 	vore_pounce_chance = 33
@@ -129,7 +128,7 @@
 	health = 60
 
 /mob/living/simple_animal/cat
-	vore_active = 1
+	vore_active = 0
 	// NO VORE SPRITES
 	specific_targets = 0 // Targeting UNLOCKED
 	vore_max_size = RESIZE_TINY
@@ -171,7 +170,7 @@
 	..() // will_eat check is carried out before EatTarget is called, so prey on the prey_excludes list isn't a problem.
 
 /mob/living/simple_animal/fox
-	vore_active = 1
+	vore_active = 0
 	// NO VORE SPRITES
 	vore_max_size = RESIZE_TINY
 
@@ -210,18 +209,18 @@
 	..() // will_eat check is carried out before EatTarget is called, so prey on the prey_excludes list isn't a problem.
 
 /mob/living/simple_animal/hostile/goose
-	vore_active = 1
+	vore_active = 0
 	// NO VORE SPRITES
 	vore_max_size = RESIZE_SMALL
 
 /mob/living/simple_animal/penguin
-	vore_active = 1
+	vore_active = 0
 	// NO VORE SPRITES
 	vore_max_size = RESIZE_SMALL
 
 
 /mob/living/simple_animal/hostile/carp/pike
-	vore_active = 1
+	vore_active = 0
 	// NO VORE SPRITES
 
 /mob/living/simple_animal/hostile/carp/holodeck
