@@ -149,14 +149,9 @@
 
 /obj/item/clothing/head/helmet/tactical
 	name = "tactical helmet"
-	desc = "An armored helmet capable of being fitted with a multitude of attachments."
-	icon_state = "swathelm"
+	desc = "They're often used by highly trained SWAT Officers."
+	icon_state = "helmet_swat"
 	item_state_slots = list(slot_r_hand_str = "swat", slot_l_hand_str = "swat")
-	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
-		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
-		)
-
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
 	flags_inv = HIDEEARS
 	siemens_coefficient = 0.7
