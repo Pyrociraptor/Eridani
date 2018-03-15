@@ -108,7 +108,9 @@
 		new /obj/item/clothing/under/rank/head_of_security/jensen(src)
 		new /obj/item/clothing/under/rank/head_of_security/corp(src)
 		new /obj/item/clothing/suit/storage/vest/hoscoat/jensen(src)
-		new /obj/item/clothing/suit/storage/vest/hoscoat(src)
+		new /obj/item/clothing/suit/armor/pcarrier/security(src)
+		new /obj/item/clothing/accessory/armor/armorplate/security(src)
+		new /obj/item/clothing/accessory/storage/pouches/large(src)
 		new /obj/item/clothing/head/helmet/dermal(src)
 		new /obj/item/device/radio/headset/heads/hos(src)
 		new /obj/item/device/radio/headset/heads/hos/alt(src)
@@ -181,7 +183,7 @@
 		new /obj/item/clothing/suit/storage/vest/warden(src)
 		new /obj/item/clothing/under/rank/warden(src)
 		new /obj/item/clothing/under/rank/warden/corp(src)
-		new /obj/item/clothing/suit/storage/vest/wardencoat(src)
+		new /obj/item/clothing/suit/armor/pcarrier/security(src)
 		new /obj/item/clothing/suit/storage/vest/wardencoat/alt(src)
 		new /obj/item/clothing/head/helmet/dermal(src)
 		new /obj/item/clothing/head/helmet/warden(src)
@@ -227,7 +229,7 @@
 			new /obj/item/weapon/storage/backpack/satchel/sec(src)
 		if(prob(50))
 			new /obj/item/weapon/storage/backpack/dufflebag/sec(src)
-		new /obj/item/clothing/suit/storage/vest/officer(src)
+		new /obj/item/clothing/suit/armor/pcarrier/security(src)
 		new /obj/item/clothing/head/helmet(src)
 		new /obj/item/weapon/cartridge/security(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
@@ -285,6 +287,27 @@
 		new /obj/item/device/encryptionkey/headset_med(src)
 		return
 
+/obj/structure/closet/secure_closet/security/swat
+	name = "swat gear locker"
+	req_access = list(access_brig)
+	icon = 'icons/obj/closet_vr.dmi'
+	icon_state = "secC1"
+	icon_closed = "secC"
+	icon_locked = "secC1"
+	icon_opened = "secCopen"
+	icon_broken = "secCbroken"
+	icon_off = "seCcoff"
+	storage_capacity = 3.5 * MOB_MEDIUM
+
+	New()
+		..()
+		new /obj/item/clothing/suit/armor/pcarrier/swat(src)
+		new /obj/item/clothing/head/helmet/tactical(src)
+		new /obj/item/clothing/under/tactical(src)
+		new /obj/item/clothing/shoes/boots/tactical(src)
+		new /obj/item/clothing/gloves/swat(src)
+		new /obj/item/weapon/storage/belt/security/tactical(src)
+		return
 
 /obj/structure/closet/secure_closet/detective
 	name = "detective's cabinet"
@@ -305,7 +328,7 @@
 		new /obj/item/weapon/storage/box/evidence(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/device/radio/headset/headset_sec/alt(src)
-		new /obj/item/clothing/suit/storage/vest/detective(src)
+		new /obj/item/clothing/suit/armor/pcarrier/security(src)
 		new /obj/item/taperoll/police(src)
 		new /obj/item/clothing/accessory/holster/armpit(src)
 		new /obj/item/device/flashlight/maglight(src)

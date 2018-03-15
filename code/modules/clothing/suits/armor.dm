@@ -521,6 +521,13 @@
 /obj/item/clothing/suit/armor/pcarrier/medium/nt
 	starting_accessories = list(/obj/item/clothing/accessory/armor/armorplate/medium, /obj/item/clothing/accessory/storage/pouches, /obj/item/clothing/accessory/armor/tag/nt)
 
+/obj/item/clothing/suit/armor/pcarrier/security
+	name = "security plate carrier"
+	desc = "A standard issue plate carrier for all NTDS contractors. Due to the mass produced nature of the vest, the user cannot attach jointguards."
+	icon_state = "pcarrier_sec"
+	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA, ACCESSORY_SLOT_ARMOR_C, ACCESSORY_SLOT_ARMOR_M, ACCESSORY_SLOT_ARMOR_A, ACCESSORY_SLOT_ARMOR_L)
+	starting_accessories = list(/obj/item/clothing/accessory/armor/armorinsert/security, /obj/item/clothing/accessory/armor/tag/nt, /obj/item/clothing/accessory/storage/pouches)
+
 /obj/item/clothing/suit/armor/pcarrier/blue
 	name = "blue plate carrier"
 	desc = "A lightweight blue plate carrier vest. It can be equipped with armor plates, but provides no protection of its own."
@@ -545,6 +552,12 @@
 	name = "tan plate carrier"
 	desc = "A lightweight tan plate carrier vest. It can be equipped with armor plates, but provides no protection of its own."
 	icon_state = "pcarrier_tan"
+
+/obj/item/clothing/suit/armor/pcarrier/swat
+	name = "swat plate carrier"
+	desc = "A lightweight tactical plate carrier vest. It can be equipped with armor plates, but provides no protection of its own."
+	icon_state = "pcarrier_swat"
+	starting_accessories = list(/obj/item/clothing/accessory/armor/armorplate/tactical, /obj/item/clothing/accessory/storage/pouches/large/tan, /obj/item/clothing/accessory/armor/armguards/swat, /obj/item/clothing/accessory/armor/legguards/swat)
 
 /obj/item/clothing/suit/armor/pcarrier/tan/tactical
 	name = "tactical plate carrier"
