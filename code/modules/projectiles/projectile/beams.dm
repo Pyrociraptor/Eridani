@@ -27,6 +27,9 @@
 	check_armour = "laser"
 	eyeblur = 2
 
+/obj/item/projectile/beam/pistol
+	damage = 30
+
 /obj/item/projectile/beam/weaklaser
 	name = "weak laser"
 	icon_state = "laser"

@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/projectile/shotgun/pump
 	name = "shotgun"
-	desc = "The mass-produced W-T Remmington 29x shotgun is a favourite of police and security forces on many worlds. Uses 12g rounds."
+	desc = "The mass-produced W-T Remmington 870 shotgun is a favourite of police and security forces on many worlds. Uses 12g rounds."
 	icon_state = "shotgun"
 	item_state = "shotgun"
 	max_shells = 4
@@ -41,6 +41,16 @@
 
 	update_icon()
 
+/obj/item/weapon/gun/projectile/shotgun/pump/riot
+	name = "riot shotgun"
+	desc = "A tactical W-T Remington 870 shotgun with bright orange furniture to distinguish it as a beanbag shotgun. Despite it's furniture, it can still fire lethal loads regularly. Chambered in 12 gauge."
+	icon_state = "riotshotgun"
+	item_state = "shotgun"
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
+	max_shells = 5 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
+	ammo_type = /obj/item/ammo_casing/a12g/beanbag
+	load_method = SINGLE_CASING|SPEEDLOADER
+
 /obj/item/weapon/gun/projectile/shotgun/pump/combat
 	name = "combat shotgun"
 	desc = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders. Uses 12g rounds."
@@ -50,6 +60,12 @@
 	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
 	ammo_type = /obj/item/ammo_casing/a12g
 	load_method = SINGLE_CASING|SPEEDLOADER
+
+/obj/item/weapon/gun/projectile/shotgun/pump/combat/ksg
+	name = "KSG Shotgun"
+	desc = "A fine-tuned PyroCorp-manufactured KSG, with room for fourteen shells, you'll be sweeping all of the station hallways! Chambered in 12 gauge."
+	icon_state = "ksg"
+	max_shells = 14
 
 /obj/item/weapon/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"
@@ -119,3 +135,22 @@
 	ammo_type = /obj/item/ammo_casing/a12g/pellet
 	w_class = ITEMSIZE_NORMAL
 	force = 5
+
+/obj/item/weapon/gun/projectile/shotgun/pump/automatic
+	name = "semi-auto shotgun"
+	desc = "test"
+	icon_state = "semicshotgun"
+	item_state = "cshotgun"
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
+	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
+	ammo_type = /obj/item/ammo_casing/a12g
+
+/obj/item/weapon/gun/projectile/shotgun/pump/automatic/Fire(mob/living/user as mob|obj)
+		..()
+		src.pump(user)
+
+/obj/item/weapon/gun/projectile/shotgun/pump/automatic/spas
+	name = "SPAS 12"
+	desc = "test"
+	icon_state = "spas"
+	max_shells = 8

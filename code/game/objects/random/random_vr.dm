@@ -24,7 +24,7 @@
 					prob(10);/obj/item/weapon/melee/telebaton,\
 					prob(10);/obj/item/weapon/melee/classic_baton,\
 					prob(9);/obj/item/weapon/gun/projectile/automatic/wt550/lethal,\
-					prob(9);/obj/item/weapon/gun/projectile/automatic/pdw,\
+					prob(9);/obj/item/weapon/gun/projectile/automatic/c22r,\
 					prob(9);/obj/item/weapon/gun/projectile/automatic/sol, \
 					prob(9);/obj/item/weapon/gun/energy/crossbow/largecrossbow,\
 					prob(9);/obj/item/weapon/gun/projectile/pistol,\

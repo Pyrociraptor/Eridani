@@ -22,8 +22,8 @@
 		)
 
 /obj/item/weapon/gun/projectile/automatic/c20r
-	name = "submachine gun"
-	desc = "The C-20r is a lightweight and rapid firing SMG, for when you REALLY need someone dead. It has 'Scarborough Arms - Per falcis, per pravitas' inscribed on the stock. Uses 10mm rounds."
+	name = "C-20r"
+	desc = "The C-20r is a lightweight and rapid firing SMG, for when you REALLY need someone dead. It has a Seburo Arms authentication stamped on the stock. Uses 10mm rounds."
 	icon_state = "c20r"
 	item_state = "c20r"
 	w_class = ITEMSIZE_NORMAL
@@ -50,8 +50,8 @@
 	return
 
 /obj/item/weapon/gun/projectile/automatic/sts35
-	name = "assault rifle"
-	desc = "The rugged STS-35 is a durable automatic weapon of a make popular on the frontier worlds. Uses 5.45mm rounds."
+	name = "STS-35"
+	desc = "The rugged Frontier Armament Company STS-35 is a durable automatic weapon that is standard issue with Frontier Federation forces. Uses 5.45mm rounds."
 	icon_state = "arifle"
 	item_state = "arifle"
 	wielded_item_state = "arifle-wielded"
@@ -83,7 +83,7 @@
 	if(!ignore_inhands) update_held_icon()
 
 /obj/item/weapon/gun/projectile/automatic/wt550
-	name = "machine pistol"
+	name = "WT-550"
 	desc = "The WT550 Saber is a cheap self-defense weapon mass-produced by Ward-Takahashi for paramilitary and private use. Uses 9mm rounds."
 	icon_state = "wt550"
 	item_state = "wt550"
@@ -107,7 +107,7 @@
 	return
 
 /obj/item/weapon/gun/projectile/automatic/z8
-	name = "designated marksman rifle"
+	name = "Z8"
 	desc = "The Z8 Bulldog is an older model designated marksman rifle, made by the now defunct Zendai Foundries. Makes you feel like a space marine when you hold it, even though it can only hold 10 round magazines. Uses 7.62mm rounds and has an under barrel grenade launcher."
 	icon_state = "carbine" // This isn't a carbine. :T
 	item_state = "z8carbine"
@@ -178,7 +178,7 @@
 		user << "\The [launcher] is empty."
 
 /obj/item/weapon/gun/projectile/automatic/l6_saw
-	name = "light machine gun"
+	name = "L6 SAW"
 	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. 'Aussec Armoury-2531' is engraved on the reciever. Uses 5.45mm rounds. It's also compatible with magazines from STS-35 assault rifles."
 	icon_state = "l6closed100"
 	item_state = "l6closed"
@@ -260,8 +260,8 @@
 	..()
 
 /obj/item/weapon/gun/projectile/automatic/as24
-	name = "automatic shotgun"
-	desc = "The AS-24 is a rugged looking automatic shotgun produced for the military by Gurov Projectile Weapons LLC. For very obvious reasons, it's illegal to own in many juristictions. Uses 12g rounds."
+	name = "AS-24"
+	desc = "The AS-24 is a rugged and dangerous automatic shotgun produced by PyroCorp Industries. Due to the nature of this firearm, it is classified as a destructive device on many civilized worlds and is illegal to own. Commonly seen in use by Frontier Federation shock troopers and is chambered in 12 gauge."
 	icon_state = "ashot"
 	item_state = null
 	w_class = ITEMSIZE_LARGE
@@ -357,9 +357,9 @@
 	icon_state = (ammo_magazine)? "tommygun" : "tommygun-empty"
 //	update_held_icon()
 
-/obj/item/weapon/gun/projectile/automatic/bullpup // Admin abuse assault rifle. ToDo: Make this less shit. Maybe remove its autofire, and make it spawn with only 10 rounds at start.
-	name = "bullpup rifle"
-	desc = "The bullpup configured GP3000 is a battle rifle produced by Gurov Projectile Weapons LLC. It is sold almost exclusively to standing armies. Uses 7.62mm rounds."
+/obj/item/weapon/gun/projectile/automatic/c31a // Admin abuse assault rifle. ToDo: Make this less shit. Maybe remove its autofire, and make it spawn with only 10 rounds at start.
+	name = "C-31A"
+	desc = "The Seburo Arms C-31A is a lightweight, sturdy and hard-hitting bullpup assault rifle. It is the standard issue firearm of the SSA Armed Forces and can be found in use by Frontier Federation forces as well. Uses 7.62mm rounds."
 	icon_state = "bullpup-small"
 	item_state = "bullpup"
 	w_class = ITEMSIZE_LARGE

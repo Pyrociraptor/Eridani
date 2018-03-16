@@ -69,9 +69,9 @@
 	max_shells = 12
 
 // For general use
-/obj/item/weapon/gun/projectile/automatic/pdw
-	name = "personal defense weapon"
-	desc = "The X-9MM is a select-fire personal defense weapon designed in-house by Xing Private Security. It was made to compete with the WT550 Saber, but never caught on with NanoTrasen. Uses 9mm rounds."
+/obj/item/weapon/gun/projectile/automatic/c22r
+	name = "C-22r"
+	desc = "The C-22r is a select-fire SMG designed by Seburo Arms. DDeveloped in competition of Ward Takashi's WT-550 for NanoTrasen new SMG contract. Utimately, the WT-550 won and the C-22r is commonly seen in use by Frontier Militia and other private military contractors."
 	icon = 'icons/obj/gun_vr.dmi'
 	icon_state = "pdw"
 	item_state = "c20r" // Placeholder
@@ -88,7 +88,7 @@
 		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=6,    burst_accuracy=list(0,-15,-30), dispersion=list(0.0, 0.6, 0.6))
 		)
 
-/obj/item/weapon/gun/projectile/automatic/pdw/update_icon(var/ignore_inhands)
+/obj/item/weapon/gun/projectile/automatic/c22r/update_icon(var/ignore_inhands)
 	..()
 	if(istype(ammo_magazine,/obj/item/ammo_magazine/m9mm))
 		icon_state = "pdw-short"
@@ -518,9 +518,9 @@
 	update_charge()
 
 // No idea what this is for.
-/obj/item/weapon/gun/projectile/automatic/sol
-	name = "\improper \"Sol\" SMG"
-	desc = "The FS 9x19mm \"Sol\" is a compact and reliable submachine gun. Uses 9mm rounds."
+/obj/item/weapon/gun/projectile/automatic/c18r
+	name = "C-18r"
+	desc = "The Seburo Arms 9x19mm C-18r \"Sol\" is a compact and reliable bullpup submachine gun commonly seen in use by special forces all around the galaxy. Uses 9mm rounds."
 	icon = 'icons/obj/gun_vr.dmi'
 	icon_state = "SMG-IS"
 	item_state = "wt550"
