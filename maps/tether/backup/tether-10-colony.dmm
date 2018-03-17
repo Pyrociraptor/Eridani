@@ -6650,11 +6650,11 @@
 /area/centcom/security)
 "md" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/projectile/automatic/c22r,
-/obj/item/weapon/gun/projectile/automatic/c22r,
-/obj/item/weapon/gun/projectile/automatic/c22r,
-/obj/item/weapon/gun/projectile/automatic/c22r,
-/obj/item/weapon/gun/projectile/automatic/c22r,
+/obj/item/weapon/gun/projectile/automatic/pdw,
+/obj/item/weapon/gun/projectile/automatic/pdw,
+/obj/item/weapon/gun/projectile/automatic/pdw,
+/obj/item/weapon/gun/projectile/automatic/pdw,
+/obj/item/weapon/gun/projectile/automatic/pdw,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
 	icon_state = "vault";

@@ -1,7 +1,7 @@
 /obj/item/weapon/gun/projectile/colt
 	var/unique_reskin
-	name = ".45 pistol"
-	desc = "A cheap Martian knock-off of a Colt M1911. Uses .45 rounds."
+	name = "M1911"
+	desc = "A Martian copy of the legendary Colt 1911. Chambered in .45 ACP."
 	magazine_type = /obj/item/ammo_magazine/m45
 	allowed_magazines = list(/obj/item/ammo_magazine/m45)
 	projectile_type = /obj/item/projectile/bullet/pistol/medium
@@ -23,7 +23,7 @@
 			icon_state = "[initial(icon_state)]-e"
 
 /obj/item/weapon/gun/projectile/colt/detective
-	desc = "A Martian recreation of an old pistol. Uses .45 rounds."
+	desc = "A Terran-made 1911 that seems to have seen some action. Looks very customizable."
 	magazine_type = /obj/item/ammo_magazine/m45/rubber
 
 /obj/item/weapon/gun/projectile/colt/detective/verb/rename_gun()
@@ -77,8 +77,8 @@
 */
 
 /obj/item/weapon/gun/projectile/sec
-	name = ".45 pistol"
-	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Found pretty much everywhere humans are. Uses .45 rounds."
+	name = "NT MK58"
+	desc = "The NT Mk58 is a mass-produced polymer pistol commonly seen in service by NTDS contractors."
 	icon_state = "secguncomp"
 	magazine_type = /obj/item/ammo_magazine/m45/rubber
 	projectile_type = /obj/item/projectile/bullet/pistol/medium
@@ -196,7 +196,7 @@
 		icon_state = "gyropistol"
 
 /obj/item/weapon/gun/projectile/pistol
-	name = "compact pistol"
+	name = "P3 'Whisper'"
 	desc = "The Lumoco Arms P3 Whisper. A compact, easily concealable gun, though it's only compatible with compact magazines. Uses 9mm rounds."
 	icon_state = "pistol"
 	item_state = null

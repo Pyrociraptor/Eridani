@@ -80,7 +80,7 @@
 	icon_state = "armor_medium"
 	armor = list(melee = 40, bullet = 40, laser = 40, energy = 25, bomb = 30, bio = 0, rad = 0)
 
-/obj/item/clothing/accessory/armor/armorplate/security
+/obj/item/clothing/accessory/armor/armorplate/security/heavy
 	name = "security armor plate"
 	desc = "An armoured plate issued to NTDS contractors when shit hits the fan."
 	icon_state = "armor_medium"
@@ -98,17 +98,48 @@
 	icon_state = "armor_merc"
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
 
-/obj/item/clothing/accessory/armor/armorinsert
-	name = "armor insert"
-	desc = "A police armor insert standard issue for most police agencies."
-	icon_state = "insert_stab"
-	armor = list(melee = 40, bullet = 30, laser = 30, energy = 10, bomb = 10, bio = 0, rad = 0)
-
-/obj/item/clothing/accessory/armor/armorinsert/security
+/obj/item/clothing/accessory/armor/armorplate/security
 	name = "security armor insert"
 	desc = "A standard NT-issue security vest insert for all NTDS contractors."
 	icon_state = "insert_stab"
 	armor = list(melee = 40, bullet = 30, laser = 30, energy = 10, bomb = 10, bio = 0, rad = 0)
+
+/obj/item/clothing/accessory/armor/armorplate/bulletproof
+	name = "bulletproof armor insert"
+	desc = "A high density and strength bulletproof armor insert, has excellent bulletproof protection, but it's just at that."
+	icon_state = "insert_kevlar"
+	armor = list(melee = 10, bullet = 80, laser = 10, energy = 10, bomb = 0, bio = 0, rad = 0)
+
+/obj/item/clothing/accessory/armor/armorplate/laserproof
+	name = "ablative armor insert"
+	desc = "An ablative armor insert for plate carriers for assailants primarily armed with energy weapons."
+	icon_state = "insert_ablative"
+	armor = list(melee = 10, bullet = 10, laser = 80, energy = 50, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.1
+
+/obj/item/clothing/accessory/armor/armorinsert/laserproof/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+	if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
+		var/obj/item/projectile/P = damage_source
+
+		if(P.reflected) // Can't reflect twice
+			return ..()
+
+		var/reflectchance = 40 - round(damage/3)
+		if(!(def_zone in BP_TORSO))
+			reflectchance /= 2
+		if(P.starting && prob(reflectchance))
+			visible_message("<span class='danger'>\The [user]'s [src.name] reflects [attack_text]!</span>")
+
+			// Find a turf near or on the original location to bounce to
+			var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
+			var/new_y = P.starting.y + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
+			var/turf/curloc = get_turf(user)
+
+			// redirect the projectile
+			P.redirect(new_x, new_y, curloc, user)
+			P.reflected = 1
+
+
 
 //////////////
 //Arm guards

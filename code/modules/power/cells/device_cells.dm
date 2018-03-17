@@ -25,6 +25,33 @@
 	charge = 0
 	update_icon()
 
+/obj/item/weapon/cell/device/high
+	name = "high-capacity weapon power cell"
+	origin_tech = list(TECH_POWER = 2)
+	maxcharge = 4800
+
+/obj/item/weapon/cell/device/super
+	name = "super-capacity weapon power cell"
+	origin_tech = list(TECH_POWER = 5)
+	icon_state = "scell"
+	maxcharge = 7200
+
+/obj/item/weapon/cell/device/hyper
+	name = "hyper-capacity weapon power cell"
+	origin_tech = list(TECH_POWER = 6)
+	maxcharge = 9600
+
+/obj/item/weapon/cell/device/infinite
+	name = "infinite-capacity weapon power cell!"
+	origin_tech =  null
+	maxcharge = 9600
+
+/obj/item/weapon/cell/device/infinite/check_charge()
+	return 1
+
+/obj/item/weapon/cell/device/infinite/use()
+	return 1
+
 /obj/item/weapon/cell/device/weapon/recharge
 	name = "self-charging weapon power cell"
 	desc = "A small power cell designed to power handheld weaponry. This one recharges itself."

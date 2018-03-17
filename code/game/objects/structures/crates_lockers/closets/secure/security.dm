@@ -17,7 +17,7 @@
 		new /obj/item/weapon/storage/lockbox/medal(src)
 		new /obj/item/device/radio/headset/heads/captain(src)
 		new /obj/item/device/radio/headset/heads/captain/alt(src)
-		new /obj/item/weapon/gun/energy/gun(src)
+		new /obj/item/weapon/gun/energy/pistol(src)
 		new /obj/item/weapon/melee/telebaton(src)
 		new /obj/item/device/flash(src)
 		new /obj/item/weapon/storage/box/ids(src)
@@ -44,7 +44,7 @@
 		new /obj/item/device/radio/headset/heads/hop/alt(src)
 		new /obj/item/weapon/storage/box/ids(src)
 		new /obj/item/weapon/storage/box/ids( src )
-		new /obj/item/weapon/gun/energy/gun/martin(src) //VOREStation Edit
+		new /obj/item/weapon/gun/energy/pistol(src) //VOREStation Edit
 		//new /obj/item/weapon/gun/projectile/sec/flash(src) //VOREStation Edit
 		new /obj/item/device/flash(src)
 		return
@@ -150,9 +150,8 @@
 		new /obj/item/ammo_magazine/m44/rubber(src)
 		new /obj/item/ammo_magazine/m44(src)
 		new /obj/item/ammo_magazine/m44(src)*/ // NO YOU DO NOT GET A .44 MAGNUM! -Ace
-		//new /obj/item/weapon/gun/energy/gun(src) //VOREStation Edit
-		new /obj/item/weapon/storage/secure/briefcase/nsfw_pack_hos(src) //VOREStation Edit - No need with NSFW
-		//new /obj/item/weapon/cell/device/weapon(src) //VOREStation Edit - No need with NSFW
+		new /obj/item/weapon/gun/energy/pistol(src)
+		new /obj/item/weapon/cell/device/weapon(src)
 		new /obj/item/weapon/melee/telebaton(src)
 		new /obj/item/clothing/head/beret/sec/corporate/hos(src)
 		new /obj/item/clothing/suit/storage/hooded/wintercoat/security(src)
@@ -198,7 +197,7 @@
 		new /obj/item/weapon/storage/belt/security(src)
 		new /obj/item/weapon/reagent_containers/spray/pepper(src)
 		new /obj/item/weapon/melee/baton/loaded(src)
-		new /obj/item/weapon/gun/energy/gun(src)
+		new /obj/item/weapon/gun/energy/pistol(src)
 		new /obj/item/weapon/cell/device/weapon(src)
 		new /obj/item/weapon/storage/box/holobadge(src)
 		new /obj/item/clothing/head/beret/sec/corporate/warden(src)
@@ -285,28 +284,6 @@
 		..()
 		new /obj/item/clothing/accessory/armband/medblue(src)
 		new /obj/item/device/encryptionkey/headset_med(src)
-		return
-
-/obj/structure/closet/secure_closet/security/swat
-	name = "swat gear locker"
-	req_access = list(access_brig)
-	icon = 'icons/obj/closet_vr.dmi'
-	icon_state = "secC1"
-	icon_closed = "secC"
-	icon_locked = "secC1"
-	icon_opened = "secCopen"
-	icon_broken = "secCbroken"
-	icon_off = "seCcoff"
-	storage_capacity = 3.5 * MOB_MEDIUM
-
-	New()
-		..()
-		new /obj/item/clothing/suit/armor/pcarrier/swat(src)
-		new /obj/item/clothing/head/helmet/tactical(src)
-		new /obj/item/clothing/under/tactical(src)
-		new /obj/item/clothing/shoes/boots/tactical(src)
-		new /obj/item/clothing/gloves/swat(src)
-		new /obj/item/weapon/storage/belt/security/tactical(src)
 		return
 
 /obj/structure/closet/secure_closet/detective

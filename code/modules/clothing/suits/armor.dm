@@ -523,10 +523,9 @@
 
 /obj/item/clothing/suit/armor/pcarrier/security
 	name = "security plate carrier"
-	desc = "A standard issue plate carrier for all NTDS contractors. Due to the mass produced nature of the vest, the user cannot attach jointguards."
+	desc = "A standard issue plate carrier for all NTDS contractors."
 	icon_state = "pcarrier_sec"
-	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA, ACCESSORY_SLOT_ARMOR_C, ACCESSORY_SLOT_ARMOR_M, ACCESSORY_SLOT_ARMOR_A, ACCESSORY_SLOT_ARMOR_L)
-	starting_accessories = list(/obj/item/clothing/accessory/armor/armorinsert/security, /obj/item/clothing/accessory/armor/tag/nt, /obj/item/clothing/accessory/storage/pouches)
+	starting_accessories = list(/obj/item/clothing/accessory/armor/armorplate/security, /obj/item/clothing/accessory/armor/tag/nt, /obj/item/clothing/accessory/storage/pouches)
 
 /obj/item/clothing/suit/armor/pcarrier/blue
 	name = "blue plate carrier"
@@ -562,6 +561,11 @@
 /obj/item/clothing/suit/armor/pcarrier/tan/tactical
 	name = "tactical plate carrier"
 	starting_accessories = list(/obj/item/clothing/accessory/armor/armorplate/tactical, /obj/item/clothing/accessory/storage/pouches/large/tan)
+
+/obj/item/clothing/suit/armor/pcarrier/nt
+	name = "NanoTrasen plate carrier"
+	desc = "A lightweight plate carrier vest. It can be equipped with armor plates, but provides no protection of its own."
+	starting_accessories = list(/obj/item/clothing/accessory/armor/tag/nt)
 
 /obj/item/clothing/suit/armor/pcarrier/merc
 	starting_accessories = list(/obj/item/clothing/accessory/armor/armorplate/merc, /obj/item/clothing/accessory/armor/armguards/merc, /obj/item/clothing/accessory/armor/legguards/merc, /obj/item/clothing/accessory/storage/pouches/large)
