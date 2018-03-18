@@ -176,6 +176,7 @@
 /obj/item/projectile/bullet/pellet/shotgun
 	name = "shrapnel"
 	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
+	icon_state = "pellets"
 	damage = 13
 	pellets = 6
 	range_step = 1
