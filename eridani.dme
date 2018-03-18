@@ -1067,7 +1067,6 @@
 #include "code\game\objects\items\weapons\grenades\grenade.dm"
 #include "code\game\objects\items\weapons\grenades\smokebomb.dm"
 #include "code\game\objects\items\weapons\grenades\spawnergrenade.dm"
-#include "code\game\objects\items\weapons\grenades\stinger.dm"
 #include "code\game\objects\items\weapons\id cards\cards.dm"
 #include "code\game\objects\items\weapons\id cards\station_ids.dm"
 #include "code\game\objects\items\weapons\id cards\syndicate_ids.dm"
@@ -2835,5 +2834,6 @@
 #include "maps\submaps\surface_submaps\wilderness\wilderness.dm"
 #include "maps\submaps\surface_submaps\wilderness\wilderness_areas.dm"
 #include "maps\tether\tether.dm"
+#include "maps\tether\submaps\tether_ships.dmm"
 #include "maps\~map_system\maps.dm"
 // END_INCLUDE

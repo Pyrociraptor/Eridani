@@ -98,3 +98,37 @@
 	num_fragments = 200  //total number of fragments produced by the grenade
 
 	//The radius of the circle used to launch projectiles. Lower values mean less projectiles are used but if set too low gaps may appear in the spread pattern
+
+////////Stinger/////////
+
+/obj/item/projectile/bullet/pellet/rubber_ball
+	damage = 0.5
+	agony = 25
+	embed_chance = 0
+	sharp = 0
+	check_armour = "melee"
+	range_step = 2 //projectiles lose a fragment each time they travel this distance. Can be a non-integer.
+
+	base_spread = 0 //causes it to be treated as a shrapnel explosion instead of cone
+	spread_step = 20
+
+	silenced = 1 //embedding messages are still produced so it's kind of weird when enabled.
+	no_attack_log = 1
+	muzzle_type = null
+
+/obj/item/projectile/bullet/pellet/rubber_ball/strong
+	damage = 1
+	agony = 48
+	embed_chance = 0
+	sharp = 0
+
+/obj/item/weapon/grenade/explosive/stinger
+	name = "stinger grenade"
+	desc = "A specialized less than lethal grenade designed to subdue assailants with high velocity rubber balls."
+	icon_state = "stingergrenade"
+	item_state = "grenade"
+	fragment_types = list(/obj/item/projectile/bullet/pellet/rubber_ball, /obj/item/projectile/bullet/pellet/rubber_ball, /obj/item/projectile/bullet/pellet/rubber_ball, /obj/item/projectile/bullet/pellet/rubber_ball/strong)
+	num_fragments = 200  //total number of fragments produced by the grenade
+	explosion_size = 0   //size of the center explosion
+	spread_range = 7
+	loadable = null

@@ -620,7 +620,6 @@ default behaviour is:
 	return
 
 
-
 /mob/living/proc/revive()
 	rejuvenate()
 	if(buckled)
@@ -653,6 +652,7 @@ default behaviour is:
 	SetParalysis(0)
 	SetStunned(0)
 	SetWeakened(0)
+	setHalLoss(0)
 
 	// shut down ongoing problems
 	radiation = 0
@@ -1224,4 +1224,3 @@ default behaviour is:
 		return UNDERWATER
 	else
 		return ..()
-		
