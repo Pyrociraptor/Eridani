@@ -333,6 +333,9 @@
 						if(!sleever.occupant)
 							temp = "Error: Resleeving pod is not occupied."
 
+						if(sleever.occupant.cloned == 1)
+							temp = "Error: This subject cannot be revived so soon."
+
 						//OOC body lock thing.
 						if(sleever.occupant.resleeve_lock && active_mr.ckey != sleever.occupant.resleeve_lock)
 							temp = "Error: Mind incompatible with body."

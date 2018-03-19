@@ -56,3 +56,5 @@
 	var/glow_color = "#FFFFFF"			// The color they're glowing!
 
 	var/see_invisible_default = SEE_INVISIBLE_LIVING
+
+	var/cloned = 0

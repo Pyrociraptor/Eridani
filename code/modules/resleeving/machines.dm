@@ -486,7 +486,7 @@
 	return ..()
 
 /obj/machinery/transhuman/resleever/proc/putmind(var/datum/transhuman/mind_record/MR, mode = 1, var/mob/living/carbon/human/override = null)
-	if((!occupant || !istype(occupant) || occupant.stat >= DEAD) && mode == 1)
+	if((!occupant || !istype(occupant) || occupant.stat >= DEAD) && mode == 1 && occupant.cloned == 0)
 		return 0
 
 	if(mode == 2 && sleevecards) //Card sleeving
@@ -551,6 +551,7 @@
 
 	occupant.confused = max(occupant.confused, confuse_amount)
 	occupant.eye_blurry = max(occupant.eye_blurry, blur_amount)
+	occupant.cloned = 1
 
 	if(occupant.mind && occupant.original_player && ckey(occupant.mind.key) != occupant.original_player)
 		log_and_message_admins("is now a cross-sleeved character. Body originally belonged to [occupant.real_name]. Mind is now [occupant.mind.name].",occupant)
