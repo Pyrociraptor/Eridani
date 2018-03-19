@@ -527,6 +527,29 @@
 	icon_state = "pcarrier_sec"
 	starting_accessories = list(/obj/item/clothing/accessory/armor/armorplate/security, /obj/item/clothing/accessory/armor/tag/nt, /obj/item/clothing/accessory/storage/pouches)
 
+/obj/item/clothing/suit/armor/pcarrier/security/hos
+	name = "head of security's plate carrier"
+	desc = "A gold trimmed plate carrier for the man that protects all your worthless lives."
+	icon_state = "pcarrier_hos"
+	starting_accessories = list(/obj/item/clothing/accessory/armor/armorplate/security/heavy, /obj/item/clothing/accessory/armor/tag/nt, /obj/item/clothing/accessory/storage/pouches/large)
+
+/obj/item/clothing/suit/armor/pcarrier/security/warden
+	name = "warden's plate carrier"
+	desc = "A plate carrier for the owner of this brig."
+	icon_state = "pcarrier_warden"
+	starting_accessories = list(/obj/item/clothing/accessory/armor/armorplate/security/heavy, /obj/item/clothing/accessory/armor/tag/nt, /obj/item/clothing/accessory/storage/pouches)
+
+/obj/item/clothing/suit/armor/pcarrier/security/detective
+	name = "detective's plate carrier"
+	desc = "A standard issue plate carrier for all licensed detectives and private eyes."
+	icon_state = "pcarrier_detective"
+	starting_accessories = list(/obj/item/clothing/accessory/armor/armorplate/security, /obj/item/clothing/accessory/armor/tag/nt, /obj/item/clothing/accessory/storage/pouches)
+
+/obj/item/clothing/suit/armor/pcarrier/security/detective/csi
+	name = "CSI's plate carrier"
+	icon_state = "pcarrier_csi"
+	starting_accessories = list(/obj/item/clothing/accessory/armor/armorplate/security, /obj/item/clothing/accessory/armor/tag/nt)
+
 /obj/item/clothing/suit/armor/pcarrier/blue
 	name = "blue plate carrier"
 	desc = "A lightweight blue plate carrier vest. It can be equipped with armor plates, but provides no protection of its own."
