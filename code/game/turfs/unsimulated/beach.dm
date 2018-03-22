@@ -23,19 +23,19 @@
 	name = "Beach"
 	icon = 'icons/misc/beach.dmi'
 	footstep_sounds = list("human" = list(
-		'sound/effects/footstep/carpet1.ogg',
-		'sound/effects/footstep/carpet2.ogg',
-		'sound/effects/footstep/carpet3.ogg',
-		'sound/effects/footstep/carpet4.ogg',
-		'sound/effects/footstep/carpet5.ogg'))
+		'sound/effects/footstep/sand.ogg'))
 
 /turf/simulated/floor/beach/sand
 	name = "Sand"
 	icon_state = "sand"
+	footstep_sounds = list("human" = list(
+		'sound/effects/footstep/sand.ogg'))
 
 /turf/simulated/floor/beach/sand/desert
 	icon = 'icons/turf/desert.dmi'
 	icon_state = "desert"
+	footstep_sounds = list("human" = list(
+		'sound/effects/footstep/sand.ogg'))
 
 /turf/simulated/floor/beach/sand/desert/initialize()
 	. = ..()
