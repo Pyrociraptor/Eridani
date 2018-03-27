@@ -1,12 +1,12 @@
 //Atmosphere properties
-#define VIRGO3B_ONE_ATMOSPHERE	82.4 //kPa
+#define VIRGO3B_ONE_ATMOSPHERE	32.4 //kPa
 #define VIRGO3B_AVG_TEMP	234 //kelvin
 
 #define VIRGO3B_PER_N2		0.16 //percent
-#define VIRGO3B_PER_O2		0.00
+#define VIRGO3B_PER_O2		0.06
 #define VIRGO3B_PER_N2O		0.00 //Currently no capacity to 'start' a turf with this. See turf.dm
-#define VIRGO3B_PER_CO2		0.12
-#define VIRGO3B_PER_PHORON	0.72
+#define VIRGO3B_PER_CO2		0.78
+#define VIRGO3B_PER_PHORON	0.00
 
 //Math only beyond this point
 #define VIRGO3B_MOL_PER_TURF	(VIRGO3B_ONE_ATMOSPHERE*CELL_VOLUME/(VIRGO3B_AVG_TEMP*R_IDEAL_GAS_EQUATION))
@@ -37,7 +37,7 @@
 
 /datum/map/tether
 	name = "Virgo"
-	full_name = "NSB Adephagia"
+	full_name = "NTTRS Caerus"
 	path = "tether"
 
 	zlevel_datum_type = /datum/map_z_level/tether
@@ -54,7 +54,7 @@
 		Z_LEVEL_SPACE_MID,
 		Z_LEVEL_SPACE_HIGH))
 
-	station_name  = "NSB Adephagia"
+	station_name  = "NTTRS Caerus"
 	station_short = "Tether"
 	dock_name     = "Virgo-3B Colony"
 	boss_name     = "Central Command"

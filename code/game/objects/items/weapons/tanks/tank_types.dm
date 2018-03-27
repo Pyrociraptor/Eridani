@@ -129,7 +129,7 @@
 	w_class = ITEMSIZE_SMALL
 	force = 4
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
-	volume = 2 //Tiny. Real life equivalents only have 21 breaths of oxygen in them. They're EMERGENCY tanks anyway -errorage (dangercon 2011)
+	volume = 3
 
 /obj/item/weapon/tank/emergency/oxygen
 	name = "emergency oxygen tank"
@@ -139,7 +139,7 @@
 
 /obj/item/weapon/tank/emergency/oxygen/New()
 		..()
-		src.air_contents.adjust_gas("oxygen", (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+		src.air_contents.adjust_gas("oxygen", (4*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 		return
 

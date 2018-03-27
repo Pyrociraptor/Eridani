@@ -37,8 +37,8 @@
 
 	fire_icon_state = "generic" // Humanoid is too big for them and spriting a new one is really annoying.
 
-	slowdown = -1
-	snow_movement = -2	// Ignores light snow
+	slowdown = 0
+	snow_movement = -1	// Ignores light snow
 	total_health = 50
 	brute_mod = 1.35
 	burn_mod =  1.35

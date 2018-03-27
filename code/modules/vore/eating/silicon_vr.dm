@@ -45,7 +45,7 @@
 	color = HOLO_ORIGINAL_COLOR
 	alpha = HOLO_ORIGINAL_ALPHA
 
-/mob/living/silicon/ai/verb/holo_nom()
+/*/mob/living/silicon/ai/verb/holo_nom()
 	//set name = "Hardlight Nom"
 	//set category = "AI Commands"
 	//set desc = "Wrap up a person in hardlight holograms."
@@ -82,7 +82,7 @@
 	if(do_after(user=eyeobj,delay=50,target=prey,needhand=0) && holo && hologram && !hologram.bellied) //Didn't move and still projecting and effect exists and no other bellied people
 		hologram.get_prey(prey)
 
-/*	Can't, lets them examine things in camera blackout areas
+	Can't, lets them examine things in camera blackout areas
 //I basically have to do this, you know?
 /mob/living/silicon/ai/examinate(atom/A as mob|obj|turf in view(eyeobj))
 	set name = "Examine"
