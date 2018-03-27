@@ -17,8 +17,8 @@
 
 
 /obj/item/weapon/gun/energy/stunrevolver
-	name = "stun revolver"
-	desc = "A LAEP20 Zeus. Designed by Lawson Arms and produced under the wing of Hephaestus, several TSCs have been trying to get a hold of the blueprints for half a decade."
+	name = "AR20 stun revolver"
+	desc = "An AR20 Zeus. Designed by Ace Energy Consortium and produced under the wing of NanoTrasen, several companies have been trying to get a hold of the blueprints for half a decade."
 	icon_state = "stunrevolver"
 	item_state = "stunrevolver"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 2)

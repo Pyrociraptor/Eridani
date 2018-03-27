@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/projectile/contender
 	name = "Thompson Contender"
-	desc = "A perfect, pristine replica of an ancient one-shot hand-cannon. For when you really want to make a hole. This one has been modified to work almost like a bolt-action. Uses .357 rounds."
+	desc = "A perfect, pristine Olympia Foundry replica of an ancient one-shot hand-cannon. For when you really want to make a hole. This one has been modified to work almost like a bolt-action. Uses .357 rounds."
 	icon_state = "pockrifle"
 	var/icon_retracted = "pockrifle-empty"
 	item_state = "revolver"

@@ -538,7 +538,7 @@
 		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-15,-15),       dispersion=list(0.0, 0.6, 1.0)),
 		)
 
-/obj/item/weapon/gun/projectile/automatic/sol/proc/update_charge()
+/obj/item/weapon/gun/projectile/automatic/c18r/proc/update_charge()
 	if(!ammo_magazine)
 		return
 	var/ratio = ammo_magazine.stored_ammo.len / ammo_magazine.max_ammo
@@ -547,7 +547,7 @@
 	ratio = round(ratio, 0.25) * 100
 	overlays += "smg_[ratio]"
 
-/obj/item/weapon/gun/projectile/automatic/sol/update_icon()
+/obj/item/weapon/gun/projectile/automatic/c18r/update_icon()
 	icon_state = (ammo_magazine)? "SMG-IS" : "SMG-IS-empty"
 	overlays.Cut()
 	update_charge()

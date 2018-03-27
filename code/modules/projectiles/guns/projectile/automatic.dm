@@ -107,8 +107,8 @@
 	return
 
 /obj/item/weapon/gun/projectile/automatic/z8
-	name = "Z8"
-	desc = "The Z8 Bulldog is an older model designated marksman rifle, made by the now defunct Zendai Foundries. Makes you feel like a space marine when you hold it, even though it can only hold 10 round magazines. Uses 7.62mm rounds and has an under barrel grenade launcher."
+	name = "Type 8 - DMR"
+	desc = "The Z8 Bulldog is an older model designated marksman rifle, reproduced by Kusanagi Precision under the name of 'Type 8'. Makes you feel like a space marine when you hold it. Uses 7.62mm rounds and has an under barrel grenade launcher."
 	icon_state = "carbine" // This isn't a carbine. :T
 	item_state = "z8carbine"
 	wielded_item_state = "z8carbine-wielded"
@@ -179,7 +179,7 @@
 
 /obj/item/weapon/gun/projectile/automatic/l6_saw
 	name = "L6 SAW"
-	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. 'Aussec Armoury-2531' is engraved on the reciever. Uses 5.45mm rounds. It's also compatible with magazines from STS-35 assault rifles."
+	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. 'Olympia Foundry-2531' is engraved on the reciever. Uses 5.45mm rounds. It's also compatible with magazines from STS-35 assault rifles."
 	icon_state = "l6closed100"
 	item_state = "l6closed"
 	w_class = ITEMSIZE_LARGE
@@ -292,7 +292,7 @@
 
 /obj/item/weapon/gun/projectile/automatic/mini_uzi
 	name = "\improper Uzi"
-	desc = "The iconic Uzi is a lightweight, compact, fast firing machine pistol. Cybersun Industries famously still produces these designs, which have changed little since the 20th century. Uses .45 rounds."
+	desc = "The iconic Uzi is a lightweight, compact, fast firing machine pistol. Olympia Foundry famously still produces these designs, which have changed little since the 20th century. Uses .45 rounds."
 	icon_state = "mini-uzi"
 	w_class = ITEMSIZE_NORMAL
 	load_method = MAGAZINE
@@ -314,8 +314,8 @@
 		icon_state = "mini-uzi-empty"
 
 /obj/item/weapon/gun/projectile/automatic/p90
-	name = "personal defense weapon"
-	desc = "The H90K is a compact, large capacity submachine gun produced by Hephaestus Industries. Despite its fierce reputation, it still manages to feel like a toy. Uses 9mm rounds."
+	name = "P90K PDW"
+	desc = "The FAC P90K is a compact, large capacity submachine gun produced by Frontier Armament Company. Despite its fierce reputation, it still manages to feel like a toy. Uses 9mm rounds."
 	icon_state = "p90smg"
 	item_state = "p90"
 	w_class = ITEMSIZE_NORMAL
@@ -337,7 +337,7 @@
 
 /obj/item/weapon/gun/projectile/automatic/tommygun
 	name = "\improper Tommygun"
-	desc = "This weapon was made famous by gangsters in the 20th century. Cybersun Industries is currently reproducing these for a target market of historic gun collectors and classy criminals. Uses .45 rounds."
+	desc = "This weapon was made famous by gangsters in the 20th century. Olympia Foundry is currently reproducing these for a target market of historic gun collectors and classy criminals. Uses .45 rounds."
 	icon_state = "tommygun"
 	w_class = ITEMSIZE_NORMAL
 	caliber = ".45"
@@ -379,7 +379,7 @@
 		list(mode_name="2-round bursts", burst=2, fire_delay=null, move_delay=6,    burst_accuracy=list(0,-15), dispersion=list(0.0, 0.6))
 		)
 
-/obj/item/weapon/gun/projectile/automatic/bullpup/update_icon(var/ignore_inhands)
+/obj/item/weapon/gun/projectile/automatic/c31a/update_icon(var/ignore_inhands)
 	..()
 	if(istype(ammo_magazine,/obj/item/ammo_magazine/m762))
 		icon_state = "bullpup-small"

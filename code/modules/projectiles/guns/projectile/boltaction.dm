@@ -2,7 +2,7 @@
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle
 	name = "bolt action rifle"
-	desc = "A reproduction of an almost ancient weapon design from the early 20th century. It's still popular among hunters and collectors due to its reliability. Uses 7.62mm rounds."
+	desc = "An Olympia Foundry reproduction of an almost ancient weapon design from the early 20th century. It's still popular among hunters and collectors due to its reliability. Uses 7.62mm rounds."
 	item_state = "boltaction"
 	icon_state = "boltaction"
 	fire_sound = 'sound/weapons/rifleshot.ogg'
@@ -51,7 +51,7 @@
 //Lever actions are the same thing, but bigger.
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/lever
 	name = "lever-action rifle"
-	desc = "A reproduction of an almost ancient weapon design from the 19th century. This one uses a lever-action to move new rounds into the chamber. Uses 7.62mm rounds."
+	desc = "An Olympia Arms reproduction of an almost ancient weapon design from the 19th century. This one uses a lever-action to move new rounds into the chamber. Uses 7.62mm rounds."
 	item_state = "leveraction"
 	icon_state = "leveraction"
 	fire_sound = 'sound/weapons/rifleshot.ogg'

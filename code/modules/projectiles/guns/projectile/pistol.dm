@@ -1,7 +1,7 @@
 /obj/item/weapon/gun/projectile/colt
 	var/unique_reskin
 	name = "M1911"
-	desc = "A Martian copy of the legendary Colt 1911. Chambered in .45 ACP."
+	desc = "A Olympia Foundry reproduction of the legendary Colt 1911. Chambered in .45 ACP."
 	magazine_type = /obj/item/ammo_magazine/m45
 	allowed_magazines = list(/obj/item/ammo_magazine/m45)
 	projectile_type = /obj/item/projectile/bullet/pistol/medium
@@ -78,7 +78,7 @@
 
 /obj/item/weapon/gun/projectile/sec
 	name = "NT MK58"
-	desc = "The NT Mk58 is a mass-produced polymer pistol commonly seen in service by NTDS contractors."
+	desc = "The NT Mk58 is the Ward Takashi WT58 produced under license by NanoTrasen. A polymer firearm seen commonly amongst NTDS contractors. Chambered in .45 ACP."
 	icon_state = "secguncomp"
 	magazine_type = /obj/item/ammo_magazine/m45/rubber
 	projectile_type = /obj/item/projectile/bullet/pistol/medium
@@ -197,7 +197,7 @@
 
 /obj/item/weapon/gun/projectile/pistol
 	name = "P3 'Whisper'"
-	desc = "The Lumoco Arms P3 Whisper. A compact, easily concealable gun, though it's only compatible with compact magazines. Uses 9mm rounds."
+	desc = "The Frontier Armament Company's P3 Whisper. A compact, easily concealable gun, though it's only compatible with compact magazines. Uses 9mm rounds."
 	icon_state = "pistol"
 	item_state = null
 	w_class = ITEMSIZE_SMALL
@@ -304,7 +304,7 @@
 
 /obj/item/weapon/gun/projectile/luger
 	name = "\improper P08 Luger"
-	desc = "Not some cheap scheisse Martian knockoff! This Luger is an authentic reproduction by RauMauser. Accuracy, easy handling, and its signature appearance make it popular among historic gun collectors. Uses 9mm rounds."
+	desc = "Not some cheap scheisse Olympia Foundry knockoff! This Luger is an authentic reproduction by RauMauser. Accuracy, easy handling, and its signature appearance make it popular among historic gun collectors. Uses 9mm rounds."
 	icon_state = "p08"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	caliber = "9mm"
@@ -324,8 +324,8 @@
 	icon_state = "p08b"
 
 /obj/item/weapon/gun/projectile/p92x
-	name = "9mm pistol"
-	desc = "A widespread sidearm called the P92X which is used by military, police, and security forces across the galaxy. Uses 9mm rounds."
+	name = "Type 92x"
+	desc = "The Type 92X is a product of Kusanagi Precision Machinery and is renowned for it's price point and reliability. Commonly seen in use by military and police forces across the galaxy. Chambered in 9mm."
 	icon_state = "p92x"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	caliber = "9mm"

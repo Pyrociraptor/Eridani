@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/projectile/shotgun/pump
 	name = "shotgun"
-	desc = "The mass-produced W-T Remmington 870 shotgun is a favourite of police and security forces on many worlds. Uses 12g rounds."
+	desc = "The mass-produced Olympia Foundry Remington 870 shotgun is a favourite of police and security forces on many worlds. Uses 12g rounds."
 	icon_state = "shotgun"
 	item_state = "shotgun"
 	max_shells = 4

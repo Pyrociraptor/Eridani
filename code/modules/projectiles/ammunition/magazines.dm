@@ -502,7 +502,7 @@
 	caliber = "7.62mm"
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	ammo_type = /obj/item/ammo_casing/a762
-	max_ammo = 10
+	max_ammo = 20
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/m762/ap
@@ -519,7 +519,7 @@
 	caliber = "7.62mm"
 	matter = list(DEFAULT_WALL_MATERIAL = 4000)
 	ammo_type = /obj/item/ammo_casing/a762
-	max_ammo = 20
+	max_ammo = 30
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/m762m/ap
