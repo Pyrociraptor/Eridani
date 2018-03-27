@@ -28,7 +28,7 @@
 	//M.verbs += /mob/living/proc/lick
 	if(M.no_vore) //If the mob isn't supposed to have a stomach, let's not give it an insidepanel so it can make one for itself, or a stomach.
 		return 1
-	M.verbs += /mob/living/proc/insidePanel
+	//M.verbs += /mob/living/proc/insidePanel
 
 	//Tries to load prefs if a client is present otherwise gives freebie stomach
 	if(!M.vore_organs || !M.vore_organs.len)
@@ -267,10 +267,10 @@
 // Clearly super important. Obviously.
 //
 /mob/living/proc/lick(var/mob/living/tasted in living_mobs(1))
-	set name = "Lick"
-	set category = "IC"
-	set desc = "Lick someone nearby!"
-	set popup_menu = FALSE // Stop licking by accident!
+	//set name = "Lick"
+	//set category = "IC"
+	//set desc = "Lick someone nearby!"
+	//set popup_menu = FALSE // Stop licking by accident!
 
 	if(!istype(tasted))
 		return
@@ -307,8 +307,8 @@
 // OOC Escape code for pref-breaking or AFK preds
 //
 /mob/living/proc/escapeOOC()
-	set name = "OOC Escape"
-	set category = "OOC"
+	//set name = "OOC Escape"
+	//set category = "OOC"
 
 	//You're in a belly!
 	if(isbelly(loc))

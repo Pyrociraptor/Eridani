@@ -41,9 +41,9 @@ TODO: Make them light up and heat the air when exposed to oxygen.
 	maxbodytemp = 350
 
 	min_oxy = 0
-	max_oxy = 5 // Does not like oxygen very much.
-	min_tox = 1 // Needs phoron to survive.
-	max_tox = 0
+	max_oxy = 10 // Does not like oxygen very much.
+	min_tox = 0 // Needs phoron to survive.
+	max_tox = 5
 	min_co2 = 0
 	max_co2 = 0
 	min_n2 = 0

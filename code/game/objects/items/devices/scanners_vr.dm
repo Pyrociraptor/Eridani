@@ -85,14 +85,19 @@ var/global/mob/living/carbon/human/dummy/mannequin/sleevemate_mob
 
 	//Actions
 	output += "<br><b>-- Possible Actions --</b><br>"
-	output += "<b>Mind-Scan (One Time): </b>\[<a href='?src=\ref[src];target=\ref[H];mindscan=1'>Perform</a>\]<br>"
+	output += "<b>Mind-Scan (One Time): </b>"
+	if(!H.mind || H.mind.cloned == 1)
+		output += "<span class='warning'>Unable- Mind Degraded</span><br>"
+	else
+		output += "</b>\[<a href='?src=\ref[src];target=\ref[H];mindscan=1'>Perform</a>\]<br>"
+
 	output += "<b>Body-Scan (One Time): </b>\[<a href='?src=\ref[src];target=\ref[H];bodyscan=1'>Perform</a>\]<br>"
 
 	//Saving a mind
 	output += "<b>Store Full Mind: </b>"
 	if(stored_mind)
 		output += "<span class='notice'>Already Stored</span> ([stored_mind.name])<br>"
-	else if(H.mind)
+	else if(H.mind && !H.mind.cloned == 1)
 		output += "\[<a href='?src=\ref[src];target=\ref[H];mindsteal=1'>Perform</a>\]<br>"
 	else
 		output += "<span class='warning'>Unable</span><br>"
@@ -126,7 +131,7 @@ var/global/mob/living/carbon/human/dummy/mannequin/sleevemate_mob
 	//The actual options
 	if(href_list["mindscan"])
 		if(!target.mind || target.mind.name in prevent_respawns)
-			to_chat(usr,"<span class='warning'>Target seems totally braindead.</span>")
+			to_chat(usr,"<span class='warning'>Target mind patterns too degraded to scan.</span>")
 			return
 
 		var/nif
@@ -163,7 +168,7 @@ var/global/mob/living/carbon/human/dummy/mannequin/sleevemate_mob
 
 	if(href_list["mindsteal"])
 		if(!target.mind || target.mind.name in prevent_respawns)
-			to_chat(usr,"<span class='warning'>Target seems totally braindead.</span>")
+			to_chat(usr,"<span class='warning'>Target mind patterns too degraded to scan.</span>")
 			return
 
 		var/choice = alert(usr,"This will remove the target's mind from their body. The only way to put it back is via a resleeving pod. Continue?","Confirmation","Continue","Cancel")

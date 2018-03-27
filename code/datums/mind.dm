@@ -71,6 +71,8 @@
 	//used to store what traits the player had picked out in their preferences before joining, in text form.
 	var/list/traits = list()
 
+	var/cloned = null
+
 /datum/mind/New(var/key)
 	src.key = key
 

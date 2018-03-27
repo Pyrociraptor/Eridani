@@ -518,7 +518,9 @@
 	if(MR.one_time)
 		var/how_long = round((world.time - MR.last_update)/10/60)
 		to_chat(occupant,"<span class='danger'>Your mind backup was a 'one-time' backup. \
-		You will not be able to remember anything since the backup, [how_long] minutes ago.</span>")
+		You will not be able to remember anything since the backup, [how_long] minutes ago and you will be unable to be cloned again this round!</span>")
+		SStranscore.backed_up.Remove("[MR.mindname]")
+		occupant.mind.cloned = 1
 
 	//Re-supply a NIF if one was backed up with them.
 	if(MR.nif_path)
@@ -532,6 +534,7 @@
 		occupant.name = occupant.real_name
 		occupant.dna.real_name = occupant.real_name
 
+	/*
 	//Give them a backup implant
 	var/obj/item/weapon/implant/backup/new_imp = new()
 	if(new_imp.implanted(occupant))
@@ -543,12 +546,13 @@
 		affected.implants += new_imp
 		new_imp.part = affected
 
+
 	//Inform them and make them a little dizzy.
 	if(confuse_amount + blur_amount <= 16)
 		occupant << "<span class='notice'>You feel a small pain in your head as you're given a new backup implant. Your new body feels comfortable already, however.</span>"
 	else
 		occupant << "<span class='warning'>You feel a small pain in your head as you're given a new backup implant. Oh, and a new body. It's disorienting, to say the least.</span>"
-
+	*/
 	occupant.confused = max(occupant.confused, confuse_amount)
 	occupant.eye_blurry = max(occupant.eye_blurry, blur_amount)
 

@@ -1375,15 +1375,15 @@
 		update_icon()
 	else
 		return ..()
-
 /obj/item/device/perfect_tele/attack_self(mob/user)
-	if(!(user.ckey in warned_users))
+
+	/*if(!(user.ckey in warned_users))
 		warned_users |= user.ckey
 		alert(user,"This device can be easily used to break ERP preferences due to the nature of teleporting \
 		and tele-vore. Make sure you carefully examine someone's OOC prefs before teleporting them if you are \
 		going to use this device for ERP purposes. This device records all warnings given and teleport events for \
 		admin review in case of pref-breaking, so just don't do it.","OOC WARNING")
-
+	*/
 	var/choice = alert(user,"What do you want to do?","[src]","Create Beacon","Cancel","Target Beacon")
 	switch(choice)
 		if("Create Beacon")
@@ -1524,7 +1524,7 @@
 		else if(L.vore_organs.len)
 			real_dest = pick(L.vore_organs)
 			televored = TRUE
-			
+
 	//Televore fluff stuff
 	if(televored)
 		to_chat(target,"<span class='warning'>\The [src] teleports you right into \a [lowertext(real_dest.name)]!</span>")
@@ -1604,7 +1604,7 @@
 	return ..()
 
 /obj/item/device/perfect_tele_beacon/attack_hand(mob/user)
-	if((user.ckey != creator) && !(user.ckey in warned_users))
+	/*if((user.ckey != creator) && !(user.ckey in warned_users))
 		warned_users |= user.ckey
 		var/choice = alert(user,"This device is a translocator beacon. Having it on your person may mean that anyone \
 		who teleports to this beacon gets teleported into your selected vore-belly. If you are prey-only \
@@ -1612,10 +1612,10 @@
 		not carry this around.","OOC WARNING","Take It","Leave It")
 		if(choice == "Leave It")
 			return
-
+	*/
 	..()
 
-/obj/item/device/perfect_tele_beacon/attack_self(mob/user)
+/*/obj/item/device/perfect_tele_beacon/attack_self(mob/user)
 	if(!isliving(user))
 		return
 	var/mob/living/L = user
@@ -1628,44 +1628,7 @@
 				user.unEquip(src)
 				forceMove(bellychoice)
 				user.visible_message("<span class='warning'>[user] eats a telebeacon!</span>","You eat the the beacon!")
-
-//InterroLouis: Ruda Lizden
-/obj/item/clothing/accessory/badge/holo/detective/ruda
-	name = "Hisstective's Badge"
-	desc = "This is Ruda Lizden's personal Detective's badge. The polish is dull, as if it's simply been huffed upon and wiped against a coat. Labeled 'Hisstective.'"
-	icon = 'icons/vore/custom_items_vr.dmi'
-	icon_state = "hisstective_badge"
-	//slot_flags = SLOT_TIE | SLOT_BELT
-
-/obj/item/clothing/accessory/badge/holo/detective/ruda/attack(mob/living/carbon/human/M, mob/living/user)
-	if(isliving(user))
-		user.visible_message("<span class='danger'>[user] invades [M]'s personal space, thrusting [src] into their face with an insistent huff.</span>","<span class='danger'>You invade [M]'s personal space, thrusting [src] into their face with an insistent huff.</span>")
-		user.do_attack_animation(M)
-		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //to prevent spam
-
-/obj/item/clothing/accessory/badge/holo/detective/ruda/attack_self(mob/user as mob)
-
-	if(!stored_name)
-		to_chat(user, "You huff along the front of your badge, then rub your sleeve on it to polish it up.")
-		set_name(user.real_name)
-		return
-
-	if(isliving(user))
-		if(stored_name)
-			user.visible_message("<span class='notice'>[user] displays their [src].\nIt reads: [stored_name], [badge_string].</span>","<span class='notice'>You display your [src].\nIt reads: [stored_name], [badge_string].</span>")
-		else
-			user.visible_message("<span class='notice'>[user] displays their [src].\nIt reads: [badge_string].</span>","<span class='notice'>You display your [src]. It reads: [badge_string].</span>")
-
-/obj/item/weapon/card/id/fluff/xennith
-	name = "\improper Amy Lessen's Central Command ID (Xenobiology Director)"
-	desc = "This ID card identifies Dr. Amelie Lessen as the founder and director of the NanoTrasen Xenobiology Research Department, circa 2553."
-	icon_state = "centcom"
-	registered_name = "Amy Lessen"
-	assignment = "Xenobiology Director"
-	access = list(access_cent_general,access_cent_thunder,access_cent_medical,access_cent_living,access_cent_storage,access_cent_teleporter,access_research,access_xenobiology,access_maint_tunnels,access_xenoarch,access_robotics,access_tox_storage,access_tox) //Yes, this looks awful. I tried calling both central and resarch access but it didn't work.
-	age = 39
-	blood_type = "O-"
-	sex = "Female"
+*/
 
 /obj/item/weapon/fluff/injector //Injectors. Custom item used to explain wild changes in a mob's body or chemistry.
 	name = "Injector"
@@ -1686,321 +1649,3 @@
 			qdel(src) //One time use.
 	else //If not, do nothing.
 		to_chat(user,"<span class='warning'>You are unable to inject other people.</span>")
-
-/obj/item/weapon/fluff/injector/numb_bite
-	name = "Numbing Venom Injector"
-	desc = "Injects the user with a high dose of some type of chemical, causing any chemical glands they have to kick into overdrive and create the production of a numbing enzyme that is injected via bites.."
-
-/obj/item/weapon/fluff/injector/numb_bite/attack(mob/living/M, mob/living/user)
-
-	if(usr == M) //Is the person using it on theirself?
-		if(ishuman(M)) //Give them numbing bites.
-			var/mob/living/carbon/human/H = user
-			H.species.give_numbing_bite() //This was annoying, but this is the easiest way of performing it.
-			qdel(src) //One time use.
-	else //If not, do nothing.
-		to_chat(user,"<span class='warning'>You are unable to inject other people.</span>")
-
-//For 2 handed fluff weapons.
-/obj/item/weapon/material/twohanded/fluff //Twohanded fluff items.
-	name = "fluff."
-	desc = "This object is so fluffy. Just from the sight of it, you know that either something went wrong or someone spawned the incorrect item."
-	icon = 'icons/vore/custom_items_vr.dmi'
-	item_icons = list(
-				slot_l_hand_str = 'icons/vore/custom_items_left_hand_vr.dmi',
-				slot_r_hand_str = 'icons/vore/custom_items_right_hand_vr.dmi',
-				)
-
-/obj/item/weapon/material/twohanded/fluff/New(var/newloc)
-	..(newloc," ") //See materials_vr_dmi for more information as to why this is a blank space.
-
-//General use.
-/obj/item/weapon/material/twohanded/fluff/riding_crop
-	name = "riding crop"
-	desc = "A steel rod, a little over a foot long with a widened grip and a thick, leather patch at the end. Made to smack naughty submissives."
-	//force_wielded = 0.05 //Stings, but does jack shit for damage, provided you don't hit someone 100 times. 1 damage with hardness of 60.
-	force_divisor = 0.05 //Required in order for the X attacks Y message to pop up.
-	unwielded_force_divisor = 1 // One here, too.
-	applies_material_colour = 0
-	unbreakable = 1
-	base_icon = "riding_crop"
-	icon_state = "riding_crop0"
-	attack_verb = list("cropped","spanked","swatted","smacked","peppered")
-//1R1S: Malady Blanche
-/obj/item/weapon/material/twohanded/fluff/riding_crop/malady
-	name = "Malady's riding crop"
-	desc = "An infernum made riding crop with Malady Blanche engraved in the shaft. It's a little worn from how many butts it has spanked."
-
-
-//SilverTalisman: Evian
-/obj/item/weapon/implant/reagent_generator/evian
-	emote_descriptor = list("an egg right out of Evian's lower belly!", "into Evian' belly firmly, forcing him to lay an egg!", "Evian really tight, who promptly lays an egg!")
-	var/verb_descriptor = list("squeezes", "pushes", "hugs")
-	var/self_verb_descriptor = list("squeeze", "push", "hug")
-	var/short_emote_descriptor = list("lays", "forces out", "pushes out")
-	self_emote_descriptor = list("lay", "force out", "push out")
-	random_emote = list("hisses softly with a blush on his face", "yelps in embarrassment", "grunts a little")
-	assigned_proc = /mob/living/carbon/human/proc/use_reagent_implant_evian
-
-/obj/item/weapon/implant/reagent_generator/evian/implanted(mob/living/carbon/source)
-	processing_objects += src
-	to_chat(source, "<span class='notice'>You implant [source] with \the [src].</span>")
-	source.verbs |= assigned_proc
-	return 1
-
-/obj/item/weapon/implanter/reagent_generator/evian
-	implant_type = /obj/item/weapon/implant/reagent_generator/evian
-
-/mob/living/carbon/human/proc/use_reagent_implant_evian()
-	set name = "Lay Egg"
-	set desc = "Force Evian to lay an egg by squeezing into his lower body! This makes the lizard extremely embarrassed, and it looks funny."
-	set category = "Object"
-	set src in view(1)
-
-	//do_reagent_implant(usr)
-	if(!isliving(usr) || !usr.canClick())
-		return
-
-	if(usr.incapacitated() || usr.stat > CONSCIOUS)
-		return
-
-	var/obj/item/weapon/implant/reagent_generator/evian/rimplant
-	for(var/I in contents)
-		if(istype(I, /obj/item/weapon/implant/reagent_generator))
-			rimplant = I
-			break
-	if (rimplant)
-		if(rimplant.reagents.total_volume <= rimplant.transfer_amount)
-			to_chat(src, "<span class='notice'>[pick(rimplant.empty_message)]</span>")
-			return
-
-		new /obj/item/weapon/reagent_containers/food/snacks/egg/roiz/evian(get_turf(src)) //Roiz/evian so it gets all the functionality
-
-		var/index = rand(0,3)
-
-		if (usr != src)
-			var/emote = rimplant.emote_descriptor[index]
-			var/verb_desc = rimplant.verb_descriptor[index]
-			var/self_verb_desc = rimplant.self_verb_descriptor[index]
-			usr.visible_message("<span class='notice'>[usr] [verb_desc] [emote]</span>",
-							"<span class='notice'>You [self_verb_desc] [emote]</span>")
-		else
-			visible_message("<span class='notice'>[src] [pick(rimplant.short_emote_descriptor)] an egg.</span>",
-								"<span class='notice'>You [pick(rimplant.self_emote_descriptor)] an egg.</span>")
-		if(prob(15))
-			visible_message("<span class='notice'>[src] [pick(rimplant.random_emote)].</span>") // M-mlem.
-
-		rimplant.reagents.remove_any(rimplant.transfer_amount)
-
-/obj/item/weapon/reagent_containers/food/snacks/egg/roiz/evian
-	name = "dragon egg"
-	desc = "A quite large dragon egg!"
-	icon_state = "egg_roiz_yellow"
-
-
-/obj/item/weapon/reagent_containers/food/snacks/egg/roiz/evian/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype( W, /obj/item/weapon/pen/crayon)) //No coloring these ones!
-		return
-	else
-		..()
-
-//jacknoir413:Areax Third
-/obj/item/weapon/melee/baton/fluff/stunstaff
-	name = "Electrostaff"
-	desc = "Six-foot long staff from dull, rugged metal, with two thin spikes protruding from each end. Small etching near to the middle of it reads 'Children Of Nyx Facilities: Product No. 12'."
-	icon = 'icons/vore/custom_items_vr.dmi'
-	item_icons = list(slot_l_hand_str = 'icons/vore/custom_items_left_hand_vr.dmi', slot_r_hand_str = 'icons/vore/custom_items_right_hand_vr.dmi')
-	icon_state = "stunstaff00"
-	var/base_icon = "stunstaff"
-	force = 5
-	sharp = 0
-	edge = 0
-	throwforce = 7
-	w_class = ITEMSIZE_HUGE
-	origin_tech = list(TECH_COMBAT = 2)
-	attack_verb = list("beaten")
-	lightcolor = "#CC33FF"
-
-	//Two Handed
-	var/wielded = 0
-	var/base_name = "stunstaff"
-
-/obj/item/weapon/melee/baton/fluff/stunstaff/New()
-	..()
-	bcell = new/obj/item/weapon/cell/device/weapon(src)
-	update_icon()
-	return
-
-/obj/item/weapon/melee/baton/fluff/stunstaff/update_held_icon()
-	var/mob/living/M = loc
-	if(istype(M) && !issmall(M) && M.item_is_in_hands(src) && !M.hands_are_full())
-		wielded = 1
-		force = 15
-		name = "[base_name] (wielded)"
-		update_icon()
-	else
-		wielded = 0
-		force = 8
-		name = "[base_name]"
-	update_icon()
-	..()
-
-/obj/item/weapon/melee/baton/fluff/stunstaff/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	if(wielded && default_parry_check(user, attacker, damage_source) && prob(30))
-		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
-		return 1
-	return 0
-
-/obj/item/weapon/melee/baton/fluff/stunstaff/update_icon()
-	icon_state = "[base_icon][wielded][status]"
-	item_state = icon_state
-	if(status==1)
-		set_light(2, 2, lightcolor)
-	else
-		set_light(0)
-
-/obj/item/weapon/melee/baton/fluff/stunstaff/dropped()
-	..()
-	if(wielded)
-		wielded = 0
-		spawn(0)
-			update_held_icon()
-
-/obj/item/weapon/melee/baton/fluff/stunstaff/attack_self(mob/user)
-	if(bcell && bcell.charge > hitcost)
-		status = !status
-		user << "<span class='notice'>[src] is now [status ? "on" : "off"].</span>"
-		if(status == 0)
-			playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
-		else
-			playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-	else
-		status = 0
-		user << "<span class='warning'>[src] is out of charge.</span>"
-	update_held_icon()
-	add_fingerprint(user)
-
-/obj/item/weapon/storage/backpack/fluff/stunstaff
-	name = "Electrostaff sheath"
-	icon = 'icons/vore/custom_items_vr.dmi'
-	icon_state = "holster_stunstaff"
-	desc = "A sturdy synthetic leather sheath with matching belt and rubberized interior."
-	slot_flags = SLOT_BACK
-	item_icons = list(slot_back_str = 'icons/vore/custom_onmob_vr.dmi', slot_l_hand_str = 'icons/vore/custom_items_left_hand_vr.dmi', slot_r_hand_str = 'icons/vore/custom_items_right_hand_vr.dmi')
-
-	can_hold = list(/obj/item/weapon/melee/baton/fluff/stunstaff)
-
-	w_class = ITEMSIZE_HUGE
-	max_w_class = ITEMSIZE_HUGE
-	max_storage_space = 16
-
-/obj/item/weapon/storage/backpack/fluff/stunstaff/New()
-	..()
-	new /obj/item/weapon/melee/baton/fluff/stunstaff(src)
-
-
-/*
- * Awoo Sword
- */
-/obj/item/weapon/melee/fluffstuff
-	var/active = 0
-	var/active_force
-	var/active_throwforce
-	var/active_w_class
-	var/active_embed_chance = 0
-	sharp = 0
-	edge = 0
-
-/obj/item/weapon/melee/fluffstuff/proc/activate(mob/living/user)
-	if(active)
-		return
-	active = 1
-	embed_chance = active_embed_chance
-	force = active_force
-	throwforce = active_throwforce
-	sharp = 1
-	edge = 1
-	w_class = active_w_class
-	playsound(user, 'sound/weapons/sparkle.ogg', 50, 1)
-
-/obj/item/weapon/melee/fluffstuff/proc/deactivate(mob/living/user)
-	if(!active)
-		return
-	playsound(user, 'sound/weapons/sparkle.ogg', 50, 1)
-	active = 0
-	embed_chance = initial(embed_chance)
-	force = initial(force)
-	throwforce = initial(throwforce)
-	sharp = initial(sharp)
-	edge = initial(edge)
-	w_class = initial(w_class)
-
-/obj/item/weapon/melee/fluffstuff/attack_self(mob/living/user as mob)
-	if (active)
-		if ((CLUMSY in user.mutations) && prob(50))
-			user.visible_message("<span class='danger'>\The [user] accidentally cuts \himself with \the [src].</span>",\
-			"<span class='danger'>You accidentally cut yourself with \the [src].</span>")
-			user.take_organ_damage(5,5)
-		deactivate(user)
-	else
-		activate(user)
-
-	if(istype(user,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
-
-	add_fingerprint(user)
-	return
-
-/obj/item/weapon/melee/fluffstuff/suicide_act(mob/user)
-	var/tempgender = "[user.gender == MALE ? "he's" : user.gender == FEMALE ? "she's" : "they are"]"
-	if(active)
-		user.visible_message(pick("<span class='danger'>\The [user] is slitting \his stomach open with \the [src]! It looks like [tempgender] trying to commit seppuku.</span>",\
-			"<span class='danger'>\The [user] is falling on \the [src]! It looks like [tempgender] trying to commit suicide.</span>"))
-		return (BRUTELOSS|FIRELOSS)
- 
-/obj/item/weapon/melee/fluffstuff/awoosword
-	name = "Wolfgirl Sword Replica"
-	desc = "A replica of a large, scimitar-like sword with a dull edge. Ceremonial... until it isn't."
-	icon = 'icons/obj/weapons_vr.dmi'
-	icon_state = "awoosword"
-	slot_flags = SLOT_BACK | SLOT_OCLOTHING
-	active_force = 15
-	active_throwforce = 7
-	active_w_class = ITEMSIZE_LARGE
-	force = 1
-	throwforce = 1
-	throw_speed = 1
-	throw_range = 5
-	w_class = ITEMSIZE_SMALL
-	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 1)
-	item_icons = list(slot_l_hand_str = 'icons/mob/items/lefthand_melee_vr.dmi', slot_r_hand_str = 'icons/mob/items/righthand_melee_vr.dmi', slot_back_str = 'icons/vore/custom_items_vr.dmi', slot_wear_suit_str = 'icons/vore/custom_items_vr.dmi')
-	var/active_state = "awoosword"
-	allowed = list(/obj/item/weapon/shield/fluff/awooshield)
-	damtype = HALLOSS
-
-/obj/item/weapon/melee/fluffstuff/awoosword/dropped(var/mob/user)
-	..()
-	if(!istype(loc,/mob))
-		deactivate(user)
-
-/obj/item/weapon/melee/fluffstuff/awoosword/activate(mob/living/user)
-	if(!active)
-		to_chat(user, "<span class='notice'>The [src] is now sharpened. It will cut!</span>")
-
-	..()
-	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
-	sharp = 1
-	edge = 1
-	icon_state = "[active_state]_sharp"
-	damtype = BRUTE
-
-
-/obj/item/weapon/melee/fluffstuff/awoosword/deactivate(mob/living/user)
-	if(active)
-		to_chat(user, "<span class='notice'>The [src] grows dull!</span>")
-	..()
-	attack_verb = list("bapped", "thwapped", "bonked", "whacked")
-	icon_state = initial(icon_state)

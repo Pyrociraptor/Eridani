@@ -71,6 +71,19 @@
 	lift_floor_name = "Medical, Security, Cargo"
 	lift_announce_str = "Arriving at Station Level 3."
 
+/area/turbolift/t_station/med2
+	name = "Lower Medical Bay"
+	lift_floor_label = "Lower Medical Bay"
+	lift_floor_name = "EMT Bay, Evacuation, Virology, Morgue, Storage"
+	lift_announce_str = "Arriving at Lower Medical Bay."
+	base_turf = /turf/simulated/floor/plating
+
+/area/turbolift/t_station/med3
+	name = "Upper Medical Bay"
+	lift_floor_label = "Upper Medical Bay"
+	lift_floor_name = "ICU, Cloning, Chemistry, Surgery"
+	lift_announce_str = "Arriving at Upper Medical Bay."
+
 /area/vacant/vacant_restaurant_upper
 	name = "\improper Vacant Restaurant"
 	icon_state = "vacant_site"

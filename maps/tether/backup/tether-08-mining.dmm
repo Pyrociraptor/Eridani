@@ -1209,12 +1209,12 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/break_room)
 "cg" = (
-/obj/machinery/embedded_controller/radio/airlock/co2{
+/obj/machinery/embedded_controller/radio/airlock/phoron{
 	id_tag = "mining_outpost_airlock";
 	pixel_x = 0;
 	pixel_y = -25
 	},
-/obj/machinery/airlock_sensor/co2{
+/obj/machinery/airlock_sensor/phoron{
 	id_tag = "mining_outpost_airlock_sensor";
 	pixel_x = 12;
 	pixel_y = -26
