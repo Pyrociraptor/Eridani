@@ -12,6 +12,7 @@ var/global/list/traits_costs = list()		// Just path = cost list, saves time in c
 var/global/list/all_traits = list()			// All of 'em at once (same instances)
 
 //stores numeric player size options indexed by name
+
 var/global/list/player_sizes_list = list(
 		"Macro" 	= RESIZE_HUGE,
 		"Big" 		= RESIZE_BIG,
@@ -19,12 +20,14 @@ var/global/list/player_sizes_list = list(
 		"Small" 	= RESIZE_SMALL,
 		"Tiny" 		= RESIZE_TINY)
 
+/*
 //stores vantag settings indexed by name
 var/global/list/vantag_choices_list = list(
 		VANTAG_NONE		=	"No Involvement",
 		VANTAG_VORE		=	"Be Prey",
 		VANTAG_KIDNAP	=	"Be Kidnapped",
 		VANTAG_KILL		=	"Be Killed")
+*/
 
 /* Time to finally undo this. Replaced with digest_act on these items.
 //Important items that are preserved when people are digested, etc.

@@ -658,7 +658,7 @@
 		var/list/choices = list()
 		for(var/mob/living/carbon/human/M in oviewers(1))
 			choices += M
-		
+
 		if(!choices.len)
 			to_chat(src,"<span class='warning'>There's nobody nearby to use this on.</span>")
 
@@ -706,7 +706,7 @@
 		if(can_shred(T) != T)
 			to_chat(src,"<span class='warning'>Looks like you lost your chance...</span>")
 			return
-		
+
 		//Removing an internal organ
 		if(T_int && T_int.damage >= 25) //Internal organ and it's been severely damaged
 			T.apply_damage(15, BRUTE, T_ext) //Damage the external organ they're going through.
@@ -721,7 +721,7 @@
 		//Removing an external organ
 		else if(!T_int && (T_ext.damage >= 25 || T_ext.brute_dam >= 25))
 			T_ext.droplimb(1,DROPLIMB_EDGE) //Clean cut so it doesn't kill the prey completely.
-			
+
 			//Is it groin/chest? You can't remove those.
 			if(T_ext.cannot_amputate)
 				T.apply_damage(25, BRUTE, T_ext)
@@ -734,12 +734,12 @@
 				visible_message("<span class='warning'>[src] tears off [T]'s [T_ext.name]!</span>","<span class='warning'>You tear off [T]'s [T_ext.name]!</span>")
 
 		//Not targeting an internal organ w/ > 25 damage , and the limb doesn't have < 25 damage.
-		else 
+		else
 			if(T_int)
 				T_int.damage = 25 //Internal organs can only take damage, not brute damage.
 			T.apply_damage(25, BRUTE, T_ext)
 			visible_message("<span class='danger'>[src] severely damages [T]'s [T_ext.name]!</span>")
-		
+
 		src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Shred_limb'd [T.real_name] ([T.ckey])</font>")
 		T.attack_log += text("\[[time_stamp()]\] <font color='red'>[src.real_name] ([src.ckey]) shred_limb'd me</font>")
 		msg_admin_attack("[src.real_name] ([src.ckey]) shredded (shred_limb) [T.real_name] ([T.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
