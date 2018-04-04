@@ -173,6 +173,7 @@
 /obj/item/clothing/accessory/armor/armguards/swat
 	desc = "A pair of tactical arm pads reinforced with armor plating. Attaches to a plate carrier."
 	icon_state = "armguards_swat"
+	armor = list(melee = 45, bullet = 45, laser = 45, energy = 40, bomb = 35, bio = 0, rad = 0)
 
 /obj/item/clothing/accessory/armor/armguards/merc
 	name = "heavy arm guards"
@@ -236,6 +237,7 @@
 /obj/item/clothing/accessory/armor/legguards/swat
 	desc = "A pair of armored leg pads. Attaches to a plate carrier."
 	icon_state = "legguards_swat"
+	armor = list(melee = 45, bullet = 45, laser = 45, energy = 35, bomb = 35, bio = 0, rad = 0)
 
 /obj/item/clothing/accessory/armor/legguards/merc
 	name = "heavy leg guards"

@@ -33,6 +33,42 @@
 	else
 		..()
 
+/obj/item/device/multitool/dataknife
+	name = "data knife"
+	desc = "A data knife often used as an electronic hacking device, or as a fighting utility knife. It is currently in evasive mode and will function similar to a multitool."
+	icon = 'icons/obj/kitchen.dmi'
+	icon_state = "dataknife"
+	item_state = "knife"
+	flags = CONDUCT
+	w_class = ITEMSIZE_SMALL
+	force = 17
+	throwforce = 10
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	edge = 1
+	sharp = 1
+	var/obj/item/weapon/card/emag/dataknife/counterpart = null
+
+/obj/item/device/multitool/dataknife/New(newloc, no_counterpart = TRUE)
+	..(newloc)
+	if(!counterpart && no_counterpart)
+		counterpart = new(src, FALSE)
+		counterpart.counterpart = src
+
+/obj/item/device/multitool/dataknife/Destroy()
+	if(counterpart)
+		counterpart.counterpart = null // So it can qdel cleanly.
+		qdel_null(counterpart)
+	return ..()
+
+/obj/item/device/multitool/dataknife/attack_self(mob/user)
+	playsound(get_turf(user),'sound/items/change_drill.ogg',50,1)
+	user.drop_item(src)
+	counterpart.forceMove(get_turf(src))
+	src.forceMove(counterpart)
+	user.put_in_active_hand(counterpart)
+	to_chat(user, "<span class='notice'>You switch the [src] to invasive mode.</span>")
+
 /obj/item/device/multitool/cyborg
 	name = "multitool"
 	desc = "Optimised and stripped-down version of a regular multitool."

@@ -2704,7 +2704,6 @@
 #include "code\modules\vore\fluffstuff\guns\nsfw.dm"
 #include "code\modules\vore\fluffstuff\guns\protector.dm"
 #include "code\modules\vore\fluffstuff\guns\pummeler.dm"
-#include "code\modules\vore\fluffstuff\guns\sickshot.dm"
 #include "code\modules\vore\persist\persist_vr.dm"
 #include "code\modules\vore\resizing\grav_pull_vr.dm"
 #include "code\modules\vore\resizing\holder_micro_vr.dm"

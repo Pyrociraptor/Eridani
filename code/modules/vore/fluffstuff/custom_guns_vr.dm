@@ -532,13 +532,14 @@
 	load_method = MAGAZINE
 	multi_aim = 1
 	burst_delay = 2
+	fire_sound = 'sound/weapons/c18r.ogg'
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
 		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-15,-15),       dispersion=list(0.0, 0.6, 1.0)),
 		)
 
-/obj/item/weapon/gun/projectile/automatic/sol/proc/update_charge()
+/obj/item/weapon/gun/projectile/automatic/c18r/proc/update_charge()
 	if(!ammo_magazine)
 		return
 	var/ratio = ammo_magazine.stored_ammo.len / ammo_magazine.max_ammo
@@ -547,7 +548,7 @@
 	ratio = round(ratio, 0.25) * 100
 	overlays += "smg_[ratio]"
 
-/obj/item/weapon/gun/projectile/automatic/sol/update_icon()
+/obj/item/weapon/gun/projectile/automatic/c18r/update_icon()
 	icon_state = (ammo_magazine)? "SMG-IS" : "SMG-IS-empty"
 	overlays.Cut()
 	update_charge()

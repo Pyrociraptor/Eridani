@@ -25,7 +25,7 @@
 					prob(10);/obj/item/weapon/melee/classic_baton,\
 					prob(9);/obj/item/weapon/gun/projectile/automatic/wt550/lethal,\
 					prob(9);/obj/item/weapon/gun/projectile/automatic/c22r,\
-					prob(9);/obj/item/weapon/gun/projectile/automatic/sol, \
+					prob(9);/obj/item/weapon/gun/projectile/automatic/c18r, \
 					prob(9);/obj/item/weapon/gun/energy/crossbow/largecrossbow,\
 					prob(9);/obj/item/weapon/gun/projectile/pistol,\
 					prob(9);/obj/item/weapon/gun/projectile/shotgun/pump,\
@@ -64,7 +64,7 @@
 					prob(3);/obj/item/weapon/gun/projectile/SVD,\
 					prob(3);/obj/item/weapon/gun/energy/lasercannon,\
 					prob(3);/obj/item/weapon/gun/projectile/shotgun/pump/rifle/lever,\
-					prob(3);/obj/item/weapon/gun/projectile/automatic/bullpup,\
+					prob(3);/obj/item/weapon/gun/projectile/automatic/c31a,\
 					prob(2);/obj/item/weapon/gun/energy/pulse_rifle,\
 					prob(2);/obj/item/weapon/gun/energy/gun/nuclear,\
 					prob(2);/obj/item/weapon/gun/projectile/automatic/l6_saw,\

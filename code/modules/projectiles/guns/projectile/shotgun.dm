@@ -14,6 +14,7 @@
 	ammo_type = /obj/item/ammo_casing/a12g/beanbag
 	projectile_type = /obj/item/projectile/bullet/shotgun
 	handle_casings = HOLD_CASINGS
+	fire_sound = 'sound/weapons/shotgun.ogg'
 	var/recentpump = 0 // to prevent spammage
 	var/action_sound = 'sound/weapons/shotgunpump.ogg'
 
