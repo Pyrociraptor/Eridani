@@ -15,7 +15,6 @@
 /datum/supply_packs/randomised/security/armor
 	num_contained = 5
 	contains = list(
-			/obj/item/clothing/suit/armor/pcarrier/nt,
 			/obj/item/clothing/suit/armor/pcarrier/security,
 			/obj/item/clothing/suit/armor/pcarrier/security/hos,
 			/obj/item/clothing/suit/armor/pcarrier/security/warden,
@@ -80,22 +79,6 @@
 	containername = "bullet resistant armor set crate"
 	access = access_armory
 
-/* VOREStation Removal - Howabout no ERT armor being orderable?
-/datum/supply_packs/security/combat_armor
-	name = "Combat armor set crate"
-	contains = list(
-			/obj/item/clothing/head/helmet/combat,
-			/obj/item/clothing/suit/armor/combat,
-			/obj/item/clothing/gloves/arm_guard/combat,
-			/obj/item/clothing/shoes/leg_guard/combat
-			)
-	cost = 40
-	containertype = /obj/structure/closet/crate/secure
-	containername = "combat armor set crate"
-	access = access_armory
-*/
-
-//SWAT GEAR IS BACK BABY. -SB
 /datum/supply_packs/security/tactical
 	name = "SWAT Gear"
 	containertype = /obj/structure/closet/crate/secure
@@ -105,7 +88,7 @@
 	contains = list(
 			/obj/item/clothing/under/tactical,
 			/obj/item/clothing/suit/armor/pcarrier/swat,
-			/obj/item/clothing/head/helmet/tactical,
+			/obj/item/clothing/head/helmet/swat,
 			/obj/item/clothing/mask/balaclava/tactical,
 			/obj/item/clothing/glasses/sunglasses/sechud/tactical,
 			/obj/item/weapon/storage/belt/security/tactical,
@@ -243,7 +226,7 @@
 			/obj/item/clothing/under/rank/warden/corp,
 			/obj/item/clothing/suit/storage/vest/wardencoat,
 			/obj/item/clothing/suit/storage/vest/wardencoat/alt,
-			/obj/item/clothing/head/helmet/warden,
+			/obj/item/clothing/head/helmet/swat/warden,
 			/obj/item/weapon/cartridge/security,
 			/obj/item/device/radio/headset/headset_sec,
 			/obj/item/clothing/glasses/sunglasses/sechud,
@@ -266,11 +249,11 @@
 /datum/supply_packs/security/headofsecgear
 	name = "Head of security equipment"
 	contains = list(
-			/obj/item/clothing/head/helmet/HoS,
+			/obj/item/clothing/head/helmet/swat/hos,
 			/obj/item/clothing/suit/armor/pcarrier/security/hos,
 			/obj/item/clothing/under/rank/head_of_security/corp,
 			/obj/item/clothing/suit/storage/vest/hoscoat,
-			/obj/item/clothing/head/helmet/dermal,
+			/obj/item/clothing/head/helmet/swat/dermal,
 			/obj/item/weapon/cartridge/hos,
 			/obj/item/device/radio/headset/heads/hos,
 			/obj/item/clothing/glasses/sunglasses/sechud,

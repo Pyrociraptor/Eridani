@@ -37,6 +37,7 @@
 		/obj/item/clothing/under/fluff/kilanosuit/purple,
 		/obj/item/clothing/shoes/boots/fluff/kilano/purple)
 
+/*
 // bwoincognito:Tasald Corlethian
 /obj/item/weapon/storage/box/fluff/tasald
 	name = "Tasald's Kit"
@@ -48,6 +49,7 @@
 		/obj/item/clothing/accessory/permit/gun/fluff/tasald_corlethian,
 		/obj/item/weapon/gun/projectile/revolver/mateba/fluff/tasald_corlethian,
 		/obj/item/weapon/implanter/loyalty)
+*/
 
 //bwoincognito:Octavious Ward
 /obj/item/weapon/storage/box/fluff/octavious
@@ -202,18 +204,22 @@
 		/obj/item/ammo_magazine/m9mm/compact/flash,
 		/obj/item/clothing/accessory/permit/gun/fluff/sebastian_aji)
 
+/*
 /obj/item/weapon/storage/box/fluff/briana_moore
 	name = "Briana's Derringer Box"
 	has_items = list(
 		/obj/item/weapon/gun/projectile/derringer/fluff/briana,
 		/obj/item/clothing/accessory/permit/gun/fluff/briana_moore)
+*/
 
+/*
 //SilencedMP5A5:Serdykov Antoz
 /obj/item/weapon/storage/box/fluff/serdykov_antoz
 	name = "Serdy's Weapon Box"
 	has_items = list(
 		/obj/item/clothing/accessory/permit/gun/fluff/silencedmp5a5,
 		/obj/item/weapon/gun/projectile/colt/fluff/serdy)
+*/
 
 //BeyondMyLife: Ne'tra Ky'ram //Made a box because they have so many items that it'd spam the debug log.
 /obj/item/weapon/storage/box/fluff/kilano

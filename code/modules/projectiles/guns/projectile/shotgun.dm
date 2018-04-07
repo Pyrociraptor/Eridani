@@ -51,6 +51,7 @@
 	max_shells = 5 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
 	ammo_type = /obj/item/ammo_casing/a12g/beanbag
 	load_method = SINGLE_CASING|SPEEDLOADER
+	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 
 /obj/item/weapon/gun/projectile/shotgun/pump/combat
 	name = "combat shotgun"

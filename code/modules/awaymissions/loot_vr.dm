@@ -146,7 +146,7 @@
 					prob(8);/obj/item/weapon/gun/energy/gun/eluger,\
 					prob(8);/obj/item/weapon/gun/energy/xray,\
 					prob(8);/obj/item/weapon/gun/projectile/automatic/c20r,\
-					prob(8);/obj/item/weapon/gun/projectile/automatic/stg,\
+				/*	prob(8);/obj/item/weapon/gun/projectile/automatic/stg,\ */
 					prob(8);/obj/item/weapon/melee/energy/sword,\
 				/*	prob(8);/obj/item/weapon/gun/projectile/automatic/m41a,\ */
 					prob(7);/obj/item/weapon/gun/energy/captain,\

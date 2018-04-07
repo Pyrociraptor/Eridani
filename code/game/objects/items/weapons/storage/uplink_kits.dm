@@ -215,9 +215,9 @@
 	desc = "Contains a full set of combat armor."
 	starts_with = list(
 		/obj/item/clothing/head/helmet/combat,
-		/obj/item/clothing/suit/armor/combat,
-		/obj/item/clothing/gloves/arm_guard/combat,
-		/obj/item/clothing/shoes/leg_guard/combat
+		/obj/item/clothing/suit/armor/pcarrier/tan/combat,
+		/obj/item/clothing/accessory/armor/armguards/tan,
+		/obj/item/clothing/accessory/armor/legguards/tan
 	)
 
 /obj/item/weapon/storage/box/syndie_kit/demolitions

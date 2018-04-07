@@ -134,7 +134,7 @@
 	force = 14.0
 	caliber = ".44"
 	load_method = MAGAZINE
-	fire_sound = 'sound/weapons/deagle.ogg'
+	fire_sound = 'sound/weapons/revolver.ogg'
 	magazine_type = /obj/item/ammo_magazine/m44
 	allowed_magazines = list(/obj/item/ammo_magazine/m44)
 

@@ -75,7 +75,7 @@
 					prob(2);/obj/item/weapon/gun/launcher/crossbow,\
 				/*	prob(1);/obj/item/weapon/gun/projectile/automatic/battlerifle,\ */ // Too OP
 					prob(1);/obj/item/weapon/gun/projectile/deagle/gold,\
-					prob(1);/obj/item/weapon/gun/energy/imperial,\
+				/*	prob(1);/obj/item/weapon/gun/energy/imperial,\ */
 					prob(1);/obj/item/weapon/gun/projectile/automatic/as24,\
 					prob(1);/obj/item/weapon/gun/launcher/rocket,\
 					prob(1);/obj/item/weapon/gun/launcher/grenade,\

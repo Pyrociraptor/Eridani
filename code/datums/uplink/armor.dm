@@ -12,4 +12,4 @@
 /datum/uplink_item/item/armor/heavy_vest
 	name = "Heavy Armor Vest"
 	item_cost = 40
-	path = /obj/item/clothing/suit/storage/vest/heavy/merc
+	path = /obj/item/clothing/suit/armor/pcarrier/tan/combat
