@@ -519,6 +519,7 @@
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
 
 //Event Costumes Below
+/*
 /obj/item/clothing/head/helmet/fluff/freddy
 	name = "Animatronic Suit Helmet"
 	desc = "Votre toast, je peux vous le rendre."
@@ -590,7 +591,7 @@
 	desc = "<b><font color=red>LET'S EAT!</font></b>"
 	icon_state = "chicasuit"
 	item_state = "chicasuit_mob"
-
+*/
 //End event costumes
 
 //scree:Scree

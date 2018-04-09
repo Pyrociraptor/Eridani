@@ -263,9 +263,14 @@ var/list/name_to_material
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 
-/material/gold/bronze //placeholder for ashtrays
+/material/bronze
 	name = "bronze"
+	stack_type = /obj/item/stack/material/bronze
+	weight = 30
+	hardness = 50
+	conductivity = 11
 	icon_colour = "#EDD12F"
+	stack_origin_tech = list(TECH_MATERIAL = 2)
 
 /material/silver
 	name = "silver"
@@ -414,8 +419,12 @@ var/list/name_to_material
 
 /material/plasteel/titanium
 	name = "titanium"
-	stack_type = null
+	stack_type = /obj/item/stack/material/titanium
+	integrity = 600
 	conductivity = 2.38
+	hardness = 90
+	weight = 25
+	protectiveness = 25
 	icon_base = "metal"
 	door_icon_base = "metal"
 	icon_colour = "#D1E6E3"

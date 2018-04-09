@@ -121,7 +121,7 @@
 	edge = 1
 	sharp = 1
 	uses = 50
-	var/obj/item/device/multitool/dataknife/counterpart = null
+	var/obj/item/device/multitool/hacktool/dataknife/counterpart = null
 
 /obj/item/weapon/card/emag/dataknife/resolve_attackby(atom/A, mob/user)
 	var/used_uses = A.emag_act(uses, user, src)

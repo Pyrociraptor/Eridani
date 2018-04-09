@@ -14,10 +14,10 @@ You can also set the stat of a NIF to NIF_TEMPFAIL without any issues to disable
 
 //Nanotech Implant Foundation
 /obj/item/device/nif
-	name = "nanite implant framework"
-	desc = "A somewhat diminished knockoff of a Kitsuhana nano working surface, in a box. Can print new \
-	implants inside living hosts on the fly based on software uploads. Must be surgically \
-	implanted in the head to work. May eventually wear out and break."
+	name = "cerebral neurolink enhancement"
+	desc = "EOTR's Biomedical Division's latest nanotechnology development. Using miniatuurized electronics,\
+	swarms of nanobots equipped with picoprinters build implants from blueprints installed from the controller chip. Will eventually\
+	safely biodegrade itself safely for the host."
 
 	icon = 'icons/obj/device_alt.dmi'
 	icon_state = "nif_0"
@@ -33,7 +33,7 @@ You can also set the stat of a NIF to NIF_TEMPFAIL without any issues to disable
 	var/tmp/list/nifsofts_life = list()			// Ones that want to be talked to on life()
 	var/owner									// Owner character name
 	var/examine_msg								//Message shown on examine.
-	
+
 	var/tmp/vision_flags = 0		// Flags implants set for faster lookups
 	var/tmp/health_flags = 0
 	var/tmp/combat_flags = 0
@@ -71,9 +71,9 @@ You can also set the stat of a NIF to NIF_TEMPFAIL without any issues to disable
 	//Put loaded data here if we loaded any
 	save_data = islist(load_data) ? load_data.Copy() : list()
 	var/saved_examine_msg = save_data["examine_msg"]
-	
+
 	//If it's an empty string, they want it blank. If null, it's never been saved, give default.
-	if(isnull(saved_examine_msg)) 
+	if(isnull(saved_examine_msg))
 		saved_examine_msg = "There's a certain spark to their eyes."
 	examine_msg = saved_examine_msg
 
@@ -177,7 +177,7 @@ You can also set the stat of a NIF to NIF_TEMPFAIL without any issues to disable
 
 	if(durability <= 0)
 		notify("Danger! General system insta#^!($",TRUE)
-		to_chat(human,"<span class='danger'>Your NIF vision overlays disappear and your head suddenly seems very quiet...</span>")
+		to_chat(human,"<span class='danger'>Your CNE vision overlays disappear and your head suddenly seems very quiet...</span>")
 		stat = NIF_TEMPFAIL
 		update_icon()
 
@@ -419,7 +419,7 @@ You can also set the stat of a NIF to NIF_TEMPFAIL without any issues to disable
 		human << click_sound
 
 	if(!use_charge(soft.a_drain))
-		notify("Not enough power to activate \"[soft]\" NIFsoft!",TRUE)
+		notify("Not enough power to activate \"[soft]\" the CNE!",TRUE)
 		return FALSE
 
 	if(soft.tick_flags == NIF_ACTIVETICK)
@@ -536,19 +536,19 @@ You can also set the stat of a NIF to NIF_TEMPFAIL without any issues to disable
 
 // Alternate NIFs
 /obj/item/device/nif/bad
-	name = "bootleg NIF"
+	name = "bootleg CNE"
 	desc = "A copy of a copy of a copy of a copy of... this can't be any good, right? Surely?"
 	durability = 10
 
 /obj/item/device/nif/authentic
-	name = "\improper Kitsuhana NIF"
-	desc = "An actual Kitsuhana working surface, in a box. From a society slightly less afraid \
-	of self-replicating nanotechnology. Basically just a high-endurance NIF."
+	name = "cerebral neurolink enhancement MKII"
+	desc = "an upgraded version of the original CNE, for people not afraid\
+	of nanomachines. Warranty void if used."
 	durability = 1000
 
 /obj/item/device/nif/bioadap
-	name = "bioadaptive NIF"
-	desc = "A NIF that goes out of it's way to accomidate strange body types. \
+	name = "bioadaptive CNE"
+	desc = "A CNE that goes out of it's way to accomidate strange body types. \
 	Will function in species where it normally wouldn't."
 	durability = 25
 	bioadap = TRUE
@@ -589,10 +589,10 @@ You can also set the stat of a NIF to NIF_TEMPFAIL without any issues to disable
 
 	if(!nif)
 		verbs -= /mob/living/carbon/human/proc/set_nif_examine
-		to_chat(src,"<span class='warning'>You don't have a NIF, not sure why this was here.</span>")
+		to_chat(src,"<span class='warning'>You don't have a CNE, not sure why this was here.</span>")
 		return
 
-	var/new_flavor = sanitize(input(src,"Describe how your NIF alters your appearance, like glowy eyes or metal plate on your head, etc. Be sensible. Clear this for no examine text. 128ch max.","Describe NIF", nif.examine_msg) as null|text, max_length = 128)
+	var/new_flavor = sanitize(input(src,"Describe how your CNE alters your appearance, like glowy eyes or metal plate on your head, etc. Be sensible. Clear this for no examine text. 128ch max.","Describe CNE", nif.examine_msg) as null|text, max_length = 128)
 	//They clicked cancel or meanwhile lost their NIF
 	if(!nif || isnull(new_flavor))
 		return //No changes

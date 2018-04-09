@@ -1,6 +1,6 @@
 /mob/living/carbon/human/Stat()
 	. = ..()
-	if(nif && statpanel("NIF"))
+	if(nif && statpanel("CNE"))
 		SetupNifStat()
 
 /mob/living/carbon/human/proc/SetupNifStat()
@@ -21,7 +21,7 @@
 		else
 			nif_status = "Unknown - Error"
 	nif_status += " (Condition: [nif_percent]%)"
-	stat("NIF Status", nif_status)
+	stat("CNE Status", nif_status)
 
 	if(nif.stat == NIF_WORKING)
 		stat("- Modules -", "LMB: Toggle, Shift+LMB: Info/Uninstall")

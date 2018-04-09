@@ -182,10 +182,14 @@
 /obj/item/weapon/gun/projectile/automatic/z8/civilian
 	name = "Z8-C"
 	desc = "The Z8-C is the civilian version of the Z8 DMR, locked in semi-auto and the grenade launcher removed."
+	use_launcher = 0
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1,    fire_delay=0,    move_delay=null, use_launcher=null, burst_accuracy=null, dispersion=null)
 		)
+
+/obj/item/weapon/gun/projectile/automatic/z8/examine(mob/user)
+	..()
 
 /obj/item/weapon/gun/projectile/automatic/l6_saw
 	name = "L6 SAW"

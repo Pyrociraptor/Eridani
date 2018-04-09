@@ -167,9 +167,9 @@
 /////////////////
 // A NIFSoft Disk
 /obj/item/weapon/disk/nifsoft
-	name = "NIFSoft Disk"
+	name = "CNESoft Disk"
 	desc = "It has a small label: \n\
-	\"Portable NIFSoft Disk. \n\
+	\"Portable CNESoft Disk. \n\
 	Insert directly into brain.\""
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "datadisk2"
@@ -188,12 +188,12 @@
 	var/mob/living/carbon/human/Hu = user
 
 	if(!Ht.nif || Ht.nif.stat != NIF_WORKING)
-		to_chat(user,"<span class='warning'>Either they don't have a NIF, or the disk can't connect.</span>")
+		to_chat(user,"<span class='warning'>Either they don't have a CNE, or the disk can't connect.</span>")
 		return
 
 	var/extra = extra_params()
 	if(A == user)
-		to_chat(user,"<span class='notice'>You upload [src] into your NIF.</span>")
+		to_chat(user,"<span class='notice'>You upload [src] into your CNE.</span>")
 	else
 		Ht.visible_message("<span class='warning'>[Hu] begins uploading [src] into [Ht]!</span>","<span class='danger'>[Hu] is uploading [src] into you!</span>")
 
@@ -208,7 +208,7 @@
 
 // Compliance Disk //
 /obj/item/weapon/disk/nifsoft/compliance
-	name = "NIFSoft Disk (Compliance)"
+	name = "CNESoft Disk (Compliance)"
 	desc = "Wow, adding laws to people? That seems illegal. It probably is. Okay, it really is."
 	stored = /datum/nifsoft/compliance
 	var/laws
@@ -233,7 +233,7 @@
 
 // Security Disk //
 /obj/item/weapon/disk/nifsoft/security
-	name = "NIFSoft Disk - Security"
+	name = "CNESoft Disk - Security"
 	desc = "Contains free NIFSofts useful for security members.\n\
 	It has a small label: \n\
 	\"Portable NIFSoft Disk. \n\
@@ -256,7 +256,7 @@
 
 // Engineering Disk //
 /obj/item/weapon/disk/nifsoft/engineering
-	name = "NIFSoft Disk - Engineering"
+	name = "CNESoft Disk - Engineering"
 	desc = "Contains free NIFSofts useful for engineering members.\n\
 	It has a small label: \n\
 	\"Portable NIFSoft Disk. \n\
@@ -279,7 +279,7 @@
 
 // Medical Disk //
 /obj/item/weapon/disk/nifsoft/medical
-	name = "NIFSoft Disk - Medical"
+	name = "CNESoft Disk - Medical"
 	desc = "Contains free NIFSofts useful for medical members.\n\
 	It has a small label: \n\
 	\"Portable NIFSoft Disk. \n\
@@ -302,7 +302,7 @@
 
 // Mining Disk //
 /obj/item/weapon/disk/nifsoft/mining
-	name = "NIFSoft Disk - Mining"
+	name = "CNESoft Disk - Mining"
 	desc = "Contains free NIFSofts useful for mining members.\n\
 	It has a small label: \n\
 	\"Portable NIFSoft Disk. \n\

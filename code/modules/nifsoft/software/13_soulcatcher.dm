@@ -67,12 +67,12 @@
 	proc/notify_into(var/message)
 		var/sound = nif.good_sound
 
-		to_chat(nif.human,"<b>\[\icon[nif.big_icon]NIF\]</b> <b>Soulcatcher</b> displays, \"<span class='notice'>[message]</span>\"")
+		to_chat(nif.human,"<b>\[\icon[nif.big_icon]CNE\]</b> <b>Soulcatcher</b> displays, \"<span class='notice'>[message]</span>\"")
 		nif.human << sound
 
 		for(var/brainmob in brainmobs)
 			var/mob/living/carbon/brain/caught_soul/CS = brainmob
-			to_chat(CS,"<b>\[\icon[nif.big_icon]NIF\]</b> <b>Soulcatcher</b> displays, \"<span class='notice'>[message]</span>\"")
+			to_chat(CS,"<b>\[\icon[nif.big_icon]CNE\]</b> <b>Soulcatcher</b> displays, \"<span class='notice'>[message]</span>\"")
 			brainmob << sound
 
 	proc/say_into(var/message, var/mob/living/sender, var/mob/eyeobj)
@@ -86,10 +86,10 @@
 		//Not AR Projecting
 		else
 			log_nsay("[sender_name]/[sender.key] : [message]",nif.human)
-			to_chat(nif.human,"<b>\[\icon[nif.big_icon]NIF\]</b> <b>[sender_name]</b> speaks, \"[message]\"")
+			to_chat(nif.human,"<b>\[\icon[nif.big_icon]CNE\]</b> <b>[sender_name]</b> speaks, \"[message]\"")
 			for(var/brainmob in brainmobs)
 				var/mob/living/carbon/brain/caught_soul/CS = brainmob
-				to_chat(CS,"<b>\[\icon[nif.big_icon]NIF\]</b> <b>[sender_name]</b> speaks, \"[message]\"")
+				to_chat(CS,"<b>\[\icon[nif.big_icon]CNE\]</b> <b>[sender_name]</b> speaks, \"[message]\"")
 
 	proc/emote_into(var/message, var/mob/living/sender, var/mob/eyeobj)
 		var/sender_name = eyeobj ? eyeobj.name : sender.name
@@ -101,10 +101,10 @@
 
 		//Not AR Projecting
 		else
-			to_chat(nif.human,"<b>\[\icon[nif.big_icon]NIF\]</b> <b>[sender_name]</b> [message]")
+			to_chat(nif.human,"<b>\[\icon[nif.big_icon]CNE\]</b> <b>[sender_name]</b> [message]")
 			for(var/brainmob in brainmobs)
 				var/mob/living/carbon/brain/caught_soul/CS = brainmob
-				to_chat(CS,"<b>\[\icon[nif.big_icon]NIF\]</b> <b>[sender_name]</b> [message]")
+				to_chat(CS,"<b>\[\icon[nif.big_icon]CNE\]</b> <b>[sender_name]</b> [message]")
 
 	proc/show_settings(var/mob/living/carbon/human/H)
 		set waitfor = FALSE
@@ -471,18 +471,18 @@
 //Verbs for humans
 /mob/living/carbon/human/proc/nsay(message as text|null)
 	set name = "NSay"
-	set desc = "Speak into your NIF's Soulcatcher."
+	set desc = "Speak into your CNE's Soulcatcher."
 	set category = "IC"
 
 	if(!nif)
-		to_chat(src,"<span class='warning'>You can't use NSay without a NIF.</span>")
+		to_chat(src,"<span class='warning'>You can't use CSay without a CNE.</span>")
 		return
 	var/datum/nifsoft/soulcatcher/SC = nif.imp_check(NIF_SOULCATCHER)
 	if(!SC)
-		to_chat(src,"<span class='warning'>You need the Soulcatcher software to use NSay.</span>")
+		to_chat(src,"<span class='warning'>You need the Soulcatcher software to use CSay.</span>")
 		return
 	if(!SC.brainmobs.len)
-		to_chat(src,"<span class='warning'>You need a loaded mind to use NSay.</span>")
+		to_chat(src,"<span class='warning'>You need a loaded mind to use CSay.</span>")
 		return
 	if(!message)
 		message = input("Type a message to say.","Speak into Soulcatcher") as text|null
@@ -492,11 +492,11 @@
 
 /mob/living/carbon/human/proc/nme(message as text|null)
 	set name = "NMe"
-	set desc = "Emote into your NIF's Soulcatcher."
+	set desc = "Emote into your CNE's Soulcatcher."
 	set category = "IC"
 
 	if(!nif)
-		to_chat(src,"<span class='warning'>You can't use NMe without a NIF.</span>")
+		to_chat(src,"<span class='warning'>You can't use NMe without a CNE.</span>")
 		return
 	var/datum/nifsoft/soulcatcher/SC = nif.imp_check(NIF_SOULCATCHER)
 	if(!SC)
@@ -524,7 +524,7 @@
 		return
 
 	if(!(soulcatcher.setting_flags & NIF_SC_PROJECTING))
-		to_chat(src,"<span class='warning'>Projecting from this NIF has been disabled!</span>")
+		to_chat(src,"<span class='warning'>Projecting from this CNE has been disabled!</span>")
 		return
 
 	if(!client || !client.prefs)
@@ -558,7 +558,7 @@
 
 /mob/living/carbon/brain/caught_soul/verb/nsay(message as text|null)
 	set name = "NSay"
-	set desc = "Speak into the NIF's Soulcatcher (circumventing AR speaking)."
+	set desc = "Speak into the CNE's Soulcatcher (circumventing AR speaking)."
 	set category = "Soulcatcher"
 
 	if(!message)
@@ -569,7 +569,7 @@
 
 /mob/living/carbon/brain/caught_soul/verb/nme(message as text|null)
 	set name = "NMe"
-	set desc = "Emote into the NIF's Soulcatcher (circumventing AR speaking)."
+	set desc = "Emote into the CNE's Soulcatcher (circumventing AR speaking)."
 	set category = "Soulcatcher"
 
 	if(!message)
