@@ -51,9 +51,10 @@
 	icon_living = "polarbear"
 	icon_dead = "polarbear-dead"
 	icon_gib = "bear-gib"
+	/*
 	vore_icons = SA_ICON_LIVING
 	vore_active = 1
-
+	*/
 	faction = "polar"
 	maxHealth = 80
 	health = 80 // Polar bear will fuck you up.

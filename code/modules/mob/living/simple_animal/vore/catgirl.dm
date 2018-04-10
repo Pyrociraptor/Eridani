@@ -45,16 +45,5 @@
 		icon_dead = "[icon_living]-dead"
 		update_icon()
 
-// Activate Noms!
-/mob/living/simple_animal/catgirl
-	vore_active = 0
-	vore_bump_chance = 5
-	vore_pounce_chance = 50
-	vore_standing_too = 1
-	vore_ignores_undigestable = 0 // Catgirls just want to eat yoouuu
-	vore_default_mode = DM_HOLD // Chance that catgirls just wanna bellycuddle yoouuuu!
-	vore_digest_chance = 25 // But squirming might make them gurgle...
-	vore_icons = SA_ICON_LIVING | SA_ICON_REST
-
 /mob/living/simple_animal/catgirl/retaliate
 	retaliate = 1

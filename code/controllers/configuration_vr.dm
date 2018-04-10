@@ -42,8 +42,6 @@
 				config.engine_map = splittext(value, ",")
 			if ("fax_export_dir")
 				config.fax_export_dir = value
-			if ("items_survive_digestion")
-				config.items_survive_digestion = 1
 			if ("limit_interns")
 				config.limit_interns = text2num(value)
 			if ("limit_visitors")

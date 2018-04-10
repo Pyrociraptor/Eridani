@@ -29,27 +29,12 @@
 	. = list()
 	. += "<b>Round-to-Round Persistence</b><br>"
 	. += "<table>"
-
 	. += "<tr><td title=\"Set spawn location based on where you cryo'd out.\">Save Spawn Location: </td>"
 	. += make_yesno(PERSIST_SPAWN)
 	. += "</tr>"
-
-	/*. += "<tr><td title=\"Save your character's weight until next round.\">Save Weight: </td>"
-	. += make_yesno(PERSIST_WEIGHT)
-	. += "</tr>"
-	*/
 	. += "<tr><td title=\"Update organ preferences (normal/amputated/robotic/etc) and model (for robotic) based on what you have at round end.\">Save Organs: </td>"
 	. += make_yesno(PERSIST_ORGANS)
 	. += "</tr>"
-	/*
-	. += "<tr><td title=\"Update marking preferences (type and color) based on what you have at round end.\">Save Markings: </td>"
-	. += make_yesno(PERSIST_MARKINGS)
-	. += "</tr>"
-
-	. += "<tr><td title=\"Update character scale based on what you were at round end.\">Save Scale: </td>"
-	. += make_yesno(PERSIST_SIZE)
-	. += "</tr>"
-	*/
 	. += "</table>"
 	return jointext(., "")
 

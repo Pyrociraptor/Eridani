@@ -40,12 +40,13 @@
 	path = /obj/item/weapon/book/codex/lore/news
 	cost = 0
 
-/* //VORESTATION REMOVAL
+/*
 /datum/gear/utility/corp_regs
 	display_name = "corporate regulations and legal code"
 	path = /obj/item/weapon/book/codex/corp_regs
 	cost = 0
 */
+
 /datum/gear/utility/folder_blue
 	display_name = "folder, blue"
 	path = /obj/item/weapon/folder/blue
@@ -106,6 +107,7 @@
 
 /datum/gear/utility/implant
 	exploitable = 1
+
 /* VOREStation Edit - Make languages great again
 /datum/gear/utility/implant/eal //This does nothing if you don't actually know EAL.
 	display_name = "implant, language, EAL"

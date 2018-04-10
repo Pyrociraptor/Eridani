@@ -108,47 +108,15 @@ default behaviour is:
 			if((tmob.mob_always_swap || (tmob.a_intent == I_HELP || tmob.restrained()) && (a_intent == I_HELP || src.restrained())) && tmob.canmove && canmove && !tmob.buckled && !buckled && !dense && can_move_mob(tmob, 1, 0)) // mutual brohugs all around!
 				var/turf/oldloc = loc
 				forceMove(tmob.loc)
-
-				//VOREstation Edit - Begin
-				if (istype(tmob, /mob/living/simple_animal)) //check bumpnom chance, if it's a simplemob that's bumped
-					tmob.Bumped(src)
-				else if(istype(src, /mob/living/simple_animal)) //otherwise, if it's a simplemob doing the bumping. Simplemob on simplemob doesn't seem to trigger but that's fine.
-					Bumped(tmob)
-				if (tmob.loc == src) //check if they got ate, and if so skip the forcemove
-					now_pushing = 0
-					return
-
-				// In case of micros, we don't swap positions; instead occupying the same square!
-				if (handle_micro_bump_helping(tmob))
-					now_pushing = 0
-					return
-				// TODO - Check if we need to do something about the slime.UpdateFeed() we are skipping below.
-				// VOREStation Edit - End
-
 				tmob.forceMove(oldloc)
 				now_pushing = 0
 				return
-
 			if(!can_move_mob(tmob, 0, 0))
 				now_pushing = 0
 				return
 			if(a_intent == I_HELP || src.restrained())
 				now_pushing = 0
 				return
-
-			// VOREStation Edit - Begin
-			// Handle grabbing, stomping, and such of micros!
-			if(handle_micro_bump_other(tmob)) return
-			// Plow that nerd.
-			if(ishuman(tmob))
-				var/mob/living/carbon/human/H = tmob
-				if(H.species.lightweight == 1 && prob(50))
-					H.visible_message("<span class='warning'>[src] bumps into [H], knocking them off balance!</span>")
-					H.Weaken(20)
-					now_pushing = 0
-					return
-			// VOREStation Edit - End
-
 			if(istype(tmob, /mob/living/carbon/human) && (FAT in tmob.mutations))
 				if(prob(40) && !(FAT in src.mutations))
 					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
@@ -172,18 +140,12 @@ default behaviour is:
 		spawn(0)
 			..()
 			if (!istype(AM, /atom/movable) || AM.anchored)
-				//VOREStation Edit - object-specific proc for running into things
-				if(((confused || is_blind()) && stat == CONSCIOUS && prob(50) && m_intent=="run") || flying)
-					AM.stumble_into(src)
-				//VOREStation Edit End
-				/* VOREStation Removal - See above
-					Weaken(2)
-					playsound(loc, "punch", 25, 1, -1)
-					visible_message("<span class='warning'>[src] [pick("ran", "slammed")] into \the [AM]!</span>")
-					src.apply_damage(5, BRUTE)
-					src << ("<span class='warning'>You just [pick("ran", "slammed")] into \the [AM]!</span>")
-					to_chat(src, "<span class='warning'>You just [pick("ran", "slammed")] into \the [AM]!</span>")
-					*/ // VOREStation Removal End
+				Weaken(2)
+				playsound(loc, "punch", 25, 1, -1)
+				visible_message("<span class='warning'>[src] [pick("ran", "slammed")] into \the [AM]!</span>")
+				src.apply_damage(5, BRUTE)
+				src << ("<span class='warning'>You just [pick("ran", "slammed")] into \the [AM]!</span>")
+				to_chat(src, "<span class='warning'>You just [pick("ran", "slammed")] into \the [AM]!</span>")
 				return
 			if (!now_pushing)
 				if(isobj(AM))
@@ -851,10 +813,11 @@ default behaviour is:
 		spawn() C.mob_breakout(src)
 		return TRUE
 
+/*
 	if(istype(loc,/obj/item/clothing))
 		spawn() escape_clothes(loc)
-
-	if(attempt_vr(src,"vore_process_resist",args)) return TRUE //VOREStation Code
+*/
+//	if(attempt_vr(src,"vore_process_resist",args)) return TRUE //VOREStation Code
 
 /mob/living/proc/escape_inventory(obj/item/weapon/holder/H)
 	if(H != src.loc) return

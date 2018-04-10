@@ -38,6 +38,7 @@
 	var/turns_since_scan = 0
 	var/mob/flee_target
 
+/*
 /mob/living/simple_animal/fox/init_belly()
 	..()
 	var/obj/belly/B = vore_selected
@@ -67,6 +68,7 @@
 		"You can feel the acids coating you, ground in by the slick walls.",
 		"The fox's stomach churns hungrily over your form, trying to take you.",
 		"With a loud glorp, the stomach spills more acids onto you.")
+*/
 
 // All them complicated fox procedures.
 /mob/living/simple_animal/fox/Life()
@@ -185,6 +187,7 @@
 	desc = "Renault, the Colony Director's trustworthy fox. I wonder what it says?"
 	befriend_job = "Colony Director"
 
+/*
 /mob/living/simple_animal/fox/fluff/Renault/init_belly()
 	..()
 	var/obj/belly/B = vore_selected
@@ -214,6 +217,7 @@
 		"Renault belches, letting the remaining air grow more acrid. It burns your lungs with each breath.",
 		"A thick glob of acids drip down from above, adding to the pool of caustic fluids in Renault's belly.",
 		"There's a loud gurgle as the stomach declares the intent to make you a part of Renault.")
+*/
 
 /mob/living/simple_animal/fox/syndicate
 	name = "syndi-fox"

@@ -46,7 +46,6 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		return 0
 	if(can_operate(src) && I.do_surgery(src,user)) //Surgery
 		return 1
-	if(attempt_vr(src,"vore_attackby",args)) return //VOREStation Code
 	return I.attack(src, user, user.zone_sel.selecting)
 
 // Used to get how fast a mob should attack, and influences click delay.

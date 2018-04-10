@@ -16,10 +16,3 @@
 	speak_chance = 2
 	emote_hear = list("squishes","spluts","splorts","sqrshes","makes slime noises")
 	emote_see = list("undulates quietly")
-
-// Activate Noms!
-/mob/living/simple_animal/hostile/jelly
-	vore_active = 0
-	vore_pounce_chance = 0
-	vore_icons = SA_ICON_LIVING
-	swallowTime = 2 SECONDS // Hungry little bastards.

@@ -26,12 +26,3 @@
 				"Ararrrararr.")
 	emote_hear = list("screEEEEeeches!","chirps.")
 	emote_see = list("earflicks","sniffs at the ground")
-
-// Activate Noms!
-/mob/living/simple_animal/fennec
-	vore_active = 0
-	vore_bump_chance = 10
-	vore_bump_emote	= "playfully lunges at"
-	vore_pounce_chance = 40
-	vore_default_mode = DM_HOLD
-	vore_icons = SA_ICON_LIVING

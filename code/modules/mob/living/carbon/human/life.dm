@@ -75,7 +75,6 @@
 		//Organs and blood
 		handle_organs()
 		stabilize_body_temperature() //Body temperature adjusts itself (self-regulation)
-		weightgain() //VORESTATION EDIT
 		handle_shock()
 
 		handle_pain()
@@ -831,20 +830,18 @@
 
 			var/total_phoronloss = 0
 			for(var/obj/item/I in src)
-				if(I.contaminated || I.gurgled) //VOREStation Edit
-					if(check_belly(I)) continue //VOREStation Edit
-					if(src.species && src.species.get_bodytype() != "Vox")
-						// This is hacky, I'm so sorry.
-						if(I != l_hand && I != r_hand)	//If the item isn't in your hands, you're probably wearing it. Full damage for you.
-							total_phoronloss += vsc.plc.CONTAMINATION_LOSS
-						else if(I == l_hand)	//If the item is in your hands, but you're wearing protection, you might be alright.
-							var/l_hand_blocked = 0
-							l_hand_blocked = 1-(100-getarmor(BP_L_HAND, "bio"))/100	//This should get a number between 0 and 1
-							total_phoronloss += vsc.plc.CONTAMINATION_LOSS * l_hand_blocked
-						else if(I == r_hand)	//If the item is in your hands, but you're wearing protection, you might be alright.
-							var/r_hand_blocked = 0
-							r_hand_blocked = 1-(100-getarmor(BP_R_HAND, "bio"))/100	//This should get a number between 0 and 1
-							total_phoronloss += vsc.plc.CONTAMINATION_LOSS * r_hand_blocked
+				if(src.species && src.species.get_bodytype() != "Vox")
+					// This is hacky, I'm so sorry.
+					if(I != l_hand && I != r_hand)	//If the item isn't in your hands, you're probably wearing it. Full damage for you.
+						total_phoronloss += vsc.plc.CONTAMINATION_LOSS
+					else if(I == l_hand)	//If the item is in your hands, but you're wearing protection, you might be alright.
+						var/l_hand_blocked = 0
+						l_hand_blocked = 1-(100-getarmor(BP_L_HAND, "bio"))/100	//This should get a number between 0 and 1
+						total_phoronloss += vsc.plc.CONTAMINATION_LOSS * l_hand_blocked
+					else if(I == r_hand)	//If the item is in your hands, but you're wearing protection, you might be alright.
+						var/r_hand_blocked = 0
+						r_hand_blocked = 1-(100-getarmor(BP_R_HAND, "bio"))/100	//This should get a number between 0 and 1
+						total_phoronloss += vsc.plc.CONTAMINATION_LOSS * r_hand_blocked
 			if(total_phoronloss)
 				if(!(status_flags & GODMODE))
 					adjustToxLoss(total_phoronloss)
@@ -1352,7 +1349,7 @@
 					if(O.helmet && O.helmet == head && (O.helmet.body_parts_covered & EYES))
 						if((O.offline && O.offline_vision_restriction == 1) || (!O.offline && O.vision_restriction == 1))
 							found_welder = 1
-				if(absorbed) found_welder = 1 //VOREStation Code
+				//if(absorbed) found_welder = 1 //VOREStation Code
 			if(found_welder)
 				client.screen |= global_hud.darkMask
 
@@ -1716,7 +1713,7 @@
 			else
 				holder.icon_state = "hudsyndicate"
 			hud_list[SPECIALROLE_HUD] = holder
-	attempt_vr(src,"handle_hud_list_vr",list()) //VOREStation Add - Custom HUDs.
+	//attempt_vr(src,"handle_hud_list_vr",list()) //VOREStation Add - Custom HUDs.
 	hud_updateflag = 0
 	update_icons_huds()
 

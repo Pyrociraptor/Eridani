@@ -67,7 +67,7 @@
 	LAZYCLEARLIST(list_huds)
 	list_huds = null
 	qdel_null(nif)	//VOREStation Add
-	qdel_null_list(vore_organs) //VOREStation Add
+//	qdel_null_list(vore_organs) //VOREStation Add
 	return ..()
 
 /mob/living/carbon/human/Stat()
@@ -745,11 +745,13 @@
 	return 1
 
 /mob/living/carbon/human/IsAdvancedToolUser(var/silent)
+/*
 	// VOREstation start
 	if(feral)
 		src << "<span class='warning'>Your primitive mind can't grasp the concept of that thing.</span>"
 		return 0
 	// VOREstation end
+*/
 	if(species.has_fine_manipulation)
 		return 1
 	if(!silent)
@@ -1192,7 +1194,7 @@
 			vessel.remove_reagent("blood", vessel.total_volume - species.blood_volume)
 			vessel.maximum_volume = species.blood_volume
 		fixblood()
-		species.update_attack_types() //VOREStation Edit - Required for any trait that updates unarmed_types in setup.
+		//species.update_attack_types() //VOREStation Edit - Required for any trait that updates unarmed_types in setup.
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
 	if(client && client.screen)

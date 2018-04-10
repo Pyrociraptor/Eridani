@@ -158,7 +158,6 @@ It also makes it so a ghost wont know where all the goodies/mobs are.
 	invisibility = 101
 	spawn_types = list(
 	/mob/living/simple_animal/retaliate/gaslamp = 20,
-	/mob/living/simple_animal/otie/feral = 10,
 	/mob/living/simple_animal/hostile/dino/virgo3b = 5,
 	/mob/living/simple_animal/hostile/dragon/virgo3b = 1
 	)

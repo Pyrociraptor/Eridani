@@ -70,12 +70,11 @@
 					prob(2);/obj/item/weapon/gun/projectile/automatic/l6_saw,\
 					prob(2);/obj/item/weapon/gun/energy/gun/burst,\
 					prob(2);/obj/item/weapon/storage/box/frags,\
-					prob(2);/obj/item/weapon/twohanded/fireaxe,\
+					/*prob(2);/obj/item/weapon/twohanded/fireaxe,\*/ //need to fix axes
 					prob(2);/obj/item/weapon/gun/projectile/luger/brown,\
 					prob(2);/obj/item/weapon/gun/launcher/crossbow,\
-				/*	prob(1);/obj/item/weapon/gun/projectile/automatic/battlerifle,\ */ // Too OP
+					prob(1);/obj/item/weapon/gun/projectile/automatic/battlerifle,
 					prob(1);/obj/item/weapon/gun/projectile/deagle/gold,\
-				/*	prob(1);/obj/item/weapon/gun/energy/imperial,\ */
 					prob(1);/obj/item/weapon/gun/projectile/automatic/as24,\
 					prob(1);/obj/item/weapon/gun/launcher/rocket,\
 					prob(1);/obj/item/weapon/gun/launcher/grenade,\

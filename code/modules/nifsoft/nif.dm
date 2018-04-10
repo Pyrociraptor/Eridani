@@ -15,9 +15,9 @@ You can also set the stat of a NIF to NIF_TEMPFAIL without any issues to disable
 //Nanotech Implant Foundation
 /obj/item/device/nif
 	name = "cerebral neurolink enhancement"
-	desc = "EOTR's Biomedical Division's latest nanotechnology development. Using miniatuurized electronics,\
+	desc = "EOTR's Biomedical Division's latest nanotechnology development. Using miniaturized electronics,\
 	swarms of nanobots equipped with picoprinters build implants from blueprints installed from the controller chip. Will eventually\
-	safely biodegrade itself safely for the host."
+	biodegrade itself safely into the host."
 
 	icon = 'icons/obj/device_alt.dmi'
 	icon_state = "nif_0"
@@ -334,7 +334,7 @@ You can also set the stat of a NIF to NIF_TEMPFAIL without any issues to disable
 /obj/item/device/nif/proc/notify(var/message,var/alert = 0)
 	if(!human || stat == NIF_TEMPFAIL) return
 
-	to_chat(human,"<b>\[\icon[src.big_icon]NIF\]</b> displays, \"<span class='[alert ? "danger" : "notice"]'>[message]</span>\"")
+	to_chat(human,"<b>\[\icon[src.big_icon]CNE\]</b> displays, \"<span class='[alert ? "danger" : "notice"]'>[message]</span>\"")
 	if(prob(1)) human.visible_message("<span class='notice'>\The [human] [pick(look_messages)].</span>")
 	if(alert)
 		human << bad_sound
@@ -463,7 +463,7 @@ You can also set the stat of a NIF to NIF_TEMPFAIL without any issues to disable
 		if(NIF_FLAGS_OTHER)
 			other_flags |= flag
 		else
-			CRASH("Not a valid NIF set_flag hint: [hint]")
+			CRASH("Not a valid CNE set_flag hint: [hint]")
 
 //Clear a flag from one of the holders
 /obj/item/device/nif/proc/clear_flag(var/flag,var/hint)
@@ -479,7 +479,7 @@ You can also set the stat of a NIF to NIF_TEMPFAIL without any issues to disable
 		if(NIF_FLAGS_OTHER)
 			other_flags &= ~flag
 		else
-			CRASH("Not a valid NIF clear_flag hint: [hint]")
+			CRASH("Not a valid CNE clear_flag hint: [hint]")
 
 //Check for an installed implant
 /obj/item/device/nif/proc/imp_check(var/soft)
@@ -510,7 +510,7 @@ You can also set the stat of a NIF to NIF_TEMPFAIL without any issues to disable
 		if(NIF_FLAGS_OTHER)
 			if(flag & other_flags) result = TRUE
 		else
-			CRASH("Not a valid NIF flag hint: [hint]")
+			CRASH("Not a valid CNE flag hint: [hint]")
 
 	return result
 
@@ -583,8 +583,8 @@ You can also set the stat of a NIF to NIF_TEMPFAIL without any issues to disable
 		return ..()
 
 /mob/living/carbon/human/proc/set_nif_examine()
-	set name = "NIF Appearance"
-	set desc = "If your NIF alters your appearance in some way, describe it here."
+	set name = "CNE Appearance"
+	set desc = "If your CNE alters your appearance in some way, describe it here."
 	set category = "OOC"
 
 	if(!nif)

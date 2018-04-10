@@ -163,7 +163,7 @@
 		if(config.aggressive_changelog)
 			src.changes()
 
-	hook_vr("client_new",list(src)) //VOREStation Code
+	//hook_vr("client_new",list(src)) //VOREStation Code
 
 	//////////////
 	//DISCONNECT//

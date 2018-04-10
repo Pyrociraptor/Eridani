@@ -89,15 +89,6 @@ List of things solar grubs should be able to do:
 		else if(!attached && anchored)
 			anchored = 0
 			PN = null
-
-/mob/living/simple_animal/retaliate/solargrub //active noms
-	vore_bump_chance = 50
-	vore_bump_emote = "applies minimal effort to try and slurp up"
-	vore_active = 0
-	vore_capacity = 1
-	vore_pounce_chance = 0 //grubs only eat incapacitated targets
-	vore_default_mode = DM_ITEMWEAK //item friendly digestions, they just want your chemical energy :3
-
 /mob/living/simple_animal/retaliate/solargrub/PunchTarget()
 	. = ..()
 	if(isliving(.))

@@ -114,9 +114,11 @@
 	msg += "<EM>[src.name]</EM>"
 
 	if(!(skipjumpsuit && skipface))
+	/*
 		if(src.custom_species)
 			msg += ", a <b>[src.custom_species]</b>"
-		else if(looks_synth)
+	*/
+		if(looks_synth)
 			var/use_gender = "a synthetic"
 			if(gender == MALE)
 				use_gender = "an android"
@@ -297,12 +299,12 @@
 	if(suiciding)
 		msg += "<span class='warning'>[T.He] appears to have commited suicide... there is no hope of recovery.</span>\n"
 
-	msg += attempt_vr(src,"examine_weight",args) //VOREStation Code
-	msg += attempt_vr(src,"examine_nutrition",args) //VOREStation Code
-	msg += attempt_vr(src,"examine_bellies",args) //VOREStation Code
-	msg += attempt_vr(src,"examine_pickup_size",args) //VOREStation Code
-	msg += attempt_vr(src,"examine_step_size",args) //VOREStation Code
-	msg += attempt_vr(src,"examine_nif",args) //VOREStation Code
+//	msg += attempt_vr(src,"examine_weight",args) //VOREStation Code
+//	msg += attempt_vr(src,"examine_nutrition",args) //VOREStation Code
+//	msg += attempt_vr(src,"examine_bellies",args) //VOREStation Code
+//	msg += attempt_vr(src,"examine_pickup_size",args) //VOREStation Code
+//	msg += attempt_vr(src,"examine_step_size",args) //VOREStation Code
+//	msg += attempt_vr(src,"examine_nif",args) //VOREStation Code
 
 	if(mSmallsize in mutations)
 		msg += "[T.He] [T.is] small halfling!\n"
@@ -484,7 +486,7 @@
 /proc/hasHUD(mob/M as mob, hudtype)
 	if(istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
-		if(hasHUD_vr(H,hudtype)) return 1 //VOREStation Add - Added records access for certain modes of omni-hud glasses
+//		if(hasHUD_vr(H,hudtype)) return 1 //VOREStation Add - Added records access for certain modes of omni-hud glasses
 		switch(hudtype)
 			if("security")
 				return istype(H.glasses, /obj/item/clothing/glasses/hud/security) || istype(H.glasses, /obj/item/clothing/glasses/sunglasses/sechud)

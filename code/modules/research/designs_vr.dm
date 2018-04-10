@@ -21,15 +21,6 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 2000)
 	build_path = /obj/item/weapon/implantcase/backup
 
-/datum/design/item/weapon/sizegun
-	name = "Size gun"
-	id = "sizegun"
-	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 3000, "glass" = 2000, "uranium" = 2000)
-	build_path = /obj/item/weapon/gun/energy/sizegun
-	sort_string = "TAAAB"
-
-
 /datum/design/item/sleevemate
 	name = "SleeveMate 3200"
 	id = "sleevemate"
@@ -76,7 +67,7 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 1000)
 	build_path = /obj/item/clothing/glasses/omnihud
 	sort_string = "GAAFB"
-
+/*
 /datum/design/item/translocator
 	name = "Personal translocator"
 	id = "translocator"
@@ -92,7 +83,7 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 2000)
 	build_path = /obj/item/device/universal_translator/ear
 	sort_string = "HABBB"
-
+*/
 /datum/design/item/nif
 	name = "nanite implant framework"
 	id = "nif"

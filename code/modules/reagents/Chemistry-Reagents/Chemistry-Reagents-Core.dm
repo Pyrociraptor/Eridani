@@ -41,20 +41,6 @@
 
 	var/effective_dose = dose
 	if(issmall(M)) effective_dose *= 2
-
-	var/is_vampire = 0 //VOREStation Edit START
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(H.species.gets_food_nutrition == 0)
-			H.nutrition += removed
-			is_vampire = 1 //VOREStation Edit END
-
-	if(effective_dose > 5)
-		if(is_vampire == 0) //VOREStation Edit.
-			M.adjustToxLoss(removed) //VOREStation Edit.
-	if(effective_dose > 15)
-		if(is_vampire == 0) //VOREStation Edit.
-			M.adjustToxLoss(removed) //VOREStation Edit.
 	if(data && data["virus2"])
 		var/list/vlist = data["virus2"]
 		if(vlist.len)

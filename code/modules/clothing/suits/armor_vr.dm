@@ -11,27 +11,6 @@
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 0
 
-
-/obj/item/clothing/suit/armor/vest/wolftaur
-	name = "wolf-taur armor vest"
-	desc = "An armored vest that protects against some damage. It appears to be created for a wolf-taur."
-	species_restricted = null //Species restricted since all it cares about is a taur half
-	icon = 'icons/mob/taursuits_vr.dmi'
-	icon_override = 'icons/mob/taursuits_vr.dmi'
-	icon_state = "heavy_wolf_armor"
-	mob_can_equip(var/mob/living/carbon/human/H, slot, disable_warning = 0)
-		if(..())
-			if(istype(H) && istype(H.tail_style, /datum/sprite_accessory/tail/taur/wolf))
-				if(icon_state == "serdy_armor") //This is to prevent Serdy's custom armor from turning into heavy_wolf_armor
-					return ..()
-				icon_override = 'icons/mob/taursuits_vr.dmi' //Just in case
-				icon_state = "heavy_wolf_armor" //Just in case
-				pixel_x = -16
-				return ..()
-			else
-				H << "<span class='warning'>You need to have a wolf-taur half to wear this.</span>"
-				return 0
-
 // HoS armor improved by Vorestation to be slightly better than normal security stuff.
 /obj/item/clothing/suit/storage/vest/hoscoat
 	armor = list(melee = 50, bullet = 40, laser = 40, energy = 25, bomb = 25, bio = 0, rad = 0)

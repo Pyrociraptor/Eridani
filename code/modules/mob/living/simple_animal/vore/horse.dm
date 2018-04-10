@@ -29,8 +29,3 @@
 
 	meat_amount = 4
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
-
-// Activate Noms!
-/mob/living/simple_animal/horse
-	vore_active = 0
-	vore_icons = SA_ICON_LIVING

@@ -19,8 +19,3 @@
 	melee_damage_upper = 25
 
 	minbodytemp = 200
-
-// Activate Noms!
-/mob/living/simple_animal/hostile/wolf
-	vore_active = 0
-	vore_icons = SA_ICON_LIVING

@@ -88,12 +88,13 @@
 	//Basically all the VORE stuff
 	H.ooc_notes = current_project.body_oocnotes
 	H.flavor_texts = current_project.mydna.flavor.Copy()
+	/*
 	H.resize(current_project.sizemult, FALSE)
 	H.appearance_flags = current_project.aflags
 	H.weight = current_project.weight
 	if(current_project.speciesname)
 		H.custom_species = current_project.speciesname
-
+	*/
 	//Suiciding var
 	H.suiciding = 0
 
@@ -312,12 +313,13 @@
 	//Basically all the VORE stuff
 	H.ooc_notes = current_project.body_oocnotes
 	H.flavor_texts = current_project.mydna.flavor.Copy()
-	H.resize(current_project.sizemult)
+	//H.resize(current_project.sizemult)
 	H.appearance_flags = current_project.aflags
-	H.weight = current_project.weight
+	//H.weight = current_project.weight
+	/*
 	if(current_project.speciesname)
 		H.custom_species = current_project.speciesname
-
+	*/
 	//Suiciding var
 	H.suiciding = 0
 
@@ -514,7 +516,7 @@
 	MR.mind_ref.transfer_to(occupant) //Does mind+ckey+client.
 	occupant.identifying_gender = MR.id_gender
 	occupant.ooc_notes = MR.mind_oocnotes
-	occupant.apply_vore_prefs() //Cheap hack for now to give them SOME bellies.
+//	occupant.apply_vore_prefs() //Cheap hack for now to give them SOME bellies.
 	if(MR.one_time)
 		var/how_long = round((world.time - MR.last_update)/10/60)
 		to_chat(occupant,"<span class='danger'>Your mind backup was a 'one-time' backup. \

@@ -51,8 +51,6 @@ var/global/list/robot_modules = list(
 	if(R.radio)
 		R.radio.recalculateChannels()
 
-	vr_add_sprites() //Vorestation Edit: For vorestation only sprites
-
 	R.set_module_sprites(sprites)
 	R.choose_icon(R.module_sprites.len + 1, R.module_sprites)
 
@@ -159,7 +157,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/crowbar/cyborg(src)
 	src.modules += new /obj/item/weapon/extinguisher(src)
 	src.modules += new /obj/item/device/gps/robot(src)
-	vr_new() // Vorestation Edit: For modules in robot_modules_vr.dm
+	//vr_new() // Vorestation Edit: For modules in robot_modules_vr.dm
 
 /obj/item/weapon/robot_module/robot/standard
 	name = "standard robot module"

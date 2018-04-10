@@ -80,7 +80,7 @@
 			"gender" = active_br.bodygender,
 			"synthetic" = active_br.synthetic ? "Yes" : "No",
 			"locked" = active_br.locked ? "Low" : "High",
-			"scale" = player_size_name(active_br.sizemult),
+//			"scale" = player_size_name(active_br.sizemult),
 			"booc" = active_br.body_oocnotes,
 			"styles" = list()
 		)
@@ -92,7 +92,7 @@
 
 		var/list/styles = data["activeBodyRecord"]["styles"]
 		var/list/temp
-
+/*
 		temp = list("styleHref" = "ear_style", "style" = "Normal")
 		if(mannequin.ear_style)
 			temp["style"] = mannequin.ear_style.name
@@ -113,7 +113,7 @@
 				temp["color"] = MOB_HEX_COLOR(mannequin, wing)
 				temp["colorHref"] = "wing_color"
 		styles["Wing"] = temp
-
+*/
 		temp = list("styleHref" = "hair_style", "style" = mannequin.h_style)
 		if(mannequin.species && (mannequin.species.appearance_flags & HAS_HAIR_COLOR))
 			temp["color"] = MOB_HEX_COLOR(mannequin, hair)
@@ -290,7 +290,7 @@
 	H.dna = R.dna.Clone()
 	H.UpdateAppearance() // Update all appearance stuff from the DNA record
 	H.sync_organ_dna() // Do this because sprites depend on DNA-gender of organs (chest etc)
-	H.resize(active_br.sizemult, FALSE)
+	//H.resize(active_br.sizemult, FALSE)
 
 	// And as for clothing...
 	// We don't actually dress them! This is a medical machine, handle the nakedness DOCTOR!
@@ -323,7 +323,7 @@
 	apply_coloration_to_prefs(mannequin, P)
 	apply_organs_to_prefs(mannequin, P)
 	apply_markings_to_prefs(mannequin, P)
-	apply_ears_to_prefs(mannequin, P)
+//	apply_ears_to_prefs(mannequin, P)
 
 	// Now we start using the player_setup objects to do stuff!
 	var/datum/category_collection/CC = P.player_setup
@@ -332,10 +332,11 @@
 	ASSERT(istype(B))
 	var/datum/category_item/player_setup_item/general/basic/G = CG.items_by_name["Basic"]
 	ASSERT(istype(G))
+	/*
 	CG = CC.categories_by_name["VORE"]
 	var/datum/category_item/player_setup_item/vore/ears/E = CG.items_by_name["Appearance"]
 	ASSERT(istype(E))
-
+	*/
 	if(href_list["bio_gender"])
 		var/new_gender = input(user, "Choose your character's biological gender:", "Character Preference", active_br.bodygender) as null|anything in G.get_genders()
 		if(new_gender)
@@ -351,12 +352,14 @@
 		active_br.mydna.dna.ResetUIFrom(mannequin)
 		preview_icon = null
 		return 1
+	/*
 	action = E.OnTopic(href, href_list, user)
 	if(action & TOPIC_UPDATE_PREVIEW && mannequin && active_br)
 		E.copy_to_mob(mannequin)
 		active_br.mydna.dna.ResetUIFrom(mannequin)
 		preview_icon = null
 		return 1
+	*/
 
 // Fake subtype of preferences we can use to steal code from player_setup
 /datum/preferences/designer/New()
