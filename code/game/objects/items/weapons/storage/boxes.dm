@@ -485,3 +485,9 @@
 	name = "ambrosia deus seeds box"
 	desc = "Contains the seeds you need to get a proper healthy high."
 	starts_with = list(/obj/item/seeds/ambrosiadeusseed = 7)
+
+/obj/item/weapon/storage/box/stinger
+	name = "box of stinger grenades (WARNING)"
+	desc = "A box containing 7 police grade rubber-ball stinger grenades.<br> WARNING: These devices have the potential to cause loss of life if used improperly. </br>"
+	icon_state = "frag"
+	starts_with = list(/obj/item/weapon/grenade/explosive/stinger = 7)

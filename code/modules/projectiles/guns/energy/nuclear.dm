@@ -1,10 +1,10 @@
 /obj/item/weapon/gun/energy/gun
-	name = "energy carbine"
-	desc = "An energy-based carbine with two settings: Stun and kill."
+	name = "AE10 energy carbine"
+	desc = "An Ace Energy Consortium energy carbine with two settings: Stun and kill."
 	icon_state = "energystun100"
 	item_state = null	//so the human update icon uses the icon_state instead.
 	fire_delay = 4
-	w_class = ITEMSIZE_LARGE
+	w_class = ITEMSIZE_NORMAL
 	projectile_type = /obj/item/projectile/beam/stun/med
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	modifystate = "energystun"
@@ -19,10 +19,9 @@
 	self_recharge = 1
 	use_external_power = 1
 
-
 /obj/item/weapon/gun/energy/gun/burst
-	name = "burst laser"
-	desc = "The FM-2t is a versatile energy based weapon, capable of switching between stun or kill with a three round burst option for both settings."
+	name = "AE11x energy machine gun"
+	desc = "The AE11x is based off the popular AE10 carbine design, but with a burst function in a slimmer package."
 	icon_state = "fm-2tstun100"	//May resprite this to be more rifley
 	item_state = null	//so the human update icon uses the icon_state instead.
 	charge_cost = 100
@@ -67,8 +66,8 @@
 		)
 
 /obj/item/weapon/gun/energy/pistol
-	name = "energy pistol"
-	desc = "A hold-out energy pistol commonly seen in human space. The trade off for the smaller size is weaker firepower."
+	name = "AE5 energy pistol"
+	desc = "An Ace Energy Consortium hold-out energy pistol commonly seen in human space. The trade off for the smaller size is weaker firepower."
 	icon_state = "epistolstun100"
 	item_state = null	//so the human update icon uses the icon_state instead.
 	fire_sound = 'sound/weapons/Taser.ogg'
@@ -82,4 +81,20 @@
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun/weak, modifystate="epistolstun", fire_sound='sound/weapons/Taser.ogg', charge_cost = 240),
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="epistolkill", fire_sound='sound/weapons/Laser.ogg', charge_cost = 240)
+		)
+
+/obj/item/weapon/gun/energy/rifle
+	name = "AE15 energy rifle"
+	desc = "An Ace Energy Consortium rifle with two settings: Stun and kill. Renowned for it's relatively low energy consumption and firepower."
+	icon_state = "eriflestun100"
+	item_state = null	//so the human update icon uses the icon_state instead.
+	fire_delay = 6
+	w_class = ITEMSIZE_LARGE
+	projectile_type = /obj/item/projectile/beam/stun
+	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
+	modifystate = "eriflestun"
+
+	firemodes = list(
+		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="eriflestun", charge_cost = 120),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="eriflekill", charge_cost = 120),
 		)

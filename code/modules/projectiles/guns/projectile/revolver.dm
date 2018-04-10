@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/projectile/revolver
-	name = "revolver"
-	desc = "The Lumoco Arms HE Colt is a choice revolver for when you absolutely, positively need to put a hole in the other guy. Uses .357 rounds."
+	name = "M-30 revolver"
+	desc = "The Frontier Armament Company's M30 is a choice revolver for when you absolutely, positively need to put a hole in the other guy. Uses .357 rounds."
 	icon_state = "revolver"
 	item_state = "revolver"
 	caliber = ".357"
@@ -36,15 +36,15 @@
 	return ..()
 
 /obj/item/weapon/gun/projectile/revolver/mateba
-	name = "mateba"
+	name = "Mateba Autorevolver"
 	desc = "This unique looking handgun is named after an Italian company famous for the manufacture of these revolvers, and pasta kneading machines. Uses .357 rounds." // Yes I'm serious. -Spades
 	icon_state = "mateba"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/mateba.ogg'
 
 /obj/item/weapon/gun/projectile/revolver/detective
-	name = "revolver"
-	desc = "A cheap Martian knock-off of a Smith & Wesson Model 10. Uses .38-Special rounds."
+	name = "S&W Model 10"
+	desc = "A cheap Olympia Foundry reproduction of a Smith & Wesson Model 10. Uses .38-Special rounds."
 	icon_state = "detective"
 	caliber = ".38"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -71,7 +71,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/detective45
 	name = ".45 revolver"
-	desc = "A fancy replica of an old revolver, modified for .45 rounds and a seven-shot cylinder."
+	desc = "A fancy Olympia Foundry reproduction of an old revolver, modified for .45 rounds and a seven-shot cylinder."
 	icon_state = "detective"
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -161,7 +161,7 @@ obj/item/weapon/gun/projectile/revolver/detective45/verb/rename_gun()
 
 /obj/item/weapon/gun/projectile/revolver/judge
 	name = "\"The Judge\""
-	desc = "A revolving hand-shotgun by Cybersun Industries that packs the power of a 12 guage in the palm of your hand (if you don't break your wrist). Uses 12g rounds."
+	desc = "A revolving hand-shotgun by Olympia Foundry that packs the power of a 12 gauge in the palm of your hand (if you don't break your wrist). Uses 12g rounds."
 	icon_state = "judge"
 	caliber = "12g"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 4)

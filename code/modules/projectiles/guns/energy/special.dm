@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/energy/ionrifle
-	name = "ion rifle"
-	desc = "The NT Mk60 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT. Not the best of its type."
+	name = "MK60 ion rifle"
+	desc = "The NT MK60 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT. Not the best of its type."
 	icon_state = "ionrifle"
 	item_state = "ionrifle"
 	wielded_item_state = "ionrifle-wielded"
@@ -15,8 +15,8 @@
 	..(max(severity, 4)) //so it doesn't EMP itself, I guess
 
 /obj/item/weapon/gun/energy/ionrifle/pistol
-	name = "ion pistol"
-	desc = "The NT Mk63 EW Pan is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT. This model sacrifices capacity for portability."
+	name = "MK63 ion pistol"
+	desc = "The NT MK63 EW Pan is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT. This model sacrifices capacity for portability."
 	icon_state = "ionpistol"
 	item_state = null
 	w_class = ITEMSIZE_NORMAL
