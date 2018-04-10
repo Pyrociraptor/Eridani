@@ -22,7 +22,7 @@
 #define COLD_GAS_DAMAGE_LEVEL_3 3 //Amount of damage applied when the current breath's temperature passes the 120K point
 
 #define RADIATION_SPEED_COEFFICIENT 0.1
-
+z
 /mob/living/carbon/human
 	var/oxygen_alert = 0
 	var/phoron_alert = 0
@@ -67,7 +67,6 @@
 		Sleeping(20)
 
 	//No need to update all of these procs if the guy is dead.
-	fall() //VORESTATION EDIT. Prevents people from floating
 	if(stat != DEAD && !stasis)
 		//Updates the number of stored chemicals for powers
 		handle_changeling()
@@ -75,6 +74,7 @@
 		//Organs and blood
 		handle_organs()
 		stabilize_body_temperature() //Body temperature adjusts itself (self-regulation)
+
 		handle_shock()
 
 		handle_pain()
@@ -82,7 +82,7 @@
 		handle_medical_side_effects()
 
 		handle_heartbeat()
-		handle_nif() //VOREStation Add
+
 		if(!client)
 			species.handle_npc(src)
 
@@ -318,14 +318,15 @@
 
 /mob/living/carbon/human/get_breath_from_internal(volume_needed=BREATH_VOLUME)
 	if(internal)
-
+		//Because rigs store their tanks out of reach of contents.Find(), a check has to be made to make
+		//sure the rig is still worn, still online, and that its air supply still exists.
 		var/obj/item/weapon/tank/rig_supply
 		if(istype(back,/obj/item/weapon/rig))
 			var/obj/item/weapon/rig/rig = back
 			if(!rig.offline && (rig.air_supply && internal == rig.air_supply))
 				rig_supply = rig.air_supply
 
-		if (!rig_supply && (!contents.Find(internal) || !((wear_mask && (wear_mask.item_flags & AIRTIGHT)) || (head && (head.item_flags & AIRTIGHT)))))
+		if ((!rig_supply && !contents.Find(internal)) || !((wear_mask && (wear_mask.item_flags & AIRTIGHT)) || (head && (head.item_flags & AIRTIGHT))))
 			internal = null
 
 		if(internal)
@@ -577,6 +578,7 @@
 /mob/living/carbon/human/handle_environment(datum/gas_mixture/environment)
 	if(!environment)
 		return
+
 	//Stuff like the xenomorph's plasma regen happens here.
 	species.handle_environment_special(src)
 
@@ -590,7 +592,7 @@
 			pl_effects()
 			break
 
-	if(istype(loc, /turf/space)) //VOREStation Edit - No FBPs overheating on space turfs inside mechs or people.
+	if(istype(get_turf(src), /turf/space))
 		//Don't bother if the temperature drop is less than 0.1 anyways. Hopefully BYOND is smart enough to turn this constant expression into a constant
 		if(bodytemperature > (0.1 * HUMAN_HEAT_CAPACITY/(HUMAN_EXPOSED_SURFACE_AREA*STEFAN_BOLTZMANN_CONSTANT))**(1/4) + COSMIC_RADIATION_TEMPERATURE)
 			//Thermal radiation into space
@@ -686,8 +688,7 @@
 		pressure_alert = -1
 	else
 		if( !(COLD_RESISTANCE in mutations))
-			if(!isSynthetic() || !nif || !nif.flag_check(NIF_O_PRESSURESEAL,NIF_FLAGS_OTHER)) //VOREStation Edit - NIF pressure seals
-				take_overall_damage(brute=LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
+			take_overall_damage(brute=LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
 			if(getOxyLoss() < 55) // 11 OxyLoss per 4 ticks when wearing internals;    unconsciousness in 16 ticks, roughly half a minute
 				adjustOxyLoss(4)  // 16 OxyLoss per 4 ticks when no internals present; unconsciousness in 13 ticks, roughly twenty seconds
 			pressure_alert = -2
@@ -724,8 +725,7 @@
 
 	// FBPs will overheat, prosthetic limbs are fine.
 	if(robobody_count)
-		if(!nif || !nif.flag_check(NIF_O_HEATSINKS,NIF_FLAGS_OTHER)) //VOREStation Edit - NIF heatsinks
-			bodytemperature += round(robobody_count*1.75)
+		bodytemperature += round(robobody_count*1.75)
 
 	var/body_temperature_difference = species.body_temperature - bodytemperature
 
@@ -830,46 +830,25 @@
 
 			var/total_phoronloss = 0
 			for(var/obj/item/I in src)
-				if(src.species && src.species.get_bodytype() != "Vox")
-					// This is hacky, I'm so sorry.
-					if(I != l_hand && I != r_hand)	//If the item isn't in your hands, you're probably wearing it. Full damage for you.
-						total_phoronloss += vsc.plc.CONTAMINATION_LOSS
-					else if(I == l_hand)	//If the item is in your hands, but you're wearing protection, you might be alright.
-						var/l_hand_blocked = 0
-						l_hand_blocked = 1-(100-getarmor(BP_L_HAND, "bio"))/100	//This should get a number between 0 and 1
-						total_phoronloss += vsc.plc.CONTAMINATION_LOSS * l_hand_blocked
-					else if(I == r_hand)	//If the item is in your hands, but you're wearing protection, you might be alright.
-						var/r_hand_blocked = 0
-						r_hand_blocked = 1-(100-getarmor(BP_R_HAND, "bio"))/100	//This should get a number between 0 and 1
-						total_phoronloss += vsc.plc.CONTAMINATION_LOSS * r_hand_blocked
+				if(I.contaminated)
+					if(src.species && src.species.get_bodytype() != "Vox")
+						// This is hacky, I'm so sorry.
+						if(I != l_hand && I != r_hand)	//If the item isn't in your hands, you're probably wearing it. Full damage for you.
+							total_phoronloss += vsc.plc.CONTAMINATION_LOSS
+						else if(I == l_hand)	//If the item is in your hands, but you're wearing protection, you might be alright.
+							var/l_hand_blocked = 0
+							l_hand_blocked = 1-(100-getarmor(BP_L_HAND, "bio"))/100	//This should get a number between 0 and 1
+							total_phoronloss += vsc.plc.CONTAMINATION_LOSS * l_hand_blocked
+						else if(I == r_hand)	//If the item is in your hands, but you're wearing protection, you might be alright.
+							var/r_hand_blocked = 0
+							r_hand_blocked = 1-(100-getarmor(BP_R_HAND, "bio"))/100	//This should get a number between 0 and 1
+							total_phoronloss += vsc.plc.CONTAMINATION_LOSS * r_hand_blocked
 			if(total_phoronloss)
 				if(!(status_flags & GODMODE))
 					adjustToxLoss(total_phoronloss)
 
 	if(status_flags & GODMODE)
 		return 0	//godmode
-
-	var/obj/item/organ/internal/diona/node/light_organ = locate() in internal_organs
-
-	if(!isSynthetic())
-		if(light_organ && !light_organ.is_broken())
-			var/light_amount = 0 //how much light there is in the place, affects receiving nutrition and healing
-			if(isturf(loc)) //else, there's considered to be no light
-				var/turf/T = loc
-				light_amount = T.get_lumcount() * 10
-			nutrition += light_amount
-			traumatic_shock -= light_amount
-
-			if(species.flags & IS_PLANT)
-				if(nutrition > 450)
-					nutrition = 450
-
-				if(light_amount >= 3) //if there's enough light, heal
-					adjustBruteLoss(-(round(light_amount/2)))
-					adjustFireLoss(-(round(light_amount/2)))
-					adjustToxLoss(-(light_amount))
-					adjustOxyLoss(-(light_amount))
-					//TODO: heal wounds, heal broken limbs.
 
 	if(species.light_dam)
 		var/light_amount = 0
@@ -897,14 +876,6 @@
 	else
 		if(overeatduration > 1)
 			overeatduration -= 2 //doubled the unfat rate
-
-	if(!isSynthetic() && (species.flags & IS_PLANT) && (!light_organ || light_organ.is_broken()))
-		if(nutrition < 200)
-			take_overall_damage(2,0)
-
-			//traumatic_shock is updated every tick, incrementing that is pointless - shock_stage is the counter.
-			//Not that it matters much for diona, who have NO_PAIN.
-			shock_stage++
 
 	// TODO: stomach and bloodstream organ.
 	if(!isSynthetic())
@@ -1324,7 +1295,7 @@
 				var/obj/item/clothing/glasses/G = glasses
 				if(!G.prescription)
 					set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
-			else if (!nif || !nif.flag_check(NIF_V_CORRECTIVE,NIF_FLAGS_VISION))	//VOREStation Edit - NIF
+			else
 				set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
 
 		set_fullscreen(eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
@@ -1339,7 +1310,6 @@
 					var/obj/item/clothing/glasses/welding/O = glasses
 					if(!O.up)
 						found_welder = 1
-				if(!found_welder && nif && nif.flag_check(NIF_V_UVFILTER,NIF_FLAGS_VISION))	found_welder = 1 //VOREStation Add - NIF
 				if(!found_welder && istype(head, /obj/item/clothing/head/welding))
 					var/obj/item/clothing/head/welding/O = head
 					if(!O.up)
@@ -1349,7 +1319,6 @@
 					if(O.helmet && O.helmet == head && (O.helmet.body_parts_covered & EYES))
 						if((O.offline && O.offline_vision_restriction == 1) || (!O.offline && O.vision_restriction == 1))
 							found_welder = 1
-				//if(absorbed) found_welder = 1 //VOREStation Code
 			if(found_welder)
 				client.screen |= global_hud.darkMask
 
@@ -1713,7 +1682,6 @@
 			else
 				holder.icon_state = "hudsyndicate"
 			hud_list[SPECIALROLE_HUD] = holder
-	//attempt_vr(src,"handle_hud_list_vr",list()) //VOREStation Add - Custom HUDs.
 	hud_updateflag = 0
 	update_icons_huds()
 
