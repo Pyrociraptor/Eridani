@@ -75,6 +75,7 @@ var/global/list/limb_icon_cache = list()
 	for(var/M in markings)
 		var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
 		var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[organ_tag]")
+		mark_s.Blend(markings[M]["color"], ICON_ADD)
 		overlays |= mark_s //So when it's not on your body, it has icons
 		mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
 		icon_cache_key += "[M][markings[M]["color"]]"
@@ -84,7 +85,7 @@ var/global/list/limb_icon_cache = list()
 		if(facial_hair_style && facial_hair_style.species_allowed && (species.get_bodytype(owner) in facial_hair_style.species_allowed))
 			var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
 			if(facial_hair_style.do_colouration)
-				facial_s.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial), ICON_MULTIPLY) // VOREStation edit
+				facial_s.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial), ICON_ADD)
 			overlays |= facial_s
 
 	if(owner.h_style && !(owner.head && (owner.head.flags_inv & BLOCKHEADHAIR)))
@@ -105,7 +106,7 @@ var/global/list/limb_icon_cache = list()
 	if(owner && owner.gender == MALE)
 		gender = "m"
 
-	icon_cache_key = "[icon_name]_[species ? species.get_bodytype() : "Human"]" //VOREStation Edit
+	icon_cache_key = "[icon_name]_[species ? species.name : "Human"]"
 
 	if(force_icon)
 		mob_icon = new /icon(force_icon, "[icon_name][gendered_icon ? "_[gender]" : ""]")
@@ -136,6 +137,7 @@ var/global/list/limb_icon_cache = list()
 				for(var/M in markings)
 					var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
 					var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[organ_tag]")
+					mark_s.Blend(markings[M]["color"], ICON_ADD)
 					overlays |= mark_s //So when it's not on your body, it has icons
 					mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
 					icon_cache_key += "[M][markings[M]["color"]]"
@@ -144,28 +146,13 @@ var/global/list/limb_icon_cache = list()
 				var/cache_key = "[body_hair]-[icon_name]-[h_col[1]][h_col[2]][h_col[3]]"
 				if(!limb_icon_cache[cache_key])
 					var/icon/I = icon(species.get_icobase(owner), "[icon_name]_[body_hair]")
+					I.Blend(rgb(h_col[1],h_col[2],h_col[3]), ICON_ADD)
 					limb_icon_cache[cache_key] = I
 				mob_icon.Blend(limb_icon_cache[cache_key], ICON_OVERLAY)
 
 	if(model)
 		icon_cache_key += "_model_[model]"
 		apply_colouration(mob_icon)
-		// VOREStation edit to enable markings on synths
-		for(var/M in markings)
-			var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
-			var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[organ_tag]")
-			overlays |= mark_s //So when it's not on your body, it has icons
-			mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
-			icon_cache_key += "[M][markings[M]["color"]]"
-
-		if(body_hair && islist(h_col) && h_col.len >= 3)
-			var/cache_key = "[body_hair]-[icon_name]-[h_col[1]][h_col[2]][h_col[3]]"
-			if(!limb_icon_cache[cache_key])
-				var/icon/I = icon(species.get_icobase(owner), "[icon_name]_[body_hair]")
-				I.Blend(rgb(h_col[1],h_col[2],h_col[3]), ICON_MULTIPLY) //VOREStation edit
-				limb_icon_cache[cache_key] = I
-			mob_icon.Blend(limb_icon_cache[cache_key], ICON_OVERLAY)
-		// VOREStation edit ends here
 
 	dir = EAST
 	icon = mob_icon
@@ -176,9 +163,9 @@ var/global/list/limb_icon_cache = list()
 	if(nonsolid)
 		applying.MapColors("#4D4D4D","#969696","#1C1C1C", "#000000")
 		if(species && species.get_bodytype(owner) != "Human")
-			applying.SetIntensity(1) // Unathi, Taj and Skrell have -very- dark base icons. VOREStation edit fixes this and brings the number back to 1
+			applying.SetIntensity(1.5) // Unathi, Taj and Skrell have -very- dark base icons.
 		else
-			applying.SetIntensity(1) //VOREStation edit to make Prometheans not look like shit with mob coloring.
+			applying.SetIntensity(0.7)
 
 	else if(status & ORGAN_DEAD)
 		icon_cache_key += "_dead"
@@ -191,6 +178,11 @@ var/global/list/limb_icon_cache = list()
 		else
 			applying.Blend(rgb(-s_tone,  -s_tone,  -s_tone), ICON_SUBTRACT)
 		icon_cache_key += "_tone_[s_tone]"
+	else
+		if(s_col && s_col.len >= 3)
+			applying.Blend(rgb(s_col[1], s_col[2], s_col[3]), s_col_blend)
+			icon_cache_key += "_color_[s_col[1]]_[s_col[2]]_[s_col[3]]_[s_col_blend]"
+
 	// Translucency.
 	if(nonsolid) applying += rgb(,,,180) // SO INTUITIVE TY BYOND
 
