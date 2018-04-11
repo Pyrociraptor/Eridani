@@ -557,10 +557,10 @@ var/list/mining_overlay_cache = list()
 
 	var/mineral_name
 	if(rare_ore)
-		mineral_name = pickweight(list("uranium" = 10, "platinum" = 10, "hematite" = 20, "carbon" = 20, "diamond" = 2, "gold" = 10, "silver" = 10, "phoron" = 20))
+		mineral_name = pickweight(list("uranium" = 3, "platinum" = 3, "hematite" = 1, "carbon" = 1, "diamond" = 2, "gold" = 3, "silver" = 3, "phoron" = 2))
 
 	else
-		mineral_name = pickweight(list("uranium" = 5, "platinum" = 5, "hematite" = 35, "carbon" = 35, "diamond" = 1, "gold" = 5, "silver" = 5, "phoron" = 10))
+		mineral_name = pickweight(list("uranium" = 2, "platinum" = 2, "hematite" = 2, "carbon" = 2, "diamond" = 1, "gold" = 2, "silver" = 2, "phoron" = 1))
 
 	if(mineral_name && (mineral_name in ore_data))
 		mineral = ore_data[mineral_name]
