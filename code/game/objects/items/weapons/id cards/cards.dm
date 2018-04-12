@@ -105,3 +105,57 @@
 		uses = ceil(uses) //Ensures no decimal uses nonsense, rounds up to be nice
 		usr << "<span class='notice'>You add \the [O] to \the [src]. Increasing the uses of \the [src] to [uses].</span>"
 		qdel(O)
+
+/obj/item/weapon/card/emag/dataknife
+	name = "data knife"
+	desc = "A data knife often used as an electronic hacking device, or as a fighting utility knife. It is set to invasive mode and will hack into most electronics."
+	icon = 'icons/obj/kitchen.dmi'
+	icon_state = "dataknife"
+	item_state = "knife"
+	flags = CONDUCT
+	w_class = ITEMSIZE_SMALL
+	force = 17
+	throwforce = 10
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	edge = 1
+	sharp = 1
+	uses = 50
+	var/obj/item/device/multitool/hacktool/dataknife/counterpart = null
+
+/obj/item/weapon/card/emag/dataknife/resolve_attackby(atom/A, mob/user)
+	var/used_uses = A.emag_act(uses, user, src)
+	if(used_uses < 0)
+		return ..(A, user)
+
+	uses -= used_uses
+	A.add_fingerprint(user)
+	//Vorestation Edit: Because some things (read lift doors) don't get emagged
+	if(used_uses)
+		log_and_message_admins("emagged \an [A].")
+	else
+		log_and_message_admins("attempted to emag \an [A].")
+	// Vorestation Edit: End of Edit
+	log_and_message_admins("emagged \an [A].")
+
+	return 1
+
+/obj/item/weapon/card/emag/dataknife/New(newloc, no_counterpart = TRUE)
+	..(newloc)
+	if(!counterpart && no_counterpart)
+		counterpart = new(src, FALSE)
+		counterpart.counterpart = src
+
+/obj/item/weapon/card/emag/dataknife/Destroy()
+	if(counterpart)
+		counterpart.counterpart = null // So it can qdel cleanly.
+		qdel_null(counterpart)
+	return ..()
+
+/obj/item/weapon/card/emag/dataknife/attack_self(mob/user)
+	playsound(get_turf(user),'sound/items/change_drill.ogg',50,1)
+	user.drop_item(src)
+	counterpart.forceMove(get_turf(src))
+	src.forceMove(counterpart)
+	user.put_in_active_hand(counterpart)
+	to_chat(user, "<span class='notice'>You switch the [src] to evasive mode.</span>")

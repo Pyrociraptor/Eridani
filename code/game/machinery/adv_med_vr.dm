@@ -11,22 +11,9 @@
 	var/humanprey = 0
 	var/livingprey = 0
 	var/objectprey = 0
-
-	for(var/belly in H.vore_organs)
-		var/obj/belly/B = belly
-		for(var/C in B)
-			if(ishuman(C))
-				humanprey++
-			else if(isliving(C))
-				livingprey++
-			else
-				objectprey++
-
 	incoming["livingPrey"] = livingprey
 	incoming["humanPrey"] = humanprey
 	incoming["objectPrey"] = objectprey
-	incoming["weight"] = H.weight
-
 	return incoming
 
 /obj/machinery/bodyscanner/update_icon()

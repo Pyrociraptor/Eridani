@@ -167,9 +167,9 @@
 /////////////////
 // A NIFSoft Disk
 /obj/item/weapon/disk/nifsoft
-	name = "NIFSoft Disk"
+	name = "CNESoft Disk"
 	desc = "It has a small label: \n\
-	\"Portable NIFSoft Disk. \n\
+	\"Portable CNESoft Disk. \n\
 	Insert directly into brain.\""
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "datadisk2"
@@ -188,12 +188,12 @@
 	var/mob/living/carbon/human/Hu = user
 
 	if(!Ht.nif || Ht.nif.stat != NIF_WORKING)
-		to_chat(user,"<span class='warning'>Either they don't have a NIF, or the disk can't connect.</span>")
+		to_chat(user,"<span class='warning'>Either they don't have a CNE, or the disk can't connect.</span>")
 		return
 
 	var/extra = extra_params()
 	if(A == user)
-		to_chat(user,"<span class='notice'>You upload [src] into your NIF.</span>")
+		to_chat(user,"<span class='notice'>You upload [src] into your CNE.</span>")
 	else
 		Ht.visible_message("<span class='warning'>[Hu] begins uploading [src] into [Ht]!</span>","<span class='danger'>[Hu] is uploading [src] into you!</span>")
 
@@ -208,7 +208,7 @@
 
 // Compliance Disk //
 /obj/item/weapon/disk/nifsoft/compliance
-	name = "NIFSoft Disk (Compliance)"
+	name = "CNESoft Disk (Compliance)"
 	desc = "Wow, adding laws to people? That seems illegal. It probably is. Okay, it really is."
 	stored = /datum/nifsoft/compliance
 	var/laws
@@ -233,10 +233,10 @@
 
 // Security Disk //
 /obj/item/weapon/disk/nifsoft/security
-	name = "NIFSoft Disk - Security"
-	desc = "Contains free NIFSofts useful for security members.\n\
+	name = "CNESoft Disk - Security"
+	desc = "Contains free CNESofts useful for security members.\n\
 	It has a small label: \n\
-	\"Portable NIFSoft Disk. \n\
+	\"Portable CNESoft Disk. \n\
 	Insert directly into brain.\""
 
 	stored = /datum/nifsoft/package/security
@@ -245,8 +245,8 @@
 	software = list(/datum/nifsoft/ar_sec,/datum/nifsoft/flashprot)
 
 /obj/item/weapon/storage/box/nifsofts_security
-	name = "security nifsoft disks"
-	desc = "A box of free nifsofts for security employees."
+	name = "security cnesoft disks"
+	desc = "A box of free cnesofts for security employees."
 	icon_state = "disk_kit"
 
 /obj/item/weapon/storage/box/nifsofts_security/New()
@@ -256,10 +256,10 @@
 
 // Engineering Disk //
 /obj/item/weapon/disk/nifsoft/engineering
-	name = "NIFSoft Disk - Engineering"
-	desc = "Contains free NIFSofts useful for engineering members.\n\
+	name = "CNESoft Disk - Engineering"
+	desc = "Contains free CNESofts useful for engineering members.\n\
 	It has a small label: \n\
-	\"Portable NIFSoft Disk. \n\
+	\"Portable CNESoft Disk. \n\
 	Insert directly into brain.\""
 
 	stored = /datum/nifsoft/package/engineering
@@ -268,8 +268,8 @@
 	software = list(/datum/nifsoft/ar_eng,/datum/nifsoft/uvblocker)
 
 /obj/item/weapon/storage/box/nifsofts_engineering
-	name = "engineering nifsoft disks"
-	desc = "A box of free nifsofts for engineering employees."
+	name = "engineering cnesoft disks"
+	desc = "A box of free cnesofts for engineering employees."
 	icon_state = "disk_kit"
 
 /obj/item/weapon/storage/box/nifsofts_engineering/New()
@@ -279,10 +279,10 @@
 
 // Medical Disk //
 /obj/item/weapon/disk/nifsoft/medical
-	name = "NIFSoft Disk - Medical"
-	desc = "Contains free NIFSofts useful for medical members.\n\
+	name = "CNESoft Disk - Medical"
+	desc = "Contains free CNESofts useful for medical members.\n\
 	It has a small label: \n\
-	\"Portable NIFSoft Disk. \n\
+	\"Portable CNESoft Disk. \n\
 	Insert directly into brain.\""
 
 	stored = /datum/nifsoft/package/medical
@@ -291,8 +291,8 @@
 	software = list(/datum/nifsoft/ar_med,/datum/nifsoft/crewmonitor)
 
 /obj/item/weapon/storage/box/nifsofts_medical
-	name = "medical nifsoft disks"
-	desc = "A box of free nifsofts for medical employees."
+	name = "medical cnesoft disks"
+	desc = "A box of free cnesofts for medical employees."
 	icon_state = "disk_kit"
 
 /obj/item/weapon/storage/box/nifsofts_medical/New()
@@ -302,10 +302,10 @@
 
 // Mining Disk //
 /obj/item/weapon/disk/nifsoft/mining
-	name = "NIFSoft Disk - Mining"
-	desc = "Contains free NIFSofts useful for mining members.\n\
+	name = "CNESoft Disk - Mining"
+	desc = "Contains free CNESofts useful for mining members.\n\
 	It has a small label: \n\
-	\"Portable NIFSoft Disk. \n\
+	\"Portable CNESoft Disk. \n\
 	Insert directly into brain.\""
 
 	stored = /datum/nifsoft/package/mining
@@ -314,8 +314,8 @@
 	software = list(/datum/nifsoft/material,/datum/nifsoft/spare_breath)
 
 /obj/item/weapon/storage/box/nifsofts_mining
-	name = "mining nifsoft disks"
-	desc = "A box of free nifsofts for mining employees."
+	name = "mining cnesoft disks"
+	desc = "A box of free cnesofts for mining employees."
 	icon_state = "disk_kit"
 
 /obj/item/weapon/storage/box/nifsofts_mining/New()

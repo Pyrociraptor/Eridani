@@ -99,12 +99,13 @@
 			apply_organs_to_prefs(H, prefs)
 		if(prefs.persistence_settings & PERSIST_MARKINGS)
 			apply_markings_to_prefs(H, prefs)
+		/*
 		if(prefs.persistence_settings & PERSIST_WEIGHT)
 			resolve_excess_nutrition(H)
 			prefs.weight_vr = H.weight
 		if(prefs.persistence_settings & PERSIST_SIZE)
 			prefs.size_multiplier = H.size_multiplier
-
+		*/
 	prefs.save_character()
 
 // Saves mob's current coloration state to prefs
@@ -132,6 +133,7 @@
 
 // Saves mob's current custom species, ears, and tail state to prefs
 // This basically needs to be the reverse of /datum/category_item/player_setup_item/vore/ears/copy_to_mob() ~Leshana
+/*
 /proc/apply_ears_to_prefs(var/mob/living/carbon/human/character, var/datum/preferences/prefs)
 	if(character.ear_style) prefs.ear_style = character.ear_style.type
 	if(character.tail_style) prefs.tail_style = character.tail_style.type
@@ -139,6 +141,7 @@
 	prefs.b_tail			= character.b_tail
 	prefs.g_tail			= character.g_tail
 	prefs.custom_species	= character.custom_species
+*/
 
 // Saves mob's current organ state to prefs.
 // This basically needs to be the reverse of /datum/category_item/player_setup_item/general/body/copy_to_mob() ~Leshana
@@ -201,6 +204,7 @@
 * Normally this would slowly apply during the round; once we get to the end
 * we need to apply it all at once.
 */
+/*
 /proc/resolve_excess_nutrition(var/mob/living/carbon/C)
 	if(C.stat == DEAD)
 		return // You don't metabolize if dead
@@ -213,11 +217,11 @@
 		// Weight Gain!
 		var/gain = (C.nutrition - MIN_NUTRITION_TO_GAIN) * weight_per_nutrition * C.weight_gain/100
 		C.weight = min(MAX_MOB_WEIGHT, C.weight + gain)
-	else if(C.nutrition <= MAX_NUTRITION_TO_LOSE && C.weight > MIN_MOB_WEIGHT && C.weight_loss)
+//	else if(C.nutrition <= MAX_NUTRITION_TO_LOSE && C.weight > MIN_MOB_WEIGHT && C.weight_loss)
 		// Weight Loss!
-		var/loss = (MAX_NUTRITION_TO_LOSE - C.nutrition) * weight_per_nutrition * C.weight_loss/100
-		C.weight = max(MIN_MOB_WEIGHT, C.weight - loss)
-
+//		var/loss = (MAX_NUTRITION_TO_LOSE - C.nutrition) * weight_per_nutrition * C.weight_loss/100
+//		C.weight = max(MIN_MOB_WEIGHT, C.weight - loss)
+*/
 /**
 * Persist any NIF data that needs to be persisted. It's stored in a list to make it more malleable
 * towards future shenanigans such as upgradable NIFs or different types or things of that nature,

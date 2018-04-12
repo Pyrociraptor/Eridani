@@ -81,7 +81,7 @@
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/m9mml
-	allowed_magazines = list(/obj/item/ammo_magazine/m9mm, /obj/item/ammo_magazine/m9mml)
+	allowed_magazines = list(/obj/item/ammo_magazine/m9mml)
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
@@ -97,6 +97,7 @@
 	if(!ignore_inhands) update_held_icon()
 
 // For general use
+/*
 /obj/item/weapon/gun/energy/imperial
 	name = "imperial energy pistol"
 	desc = "An elegant weapon developed by the Imperium Auream. Their weaponsmiths have cleverly found a way to make a gun that is only about the size of an average energy pistol, yet with the fire power of a laser carbine."
@@ -157,6 +158,7 @@
 	else
 		..()
 
+
 // wankersonofjerkin : Glenn Pink
 /obj/item/weapon/gun/projectile/revolver/fluff/admiral_pink_revolver
 	name = "Admiral Pink's 'Devilgun'"
@@ -196,7 +198,8 @@
 	fire_sound = 'sound/weapons/45pistol_vr.ogg'
 	magazine_type = /obj/item/ammo_magazine/m45/rubber
 
-/* //Commented out due to weapon change.
+
+ //Commented out due to weapon change.
 /obj/item/weapon/gun/projectile/revolver/detective/fluff/serdy //This forces it to be .38 bullets only
 	name = "Vintage S&W Model 10"
 	desc = "It's a classic S&W Model 10 revolver. This one in particular is beautifully restored with a chromed black frame and cylinder, and a nice redwood grip. The name 'Serdykov A.' is engraved into the base of the grip."
@@ -206,7 +209,7 @@
 	fire_sound = 'sound/weapons/deagle.ogg'
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	ammo_type = /obj/item/ammo_casing/a38r //Rubber rounds.
-*/
+
 
 // LuminescentRing : Briana Moore
 /obj/item/weapon/gun/projectile/derringer/fluff/briana
@@ -216,6 +219,7 @@
 	ammo_type = /obj/item/ammo_casing/a10mm
 
 // For general use
+
 /obj/item/weapon/gun/projectile/automatic/stg
 	name = "\improper Sturmgewehr"
 	desc = "An STG-560 built by RauMauser. Experience the terror of the Siegfried line, redone for the 26th century! The Kaiser would be proud. Uses unique 7.92x33mm Kurz rounds."
@@ -236,8 +240,9 @@
 	item_state = (ammo_magazine)? "arifle" : "arifle-empty"
 	if(!ignore_inhands) update_held_icon()
 
+
 //Currently, the only problem I have now is that this weapon's item_state isn't working.
-/* // This has never worked and probably never will work. Why do we even have this?
+ // This has never worked and probably never will work. Why do we even have this?
 /obj/item/weapon/gun/projectile/automatic/fluff/crestrose
 	name = "Crescent Rose"
 	desc = "Can you match my resolve? If so then you will succeed. I believe that the human spirit is indomitable. Keep Moving Forward. Uses 7.62mm rounds."
@@ -298,9 +303,11 @@
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
 		return 1
-	return 0*/
+	return 0
+*/
 
 //-----------------------Tranq Gun----------------------------------
+/*
 /obj/item/weapon/gun/projectile/dartgun/tranq
 	name = "tranquilizer gun"
 	desc = "A gas-powered dart gun designed by the National Armory of Gaia. This gun is used primarily by United Federation special forces for Tactical Espionage missions. Don't forget your bandana."
@@ -329,7 +336,7 @@
 	else
 		icon_state = "tranqgun"
 	return 1
-
+*/
 // Removed because gun64_vr.dmi guns don't work.
 /*//-----------------------UF-ARC----------------------------------
 /obj/item/weapon/gun/projectile/automatic/carbine/fluff/ufarc
@@ -396,6 +403,7 @@
 
 
 // molenar:Kari Akiren
+/*
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/fluff/kari_akiren
 	name = "clockwork rifle"
 	desc = "Brass, copper, and lots of gears. Well lubricated for fluid movement as each round is loaded, locked, and fired. Just like clockwork."
@@ -404,7 +412,7 @@
 	icon_override = 'icons/vore/custom_guns_vr.dmi'
 	item_state = "clockworkrifle"
 	item_icons = null
-
+*/
 /* Permit Expired
 //Razerwing:Archer Maximus
 /obj/item/weapon/gun/projectile/colt/fluff/archercolt
@@ -433,13 +441,13 @@
 
 //////////////////// Eris Ported Guns ////////////////////
 //HoS Gun
-/*/obj/item/weapon/gun/projectile/lamia
+/obj/item/weapon/gun/projectile/lamia
 	name = "FS HG .44 \"Lamia\""
 	desc = "Uses .44 rounds."
 	icon = 'icons/obj/gun_vr.dmi'
 	icon_state = "Headdeagle"
 	item_state = "revolver"
-	fire_sound = 'sound/weapons/Gunshot.ogg'
+	fire_sound = 'sound/weapons/revolver.ogg'
 	caliber = ".44"
 	magazine_type = /obj/item/ammo_magazine/m44/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/m44,/obj/item/ammo_magazine/m44/rubber)
@@ -454,7 +462,7 @@
 		return
 	var/ratio = ammo_magazine.stored_ammo.len * 100 / ammo_magazine.max_ammo
 	ratio = round(ratio, 33)
-	overlays += "deagle_[ratio]"*/ // Fugly.
+	overlays += "deagle_[ratio]" // Fugly.
 
 
 //Civilian gun
@@ -527,11 +535,12 @@
 	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BELT
 	caliber = "9mm"
-	magazine_type = /obj/item/ammo_magazine/m9mm
-	allowed_magazines = list(/obj/item/ammo_magazine/m9mm)
+	magazine_type = /obj/item/ammo_magazine/m9mml
+	allowed_magazines = list(/obj/item/ammo_magazine/m9mm, /obj/item/ammo_magazine/m9mml)
 	load_method = MAGAZINE
 	multi_aim = 1
 	burst_delay = 2
+	fire_sound = 'sound/weapons/c18r.ogg'
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),

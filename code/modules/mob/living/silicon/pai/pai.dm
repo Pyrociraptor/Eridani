@@ -271,10 +271,10 @@
 		return 0
 	else if(istype(card.loc,/mob))
 		var/mob/holder = card.loc
-		var/datum/belly/inside_belly = check_belly(card) //VOREStation edit.
-		if(inside_belly) //VOREStation edit.
-			to_chat(src, "<span class='notice'>There is no room to unfold in here. You're good and stuck.</span>") //VOREStation edit.
-			return 0 //VOREStation edit.
+		//var/datum/belly/inside_belly = check_belly(card) //VOREStation edit.
+		//if(inside_belly) //VOREStation edit.
+		//	to_chat(src, "<span class='notice'>There is no room to unfold in here. You're good and stuck.</span>") //VOREStation edit.
+		//	return 0 //VOREStation edit.
 		if(ishuman(holder))
 			var/mob/living/carbon/human/H = holder
 			for(var/obj/item/organ/external/affecting in H.organs)
@@ -297,9 +297,9 @@
 
 	var/turf/T = get_turf(src)
 	if(istype(T)) T.visible_message("<b>[src]</b> folds outwards, expanding into a mobile form.")
-	verbs += /mob/living/silicon/pai/proc/pai_nom //VOREStation edit
-	verbs += /mob/living/proc/set_size //VOREStation edit
-	verbs += /mob/living/proc/shred_limb //VORREStation edit
+	//verbs += /mob/living/silicon/pai/proc/pai_nom //VOREStation edit
+	//verbs += /mob/living/proc/set_size //VOREStation edit
+	//verbs += /mob/living/proc/shred_limb //VORREStation edit
 
 /mob/living/silicon/pai/verb/fold_up()
 	set category = "pAI Commands"
@@ -390,7 +390,7 @@
 	if(src.loc == card)
 		return
 
-	release_vore_contents() //VOREStation Add
+	//release_vore_contents() //VOREStation Add
 
 	var/turf/T = get_turf(src)
 	if(istype(T)) T.visible_message("<b>[src]</b> neatly folds inwards, compacting down to a rectangular card.")
@@ -420,7 +420,7 @@
 	canmove = 1
 	resting = 0
 	icon_state = "[chassis]"
-	verbs -= /mob/living/silicon/pai/proc/pai_nom //VOREStation edit. Let's remove their nom verb
+	//verbs -= /mob/living/silicon/pai/proc/pai_nom //VOREStation edit. Let's remove their nom verb
 
 // No binary for pAIs.
 /mob/living/silicon/pai/binarycheck()

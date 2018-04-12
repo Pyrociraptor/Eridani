@@ -40,6 +40,7 @@
 	var/fragment_types = list(/obj/item/projectile/bullet/pellet/fragment, /obj/item/projectile/bullet/pellet/fragment, /obj/item/projectile/bullet/pellet/fragment, /obj/item/projectile/bullet/pellet/fragment/strong)
 	var/num_fragments = 63  //total number of fragments produced by the grenade
 	var/explosion_size = 2   //size of the center explosion
+	var/stinger = null
 
 	//The radius of the circle used to launch projectiles. Lower values mean less projectiles are used but if set too low gaps may appear in the spread pattern
 	var/spread_range = 7
@@ -54,6 +55,8 @@
 	if(explosion_size)
 		on_explosion(O)
 	src.fragmentate(O, num_fragments, spread_range, fragment_types)
+	if(stinger)
+		playsound(src.loc, 'sound/effects/stinger.ogg', 50, 1, 30)
 	qdel(src)
 
 
@@ -93,7 +96,6 @@
 	desc = "A military fragmentation grenade, designed to explode in a deadly shower of fragments."
 	icon_state = "frag"
 	loadable = null
-
 	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment)
 	num_fragments = 200  //total number of fragments produced by the grenade
 
@@ -131,4 +133,5 @@
 	num_fragments = 200  //total number of fragments produced by the grenade
 	explosion_size = 0   //size of the center explosion
 	spread_range = 7
-	loadable = null
+	loadable = 1
+	stinger = 1

@@ -660,3 +660,18 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
 	max_ammo = 7
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/m12ga
+	name = "drum magazine (12g slug)"
+	icon_state = "m12ga"
+	caliber = "12g"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a12g
+	max_ammo = 8
+	matter = list("metal" = 2880)
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/m12ga/buckshot
+	name = "drum magazine (12g buckshot)"
+	icon_state = "m12ga"
+	ammo_type = /obj/item/ammo_casing/a12g/pellet

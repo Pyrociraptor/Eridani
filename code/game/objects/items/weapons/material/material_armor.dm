@@ -182,7 +182,8 @@ Protectiveness | Armor %
 /obj/item/clothing/suit/armor/material/makeshift/glass
 	default_material = "glass"
 
-// Used to craft sheet armor, and possibly other things in the Future(tm).
+// Used to craft sheet armor, and possibly other things in the Future(tm). Being replaced with improvised body armor plates.
+/*
 /obj/item/weapon/material/armor_plating
 	name = "armor plating"
 	desc = "A sheet designed to protect something."
@@ -223,7 +224,15 @@ Protectiveness | Armor %
 		qdel(src)
 	else
 		..()
+*/
 
+/obj/item/clothing/accessory/armor/armorplate/material
+	name = "armor plate"
+	desc = "An armor plate made out of on-hand materials, designed to fit inside a plate carrier."
+	icon = 'icons/obj/clothing/modular_armor.dmi'
+	icon_state = "armor_material"
+	unbreakable = TRUE
+	default_material = "durasteel"
 
 // Used to craft the makeshift helmet
 /obj/item/clothing/head/helmet/bucket

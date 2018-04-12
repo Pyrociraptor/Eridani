@@ -15,17 +15,11 @@
 /datum/supply_packs/randomised/security/armor
 	num_contained = 5
 	contains = list(
-			/obj/item/clothing/suit/storage/vest,
-			/obj/item/clothing/suit/storage/vest/officer,
-			/obj/item/clothing/suit/storage/vest/warden,
-			/obj/item/clothing/suit/storage/vest/hos,
-			/obj/item/clothing/suit/storage/vest/pcrc,
-			/obj/item/clothing/suit/storage/vest/detective,
-			/obj/item/clothing/suit/storage/vest/heavy,
-			/obj/item/clothing/suit/storage/vest/heavy/officer,
-			/obj/item/clothing/suit/storage/vest/heavy/warden,
-			/obj/item/clothing/suit/storage/vest/heavy/hos,
-			/obj/item/clothing/suit/storage/vest/heavy/pcrc
+			/obj/item/clothing/suit/armor/pcarrier/security,
+			/obj/item/clothing/suit/armor/pcarrier/security/hos,
+			/obj/item/clothing/suit/armor/pcarrier/security/warden,
+			/obj/item/clothing/suit/armor/pcarrier/security/detective,
+			/obj/item/clothing/suit/armor/pcarrier/security/detective/csi
 			)
 
 	name = "Armor crate"
@@ -42,9 +36,10 @@
 			/obj/item/weapon/handcuffs = 3,
 			/obj/item/weapon/storage/box/flashbangs,
 			/obj/item/weapon/storage/box/beanbags,
+			/obj/item/weapon/storage/box/stinger,
 			/obj/item/weapon/storage/box/handcuffs
 			)
-	cost = 40
+	cost = 50
 	containertype = /obj/structure/closet/crate/secure
 	containername = "riot gear crate"
 	access = access_armory
@@ -53,7 +48,7 @@
 	name = "Riot armor set crate"
 	contains = list(
 			/obj/item/clothing/head/helmet/riot,
-			/obj/item/clothing/suit/armor/riot,
+			/obj/item/clothing/suit/armor/riot/alt,
 			/obj/item/clothing/gloves/arm_guard/riot,
 			/obj/item/clothing/shoes/leg_guard/riot
 			)
@@ -66,11 +61,9 @@
 	name = "Ablative armor set crate"
 	contains = list(
 			/obj/item/clothing/head/helmet/laserproof,
-			/obj/item/clothing/suit/armor/laserproof,
-			/obj/item/clothing/gloves/arm_guard/laserproof,
-			/obj/item/clothing/shoes/leg_guard/laserproof
+			/obj/item/clothing/accessory/armor/armorplate/laserproof
 			)
-	cost = 40
+	cost = 50
 	containertype = /obj/structure/closet/crate/secure
 	containername = "ablative armor set crate"
 	access = access_armory
@@ -79,53 +72,31 @@
 	name = "Bullet resistant armor set crate"
 	contains = list(
 			/obj/item/clothing/head/helmet/bulletproof,
-			/obj/item/clothing/suit/armor/bulletproof,
-			/obj/item/clothing/gloves/arm_guard/bulletproof,
-			/obj/item/clothing/shoes/leg_guard/bulletproof
+			/obj/item/clothing/accessory/armor/armorplate/bulletproof
 			)
-	cost = 40
+	cost = 50
 	containertype = /obj/structure/closet/crate/secure
 	containername = "bullet resistant armor set crate"
 	access = access_armory
-/* VOREStation Removal - Howabout no ERT armor being orderable?
-/datum/supply_packs/security/combat_armor
-	name = "Combat armor set crate"
-	contains = list(
-			/obj/item/clothing/head/helmet/combat,
-			/obj/item/clothing/suit/armor/combat,
-			/obj/item/clothing/gloves/arm_guard/combat,
-			/obj/item/clothing/shoes/leg_guard/combat
-			)
-	cost = 40
-	containertype = /obj/structure/closet/crate/secure
-	containername = "combat armor set crate"
-	access = access_armory
 
 /datum/supply_packs/security/tactical
-	name = "Tactical suits"
+	name = "SWAT Gear"
 	containertype = /obj/structure/closet/crate/secure
-	containername = "Tactical Suit Locker"
-	cost = 40
+	containername = "SWAT Gear crate"
+	cost = 75
 	access = access_armory
 	contains = list(
 			/obj/item/clothing/under/tactical,
-			/obj/item/clothing/suit/armor/tactical,
-			/obj/item/clothing/head/helmet/tactical,
+			/obj/item/clothing/suit/armor/pcarrier/swat,
+			/obj/item/clothing/head/helmet/swat,
 			/obj/item/clothing/mask/balaclava/tactical,
 			/obj/item/clothing/glasses/sunglasses/sechud/tactical,
 			/obj/item/weapon/storage/belt/security/tactical,
-			/obj/item/clothing/shoes/boots/jackboots,
-			/obj/item/clothing/gloves/black,
-			/obj/item/clothing/under/tactical,
-			/obj/item/clothing/suit/armor/tactical,
-			/obj/item/clothing/head/helmet/tactical,
-			/obj/item/clothing/mask/balaclava/tactical,
-			/obj/item/clothing/glasses/sunglasses/sechud/tactical,
-			/obj/item/weapon/storage/belt/security/tactical,
-			/obj/item/clothing/shoes/boots/jackboots,
-			/obj/item/clothing/gloves/black
+			/obj/item/clothing/shoes/boots/tactical,
+			/obj/item/clothing/gloves/tactical,
+			/obj/item/clothing/accessory/holster/leg
 			)
-*/
+
 /datum/supply_packs/security/securitybarriers
 	name = "Security barrier crate"
 	contains = list(/obj/machinery/deployable/barrier = 4)
@@ -172,7 +143,7 @@
 	name = "Forensic investigation equipment"
 	contains = list(
 			/obj/item/weapon/storage/box/evidence = 2,
-			/obj/item/clothing/suit/storage/vest/detective,
+			/obj/item/clothing/suit/armor/pcarrier/security/detective,
 			/obj/item/weapon/cartridge/detective,
 			/obj/item/device/radio/headset/headset_sec,
 			/obj/item/taperoll/police,
@@ -220,7 +191,7 @@
 /datum/supply_packs/security/officergear
 	name = "Officer equipment"
 	contains = list(
-			/obj/item/clothing/suit/storage/vest/officer,
+			/obj/item/clothing/suit/armor/pcarrier/security,
 			/obj/item/clothing/head/helmet,
 			/obj/item/weapon/cartridge/security,
 			/obj/item/clothing/accessory/badge/holo,
@@ -250,12 +221,12 @@
 /datum/supply_packs/security/wardengear
 	name = "Warden equipment"
 	contains = list(
-			/obj/item/clothing/suit/storage/vest/warden,
+			/obj/item/clothing/suit/armor/pcarrier/security/warden,
 			/obj/item/clothing/under/rank/warden,
 			/obj/item/clothing/under/rank/warden/corp,
 			/obj/item/clothing/suit/storage/vest/wardencoat,
 			/obj/item/clothing/suit/storage/vest/wardencoat/alt,
-			/obj/item/clothing/head/helmet/warden,
+			/obj/item/clothing/head/helmet/security/warden,
 			/obj/item/weapon/cartridge/security,
 			/obj/item/device/radio/headset/headset_sec,
 			/obj/item/clothing/glasses/sunglasses/sechud,
@@ -278,11 +249,11 @@
 /datum/supply_packs/security/headofsecgear
 	name = "Head of security equipment"
 	contains = list(
-			/obj/item/clothing/head/helmet/HoS,
-			/obj/item/clothing/suit/storage/vest/hos,
+			/obj/item/clothing/head/helmet/security/hos,
+			/obj/item/clothing/suit/armor/pcarrier/security/hos,
 			/obj/item/clothing/under/rank/head_of_security/corp,
 			/obj/item/clothing/suit/storage/vest/hoscoat,
-			/obj/item/clothing/head/helmet/dermal,
+			/obj/item/clothing/head/helmet/security/dermal,
 			/obj/item/weapon/cartridge/hos,
 			/obj/item/device/radio/headset/heads/hos,
 			/obj/item/clothing/glasses/sunglasses/sechud,

@@ -9,6 +9,7 @@
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	load_method = MAGAZINE
+	fire_sound = 'sound/weapons/m1911.ogg'
 
 /obj/item/weapon/gun/projectile/colt/update_icon()
 	if(ammo_magazine)
@@ -85,6 +86,7 @@
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	load_method = MAGAZINE
+	fire_sound = 'sound/weapons/mk58.ogg'
 
 /obj/item/weapon/gun/projectile/sec/update_icon()
 	..()
@@ -132,7 +134,7 @@
 	force = 14.0
 	caliber = ".44"
 	load_method = MAGAZINE
-	fire_sound = 'sound/weapons/deagle.ogg'
+	fire_sound = 'sound/weapons/revolver.ogg'
 	magazine_type = /obj/item/ammo_magazine/m44
 	allowed_magazines = list(/obj/item/ammo_magazine/m44)
 
@@ -330,7 +332,7 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	caliber = "9mm"
 	load_method = MAGAZINE
-	fire_sound = 'sound/weapons/gunshot3.ogg'
+	fire_sound = 'sound/weapons/p92x.ogg'
 	magazine_type = /obj/item/ammo_magazine/m9mm
 	allowed_magazines = list(/obj/item/ammo_magazine/m9mm) // Can accept illegal large capacity magazines, or compact magazines.
 

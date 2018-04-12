@@ -10,7 +10,7 @@ var/global/datum/controller/gameticker/ticker
 	var/event_time = null
 	var/event = 0
 
-	// var/login_music			// music played in pregame lobby // VOREStation Edit - We do music differently
+	var/login_music
 
 	var/list/datum/mind/minds = list()//The people in the game. Used for objective tracking.
 
@@ -33,19 +33,18 @@ var/global/datum/controller/gameticker/ticker
 
 	var/round_end_announced = 0 // Spam Prevention. Announce round end only once.
 
-/datum/controller/gameticker/proc/pregame()
-	/* VOREStation Edit - We do music differently
-	login_music = pick(\
-	'sound/music/halloween/skeletons.ogg',\
-	'sound/music/halloween/halloween.ogg',\
-	'sound/music/halloween/ghosts.ogg'
-	'sound/music/space.ogg',\
-	'sound/music/traitor.ogg',\
-	'sound/music/title2.ogg',\
-	'sound/music/clouds.s3m',\
-	'sound/music/space_oddity.ogg') //Ground Control to Major Tom, this song is cool, what's going on?
-	*/
+	var/list/possible_lobby_tracks = list(
+		'sound/music/title1.ogg',
+		'sound/music/title2.ogg',
+		'sound/music/bladerunner.ogg',
+		'sound/music/space_oddity.ogg',
+		'sound/music/burningup.ogg',
+		'sound/music/rocketman.ogg'
+	)
 
+/datum/controller/gameticker/proc/pregame()
+	if (!login_music)
+		login_music = pick(possible_lobby_tracks)
 	send2mainirc("Server lobby is loaded and open at byond://[config.serverurl ? config.serverurl : (config.server ? config.server : "[world.address]:[world.port]")]")
 
 	do

@@ -202,7 +202,7 @@
 /obj/machinery/door/attackby(obj/item/I as obj, mob/user as mob)
 	src.add_fingerprint(user)
 
-	if (attempt_vr(src,"attackby_vr",list(I, user))) return
+//	if (attempt_vr(src,"attackby_vr",list(I, user))) return
 
 	if(istype(I, /obj/item/stack/material) && I.get_material_name() == src.get_material_name())
 		if(stat & BROKEN)

@@ -103,33 +103,15 @@
 	icon_state = "beret_corporate_warden"
 	item_state_slots = list(slot_r_hand_str = "beret_black", slot_l_hand_str = "beret_black")
 
-/obj/item/clothing/head/helmet/warden
-	name = "warden's helmet"
-	desc = "Standard Warden gear. Protects the head from impacts."
-
-/obj/item/clothing/head/helmet/warden/hat
+/obj/item/clothing/head/warden
 	name = "warden's hat"
-	desc = "It's a special hat issued to the Warden of a securiy force."
+	desc = "It's a special hat issued to NTDS prison wardens. Won't do much in terms of protection."
 	icon_state = "policehelm"
-	valid_accessory_slots = null
 
-/obj/item/clothing/head/helmet/HoS
-	name = "Head of Security helmet"
-	desc = "Standard Head of Security gear. Protects the head from impacts."
-
-/obj/item/clothing/head/helmet/HoS/hat
+/obj/item/clothing/head/hos
 	name = "Head of Security Hat"
-	desc = "The hat of the Head of Security. For showing the officers who's in charge."
+	desc = "The hat of the Head of Security. For showing the officers who's in charge. Won't do much protecting them, though."
 	icon_state = "hoscap"
-	valid_accessory_slots = null
-
-/obj/item/clothing/head/helmet/dermal
-	name = "Dermal Armour Patch"
-	desc = "You're not quite sure how you manage to take it on and off, but it implants nicely in your head."
-	icon_state = "dermal"
-	item_state_slots = list(slot_r_hand_str = "", slot_l_hand_str = "")
-	valid_accessory_slots = null
-	show_examine = FALSE
 
 /obj/item/clothing/head/det
 	name = "fedora"

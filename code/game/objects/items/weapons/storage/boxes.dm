@@ -257,6 +257,12 @@
 	icon_state = "flashbang"
 	starts_with = list(/obj/item/weapon/grenade/chem_grenade/teargas = 7)
 
+/obj/item/weapon/storage/box/stinger
+	name = "box of stinger grenades"
+	desc = "A box containing 7 stinger grenades."
+	icon_state = "stinger"
+	starts_with = list(/obj/item/weapon/grenade/explosive/stinger = 7)
+
 /obj/item/weapon/storage/box/flare
 	name = "box of flares"
 	desc = "A box containing 4 flares."

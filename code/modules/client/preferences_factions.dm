@@ -14,13 +14,16 @@ var/global/list/seen_religions = list()
 	return
 
 var/global/list/citizenship_choices = list(
-	"Earth",
-	"Mars",
-	"Sif",
-	"Binma",
-	"Moghes",
-	"Meralar",
-	"Qerr'balak"
+	"Solar Systems Alliance",
+	"Eridani Trade Federation",
+	"Frontier Federation",
+	"United Sythetics of Orion",
+	"Valem Democratic People's Republic",
+	"Government of Viir’quiwq",
+	"Naj'dii Empire",
+	"Worker's State of Zhadhj'a",
+	"Lescatian",
+	"Patriarchy of Sintha"
 	)
 
 var/global/list/home_system_choices = list(
@@ -34,19 +37,7 @@ var/global/list/home_system_choices = list(
 	)
 
 var/global/list/faction_choices = list(
-	"Sol Central",
-	"Vey Med",
-	"Einstein Engines",
-	"Free Trade Union",
-	"NanoTrasen",
-	"Ward-Takahashi GMB",
-	"Gilthari Exports",
-	"Grayson Manufactories Ltd.",
-	"Aether Atmospherics",
-	"Zeng-Hu Pharmaceuticals",
-	"Hephaestus Industries",
-	"Morpheus Cyberkinetics",
-	"Xion Manufacturing Group"
+	"Pending"
 	)
 
 var/global/list/antag_faction_choices = list()	//Should be populated after brainstorming. Leaving as blank in case brainstorming does not occur.
@@ -64,5 +55,6 @@ var/global/list/religion_choices = list(
 	"Islam",
 	"Christianity",
 	"Agnosticism",
-	"Deism"
+	"Deism",
+	"Ssrazhiit"
 	)

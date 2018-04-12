@@ -254,6 +254,7 @@
 
 //Shadekin spawner. Could have them show up on any mission, so it's here.
 //Make sure to put them away from others, so they don't get demolished by rude mobs.
+/*
 /obj/tether_away_spawner/shadekin
 	name = "Shadekin Spawner"
 	icon = 'icons/mob/vore_shadekin.dmi'
@@ -266,3 +267,4 @@
 	mobs_to_pick_from = list(
 		/mob/living/simple_animal/shadekin
 	)
+*/

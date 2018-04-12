@@ -102,7 +102,7 @@
 		return
 
 // override move_inside() so only micro crew can use them
-
+/*
 /obj/mecha/micro/move_inside()
 	var/mob/living/carbon/C = usr
 	if (C.size_multiplier >= 0.5)
@@ -118,7 +118,7 @@
 		return
 	else
 		..()
-
+*/
 // override move/turn procs so they play more appropriate sounds. Placeholder sounds for now, but mechmove04 at least sounds like tracks for the poleat.
 
 /obj/mecha/micro/mechturn(direction)

@@ -45,7 +45,6 @@
 		dead_mob_list += src
 	else
 		living_mob_list += src
-	hook_vr("mob_new",list(src)) //VOREStation Code
 	update_transform() // Some mobs may start bigger or smaller than normal.
 	..()
 

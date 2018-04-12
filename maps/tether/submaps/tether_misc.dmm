@@ -6897,7 +6897,7 @@
 /turf/simulated/shuttle/floor/white,
 /area/syndicate_station/start)
 "pN" = (
-/obj/machinery/embedded_controller/radio/airlock/phoron{
+/obj/machinery/embedded_controller/radio/airlock/co2{
 	id_tag = "merc_south_airlock";
 	pixel_x = 0;
 	pixel_y = 0
@@ -9040,7 +9040,7 @@
 	},
 /area/antag/antag_base)
 "sS" = (
-/obj/machinery/airlock_sensor/phoron{
+/obj/machinery/airlock_sensor/co2{
 	id_tag = "civ_airlock_sensor";
 	pixel_x = 8;
 	pixel_y = -25
@@ -9760,7 +9760,7 @@
 	dir = 8
 	},
 /obj/item/clothing/glasses/goggles,
-/obj/item/clothing/head/helmet/merc{
+/obj/item/clothing/head/helmet/combat{
 	armor = list("melee" = 70, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0);
 	desc = "A pilot's flight helmet. It's not very well armored, but it's very well padded, making it resistant to melee attacks.";
 	name = "pilot helmet"

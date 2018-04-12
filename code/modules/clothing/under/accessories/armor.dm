@@ -67,42 +67,42 @@
 //Armor plates
 ////////////////
 /obj/item/clothing/accessory/armor/armorplate
-	name = "light armor plate"
-	desc = "A basic armor plate made of steel-reinforced synthetic fibers. Attaches to a plate carrier."
+	name = "armor plate"
+	desc = "A really shitty armor plate. Ahelp if you see this."
 	icon_state = "armor_light"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 30, bullet = 15, laser = 40, energy = 10, bomb = 25, bio = 0, rad = 0)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 	slot = ACCESSORY_SLOT_ARMOR_C
 
-/obj/item/clothing/accessory/armor/armorplate/medium
-	name = "medium armor plate"
-	desc = "A plasteel-reinforced synthetic armor plate, providing good protection. Attaches to a plate carrier."
-	icon_state = "armor_medium"
-	armor = list(melee = 40, bullet = 40, laser = 40, energy = 25, bomb = 30, bio = 0, rad = 0)
-
-/obj/item/clothing/accessory/armor/armorplate/security/heavy
-	name = "security armor plate"
-	desc = "An armoured plate issued to NTDS contractors when shit hits the fan."
-	icon_state = "armor_medium"
-	armor = list(melee = 50, bullet = 40, laser = 40, energy = 25, bomb = 25, bio = 0, rad = 0)
-
-/obj/item/clothing/accessory/armor/armorplate/tactical
-	name = "tactical armor plate"
+/obj/item/clothing/accessory/armor/armorplate/swat
+	name = "swat armor plate"
 	desc = "A medium armor plate with additional ablative coating. Attaches to a plate carrier."
 	icon_state = "armor_tactical"
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
 
-/obj/item/clothing/accessory/armor/armorplate/merc
+/obj/item/clothing/accessory/armor/armorplate/combat
+	name = "heavy armor plate"
+	desc = "A ceramic armor plate with ablative laser coating. Attaches to a plate carrier."
+	icon_state = "armor_merc"
+	armor = list(melee = 70, bullet = 65, laser = 65, energy = 45, bomb = 45, bio = 0, rad = 0)
+
+/obj/item/clothing/accessory/armor/armorplate/specops
 	name = "heavy armor plate"
 	desc = "A ceramics-reinforced synthetic armor plate, providing state of of the art protection. Attaches to a plate carrier."
 	icon_state = "armor_merc"
-	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
+	armor = list(melee = 80, bullet = 70, laser = 70,energy = 50, bomb = 50, bio = 10, rad = 0)
 
 /obj/item/clothing/accessory/armor/armorplate/security
 	name = "security armor insert"
 	desc = "A standard NT-issue security vest insert for all NTDS contractors."
 	icon_state = "insert_stab"
 	armor = list(melee = 40, bullet = 30, laser = 30, energy = 10, bomb = 10, bio = 0, rad = 0)
+
+/obj/item/clothing/accessory/armor/armorplate/security/heavy
+	name = "security armor plate"
+	desc = "An armoured plate issued to NTDS contractors when shit hits the fan."
+	icon_state = "armor_medium"
+	armor = list(melee = 50, bullet = 40, laser = 40, energy = 25, bomb = 25, bio = 0, rad = 0)
 
 /obj/item/clothing/accessory/armor/armorplate/bulletproof
 	name = "bulletproof armor insert"
@@ -173,6 +173,7 @@
 /obj/item/clothing/accessory/armor/armguards/swat
 	desc = "A pair of tactical arm pads reinforced with armor plating. Attaches to a plate carrier."
 	icon_state = "armguards_swat"
+	armor = list(melee = 45, bullet = 45, laser = 45, energy = 40, bomb = 35, bio = 0, rad = 0)
 
 /obj/item/clothing/accessory/armor/armguards/merc
 	name = "heavy arm guards"
@@ -236,6 +237,7 @@
 /obj/item/clothing/accessory/armor/legguards/swat
 	desc = "A pair of armored leg pads. Attaches to a plate carrier."
 	icon_state = "legguards_swat"
+	armor = list(melee = 45, bullet = 45, laser = 45, energy = 35, bomb = 35, bio = 0, rad = 0)
 
 /obj/item/clothing/accessory/armor/legguards/merc
 	name = "heavy leg guards"

@@ -23,7 +23,7 @@
 	old_x = -16
 	pixel_x = -16
 
-	vore_icons = 0 //No custom icons yet
+	//vore_icons = 0 //No custom icons yet
 
 /mob/living/simple_animal/hostile/carp/pike/weak
 	maxHealth = 75

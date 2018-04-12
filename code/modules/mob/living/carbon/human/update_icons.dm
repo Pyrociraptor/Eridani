@@ -198,22 +198,22 @@ Please contact me on #coderbus IRC. ~Carn x
 	for(var/datum/modifier/M in modifiers)
 		if(!isnull(M.icon_scale_percent))
 			desired_scale *= M.icon_scale_percent
+	//var/desired_scale = size_multiplier
 	*/
-	var/desired_scale = size_multiplier
 	//VOREStation Edit End
 
 	// Regular stuff again.
 	if(lying && !species.prone_icon) //Only rotate them if we're not drawing a specific icon for being prone.
 		var/matrix/M = matrix()
 		M.Turn(90)
-		M.Scale(desired_scale)
+		//M.Scale(desired_scale)
 		M.Translate(1,-6)
 		ma.transform = M
 		ma.layer = MOB_LAYER -0.01 // Fix for a byond bug where turf entry order no longer matters
 	else
 		var/matrix/M = matrix()
-		M.Scale(desired_scale)
-		M.Translate(0, 16*(desired_scale-1))
+		//M.Scale(desired_scale)
+		//M.Translate(0, 16*(desired_scale-1))
 		ma.transform = M
 		ma.layer = MOB_LAYER // Fix for a byond bug where turf entry order no longer matters
 
@@ -387,11 +387,13 @@ var/global/list/damage_icon_parts = list()
 			if(part.body_hair && part.h_col && part.h_col.len >= 3)
 				icon_key += "[rgb(part.h_col[1],part.h_col[2],part.h_col[3])]"
 				//VOREStation Edit - Different way of tracking add/mult species
+				/*
 				if(species.color_mult)
 					icon_key += "[ICON_MULTIPLY]"
 				else
 					icon_key += "[ICON_ADD]"
 				//VOREStation Edit End
+				*/
 			else
 				icon_key += "#000000"
 			for(var/M in part.markings)
@@ -472,7 +474,7 @@ var/global/list/damage_icon_parts = list()
 
 	//tail
 	update_tail_showing(0)
-	update_wing_showing(0) //VOREStation edit
+	//update_wing_showing(0) //VOREStation edit
 
 /mob/living/carbon/human/proc/update_skin(var/update_icons=1)
 	if(QDESTROYING(src))
@@ -541,11 +543,13 @@ var/global/list/damage_icon_parts = list()
 
 			face_standing.Blend(hair_s, ICON_OVERLAY)
 
+/*
 	// VOREStation Edit - START
 	var/icon/ears_s = get_ears_overlay()
 	if (ears_s)
 		face_standing.Blend(ears_s, ICON_OVERLAY)
 	// VOREStation Edit - END
+*/
 	if(head_organ.nonsolid)
 		face_standing += rgb(,,,120)
 
@@ -1149,7 +1153,7 @@ var/global/list/damage_icon_parts = list()
 	update_inv_w_uniform(0)
 	update_inv_shoes(0)
 	update_tail_showing(0)
-	update_wing_showing(0)//VOREStation Edit
+	//update_wing_showing(0)//VOREStation Edit
 
 	if(update_icons)   update_icons_layers()
 
@@ -1397,6 +1401,7 @@ var/global/list/damage_icon_parts = list()
 
 	overlays_standing[TAIL_LAYER] = null
 
+/*
 	// VOREStation Edit - START
 	overlays_standing[TAIL_LAYER] = get_tail_image()
 	if(overlays_standing[TAIL_LAYER])
@@ -1404,6 +1409,7 @@ var/global/list/damage_icon_parts = list()
 			update_icons_layers()
 		return
 	// VOREStation Edit - END
+*/
 
 	var/species_tail = species.get_tail(src)
 
@@ -1424,15 +1430,17 @@ var/global/list/damage_icon_parts = list()
 	if(!tail_icon)
 		//generate a new one
 		var/species_tail_anim = species.get_tail_animation(src)
-		if(species.icobase_tail) species_tail_anim = species.icobase //VOREStation Code
+		//if(species.icobase_tail) species_tail_anim = species.icobase //VOREStation Code
 		if(!species_tail_anim) species_tail_anim = 'icons/effects/species.dmi'
 		tail_icon = new/icon(species_tail_anim)
+		/*
 		//VOREStation Code Start
 		if(species.color_mult)
 			tail_icon.Blend(rgb(r_skin, g_skin, b_skin), ICON_MULTIPLY)
 		else
 			tail_icon.Blend(rgb(r_skin, g_skin, b_skin), ICON_ADD)
 		// The following will not work with animated tails.
+		*/
 		var/use_species_tail = species.get_tail_hair(src)
 		if(use_species_tail)
 			var/icon/hair_icon = icon('icons/effects/species.dmi', "[species.get_tail(src)]_[use_species_tail]")
@@ -1502,7 +1510,7 @@ var/global/list/damage_icon_parts = list()
 		set_tail_state("[species.get_tail(src)]_idle[rand(0,9)]")
 	else
 		set_tail_state("[species.get_tail(src)]_static")
-	toggle_tail_vr(0) //VOREStation Add - So tails stop when someone dies.
+	//toggle_tail_vr(0) //VOREStation Add - So tails stop when someone dies.
 	if(update_icons)
 		update_icons_layers()
 

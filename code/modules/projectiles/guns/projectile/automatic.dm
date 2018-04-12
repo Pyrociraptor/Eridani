@@ -31,7 +31,7 @@
 	caliber = "10mm"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	slot_flags = SLOT_BELT|SLOT_BACK
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/c20r.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/m10mm
 	allowed_magazines = list(/obj/item/ammo_magazine/m10mm)
@@ -65,6 +65,7 @@
 	magazine_type = /obj/item/ammo_magazine/m545
 	allowed_magazines = list(/obj/item/ammo_magazine/m545)
 	projectile_type = /obj/item/projectile/bullet/rifle/a545
+	fire_sound = 'sound/weapons/sts35.ogg'
 
 //	one_handed_penalty = 30
 
@@ -92,7 +93,7 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	slot_flags = SLOT_BELT
 	ammo_type = "/obj/item/ammo_casing/a9mmr"
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/wt550.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/m9mmt/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/m9mmt)
@@ -107,6 +108,8 @@
 	return
 
 /obj/item/weapon/gun/projectile/automatic/z8
+	name = "Z8"
+	desc = "The Z8 is an older model designated marksman rifle, made by the now defunct Zendai Foundries. Makes you feel like a space marine when you hold it, even though it can only hold 10 round magazines. Uses 7.62mm rounds and has an under barrel grenade launcher."
 	name = "Type 8 - DMR"
 	desc = "The Z8 Bulldog is an older model designated marksman rifle, reproduced by Kusanagi Precision under the name of 'Type 8'. Makes you feel like a space marine when you hold it. Uses 7.62mm rounds and has an under barrel grenade launcher."
 	icon_state = "carbine" // This isn't a carbine. :T
@@ -116,7 +119,7 @@
 	force = 10
 	caliber = "7.62mm"
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
-	fire_sound = 'sound/weapons/Gunshot.ogg'
+	fire_sound = 'sound/weapons/z8.ogg'
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/m762
@@ -164,9 +167,10 @@
 /obj/item/weapon/gun/projectile/automatic/z8/update_icon(var/ignore_inhands)
 	..()
 	if(ammo_magazine)
-		icon_state = "carbine-[round(ammo_magazine.stored_ammo.len,2)]"
-	else
 		icon_state = "carbine"
+	else
+		icon_state = "carbine-empty"
+
 	if(!ignore_inhands) update_held_icon()
 	return
 
@@ -176,6 +180,18 @@
 		user << "\The [launcher] has \a [launcher.chambered] loaded."
 	else
 		user << "\The [launcher] is empty."
+
+/obj/item/weapon/gun/projectile/automatic/z8/civilian
+	name = "Z8-C"
+	desc = "The Z8-C is the civilian version of the Z8 DMR, locked in semi-auto and the grenade launcher removed."
+	use_launcher = 0
+
+	firemodes = list(
+		list(mode_name="semiauto",       burst=1,    fire_delay=0,    move_delay=null, use_launcher=null, burst_accuracy=null, dispersion=null)
+		)
+
+/obj/item/weapon/gun/projectile/automatic/z8/examine(mob/user)
+	..()
 
 /obj/item/weapon/gun/projectile/automatic/l6_saw
 	name = "L6 SAW"
@@ -365,6 +381,7 @@
 	w_class = ITEMSIZE_LARGE
 	force = 10
 	caliber = "7.62mm"
+	fire_sound = 'sound/weapons/c31a.ogg'
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 4)
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
@@ -389,3 +406,38 @@
 		item_state = "bullpup-empty"
 	if(!ignore_inhands)
 		update_held_icon()
+
+/obj/item/weapon/gun/projectile/automatic/pcx12 // Admin abuse assault rifle. ToDo: Make this less shit. Maybe remove its autofire, and make it spawn with only 10 rounds at start.
+	name = "PC-X12 'Bulldog' automatic shotgun"
+	desc = "The PyroCorp Experimental 12 gauge automatic shotgun is the soon to be successor to it's successful AS-24. The bullpup design allows for compact firepower and controlled recoil. \
+	Frontier Marine Marauders are reported to be exclusively using this shotgun in it's boarding parties. If you're seeing this, you should be in fear of your life."
+	icon_state = "bulldog"
+	item_state = "bulldog"
+	w_class = ITEMSIZE_LARGE
+	force = 10
+	caliber = "12g"
+	fire_sound = 'sound/weapons/bulldog.ogg'
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 4)
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/m12ga
+	allowed_magazines = list(/obj/item/ammo_magazine/m12ga, /obj/item/ammo_magazine/m12gdrum)
+	projectile_type = /obj/item/projectile/bullet/shotgun
+	auto_eject = 1
+	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+
+//	one_handed_penalty = 45
+
+	firemodes = list(
+		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="4-round bursts", burst=4, fire_delay=null, move_delay=6,    burst_accuracy=list(0,-15), dispersion=list(0.0, 0.6))
+		)
+
+/obj/item/weapon/gun/projectile/automatic/pcx12/update_icon(var/ignore_inhands)
+	..()
+	if(ammo_magazine)
+		icon_state = "bulldog"
+	else
+		icon_state = "bulldog-empty"
+
+	if(!ignore_inhands) update_held_icon()
+	return

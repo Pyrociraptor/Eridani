@@ -110,11 +110,11 @@
 
 	//General stuff about them
 	synthetic = M.isSynthetic()
-	speciesname = M.custom_species ? M.custom_species : null
+//	speciesname = M.custom_species ? M.custom_species : null
 	bodygender = M.gender
 	body_oocnotes = M.ooc_notes
-	sizemult = M.size_multiplier
-	weight = M.weight
+//	sizemult = M.size_multiplier
+//	weight = M.weight
 	aflags = M.appearance_flags
 
 	//Probably should

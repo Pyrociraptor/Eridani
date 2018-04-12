@@ -252,7 +252,7 @@ datum/preferences
 	else if(href_list["reload"])
 		load_preferences()
 		load_character()
-		attempt_vr(client.prefs_vr,"load_vore","") //VOREStation Edit
+		//attempt_vr(client.prefs_vr,"load_vore","") //VOREStation Edit
 		sanitize_preferences()
 	else if(href_list["load"])
 		if(!IsGuestKey(usr.key))
@@ -260,7 +260,7 @@ datum/preferences
 			return 1
 	else if(href_list["changeslot"])
 		load_character(text2num(href_list["changeslot"]))
-		attempt_vr(client.prefs_vr,"load_vore","") //VOREStation Edit
+		//attempt_vr(client.prefs_vr,"load_vore","") //VOREStation Edit
 		sanitize_preferences()
 		close_load_dialog(usr)
 	else if(href_list["resetslot"])
@@ -288,7 +288,7 @@ datum/preferences
 	player_setup.copy_to_mob(character)
 
 	// VOREStation Edit - Sync up all their organs and species one final time
-	character.force_update_organs()
+//	character.force_update_organs()
 
 	if(icon_updates)
 		character.force_update_limbs()

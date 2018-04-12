@@ -210,3 +210,24 @@ obj/item/weapon/gun/energy/staff/focus
 		list(mode_name="five shot burst", burst = 5, burst_accuracy = list(75,75,75,75,75), dispersion = list(1,1,1,1,1)),
 		list(mode_name="ten shot burst", burst = 10, burst_accuracy = list(75,75,75,75,75,75,75,75,75,75), dispersion = list(2,2,2,2,2,2,2,2,2,2)),
 		)
+
+/obj/item/weapon/gun/energy/hos
+	name = "robust energy gun"
+	icon_state = "hoslaserkill100"
+	item_state = "caplaser"
+	desc = "A modern reproduction of the legendary antique laser pistol. Doesn't come with a recharger function, but has three modes of fire."
+	force = 5
+	slot_flags = SLOT_BELT
+	w_class = ITEMSIZE_NORMAL
+	projectile_type = /obj/item/projectile/beam
+	origin_tech = null
+	fire_delay = 10		//Old pistol
+	charge_cost = 300
+	cell_type = /obj/item/weapon/cell/device/weapon/recharge/captain
+	modifystate = "hoslaserkill"
+
+	firemodes = list(
+		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="hoslaserstun", charge_cost = 300),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="hoslaserkill", charge_cost = 300),
+		list(mode_name="capture", projectile_type=/obj/item/projectile/beam/energy_net, modifystate="hoslasernet"),
+		)

@@ -32,11 +32,5 @@
 	min_n2 = 0
 	max_n2 = 0
 
-// Activate Noms!
-/mob/living/simple_animal/hostile/dino
-	vore_active = 0
-	swallowTime = 1 SECOND // Hungry little bastards.
-	vore_icons = SA_ICON_LIVING
-
 /mob/living/simple_animal/hostile/dino/virgo3b
 	faction = "virgo3b"

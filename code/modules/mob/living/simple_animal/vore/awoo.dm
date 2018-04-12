@@ -52,9 +52,3 @@
 	else
 		loopstop = world.time
 		..()
-
-// Activate Noms!
-/mob/living/simple_animal/retaliate/awoo
-	vore_active = 0
-	vore_pounce_chance = 40
-	vore_icons = SA_ICON_LIVING

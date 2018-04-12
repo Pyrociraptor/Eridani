@@ -1,8 +1,8 @@
 //Custom vendors
 /obj/machinery/vending/nifsoft_shop
-	name = "NIFSoft Shop"
+	name = "CNESoft Shop"
 	desc = "For all your mindware and mindware accessories."
-	product_ads = "Let us get into your head!;Looking for an upgrade?;Surpass Humanity!;Why be normal when you can be SUPERnormal?;Jack in with NIFSoft!"
+	product_ads = "Let us get into your head!;Looking for an upgrade?;Surpass Humanity!;Why be normal when you can be SUPERnormal?;Jack in with CNESoft!"
 
 	icon = 'icons/obj/machines/ar_elements.dmi'
 	icon_state = "proj"
@@ -97,7 +97,7 @@
 
 	var/mob/living/carbon/human/H = user
 	if(!H.nif || !H.nif.stat == NIF_WORKING)
-		to_chat(H,"<span class='warning'>[src] seems unable to connect to your NIF...</span>")
+		to_chat(H,"<span class='warning'>[src] seems unable to connect to your CNE...</span>")
 		flick(icon_deny,entopic.my_image)
 		return FALSE
 

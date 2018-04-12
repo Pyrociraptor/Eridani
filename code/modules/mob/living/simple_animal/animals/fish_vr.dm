@@ -9,12 +9,6 @@
 	reagents.add_reagent("toxin", 45)
 	reagents.add_reagent("impedrezene", 15)
 
-/mob/living/simple_animal/fish/koi/poisonous/Life()
-	..()
-	if(isbelly(loc) && prob(10))
-		var/obj/belly/B = loc
-		sting(B.owner)
-
 /mob/living/simple_animal/fish/koi/poisonous/react_to_attack(var/atom/A)
 	if(isliving(A) && Adjacent(A))
 		var/mob/living/M = A

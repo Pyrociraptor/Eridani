@@ -36,6 +36,6 @@
 	summon_amt = 10
 	range = 3
 
-	summon_type = list(/mob/living/simple_animal/hostile/creature/vore) // Vorestation Edit
+	summon_type = list(/mob/living/simple_animal/hostile)
 
 	hud_state = "wiz_creature"

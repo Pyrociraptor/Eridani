@@ -313,3 +313,15 @@
 	icon_state = "sheet-phoronrglass"
 	default_type = "reinforced borosilicate glass"
 	no_variants = FALSE
+
+/obj/item/stack/material/bronze
+	name = "bronze"
+	icon_state = "sheet-brass"
+	default_type = "bronze"
+	no_variants = FALSE
+
+/obj/item/stack/material/titanium
+	name = "titanium"
+	icon_state = "sheet-titanium"
+	default_type = "titanium"
+	no_variants = FALSE

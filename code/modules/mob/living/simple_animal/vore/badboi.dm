@@ -46,14 +46,6 @@
 	max_n2 = 0
 	minbodytemp = 150
 	maxbodytemp = 900
-
-	vore_active = 0
-	vore_capacity = 1
-	vore_pounce_chance = 30
-	vore_icons = SA_ICON_LIVING
-	vore_stomach_name = "fuel processor"
-	vore_stomach_flavor = "You have ended up in the fuel processor of this corrupted machine. This place was definitely not designed with safety and comfort in mind. The heated and cramped surroundings oozing potent fluids all over your form, eager to do nothing less than breaking you apart to fuel its rampage for the next few days... hours... minutes? Oh dear..."
-
 	loot_list = list(/obj/item/borg/upgrade/syndicate = 6, /obj/item/borg/upgrade/vtec = 6, /obj/item/weapon/material/knife/ritual = 6, /obj/item/weapon/disk/nifsoft/compliance = 6)
 
 /mob/living/simple_animal/hostile/badboi/isSynthetic()
@@ -61,11 +53,6 @@
 
 /mob/living/simple_animal/hostile/badboi/speech_bubble_appearance()
 	return "synthetic_evil"
-
-/mob/living/simple_animal/hostile/badboi/PunchTarget()
-	if(istype(target_mob,/mob/living/simple_animal/mouse))
-		return EatTarget()
-	else ..()
 
 /mob/living/simple_animal/hostile/badboi/death(gibbed, deathmessage = "shudders and collapses!")
 	.=..()

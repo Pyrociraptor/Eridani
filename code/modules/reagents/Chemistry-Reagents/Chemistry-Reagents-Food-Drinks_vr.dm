@@ -6,7 +6,7 @@
 	M.overeatduration = 0
 	if(M.nutrition < 0)
 		M.nutrition = 0
-		
+
 /datum/reagent/ethanol/deathbell
 	name = "Deathbell"
 	id = "deathbell"
@@ -20,7 +20,7 @@
 
 	glass_name = "Deathbell"
 	glass_desc = "The perfect blend of the most alcoholic things a bartender can get their hands on."
-	
+
 /datum/reagent/ethanol/deathbell/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 
@@ -43,14 +43,3 @@
 
 /datum/reagent/ethanol/monstertamer/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-
-	if(M.species.gets_food_nutrition) //it's still food!
-		M.nutrition += (nutriment_factor * removed)/2 // For hunger and fatness
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(H.feral > 0 && H.nutrition > 100 && H.traumatic_shock < min(60, H.nutrition/10) && H.jitteriness < 100) // same check as feral triggers to stop them immediately re-feralling
-			H.feral -= removed * 3 // should calm them down quick, provided they're actually in a state to STAY calm.
-			if (H.feral <=0) //check if they're unferalled
-				H.feral = 0
-				H << "<span class='info'>Your mind starts to clear, soothed into a state of clarity as your senses return.</span>"
-				log_and_message_admins("is no longer feral.", H)

@@ -104,10 +104,10 @@
 				H.update_inv_wear_suit()
 	else
 		RemoveHood_roiz()
-
+/*
 /obj/item/clothing/suit/storage/hooded/wintercoat/roiz/digest_act(var/atom/movable/item_storage = null)
 	return FALSE
-
+*/
 //ketrai:Ketrai
 /obj/item/clothing/head/fluff/ketrai
 	name = "Pink Bear Hat"
@@ -519,6 +519,7 @@
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
 
 //Event Costumes Below
+/*
 /obj/item/clothing/head/helmet/fluff/freddy
 	name = "Animatronic Suit Helmet"
 	desc = "Votre toast, je peux vous le rendre."
@@ -590,10 +591,11 @@
 	desc = "<b><font color=red>LET'S EAT!</font></b>"
 	icon_state = "chicasuit"
 	item_state = "chicasuit_mob"
-
+*/
 //End event costumes
 
 //scree:Scree
+/*
 /obj/item/clothing/head/helmet/space/void/engineering/hazmat/fluff/screehelm
 	name = "Modified Tajara Helmet"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment. Has radiation shielding. This one doesn't look like it was made for humans. Its been modified to include headlights."
@@ -681,7 +683,7 @@
 
 /obj/item/clothing/under/fluff/screesuit/digest_act(var/atom/movable/item_storage = null)
 	return FALSE
-
+*/
 //HOS Hardsuit
 /obj/item/clothing/suit/space/void/security/fluff/hos // ToDo: Rig version.
 	name = "\improper prototype voidsuit"
@@ -768,10 +770,10 @@
 	light_overlay = null
 
 	action_button_name = "Toggle pom-pom"
-
+/*
 /obj/item/clothing/head/fluff/pompom/digest_act(var/atom/movable/item_storage = null)
 	return FALSE
-
+*/
 /obj/item/clothing/head/fluff/pompom/attack_self(mob/user)
 	//if(!isturf(user.loc)) -- doesn't seem to cause problems to allow this and it's silly not to
 	//	to_chat(user, "You cannot turn the light on while in this [user.loc]")
@@ -1317,6 +1319,7 @@ Departamental Swimsuits, for general use
 	icon_state = "batter"
 	item_state = "batter_mob"
 
+/*
 /obj/item/clothing/suit/storage/hooded/wintercoat/jessie
 	name = "Handmade Winter Suit"
 	desc = "A durable, but somewhat ragged lower portion of a snow suit fitted for a wolftaur."
@@ -1336,8 +1339,9 @@ Departamental Swimsuits, for general use
 		else
 			to_chat(H, "<span class='warning'>You need to have a wolf-taur half to wear this.</span>")
 			return 0
-
+*/
 //samanthafyre:Kateryna Petrovitch
+/*
 /obj/item/clothing/suit/armor/vest/wolftaur/kate
 	name = "Kat's Fox Taur Armor"
 	desc = "A set of security armor, light weight and easy to run in for a Taur, this item protects the \
@@ -1359,8 +1363,9 @@ Departamental Swimsuits, for general use
 		else
 			to_chat(H, "<span class='warning'>You need to have a wolf-taur half to wear this.</span>")
 			return 0
-
+*/
 //samanthafyre:Kateryna Petrovitch
+/*
 /obj/item/clothing/suit/space/void/engineering/kate
 	name = "Kat's Navy Engineer voidsuit"
 	desc = "Taur engineering voidsuit. Recolored navy blue and white. Slightly tweaked as well to \
@@ -1404,7 +1409,7 @@ Departamental Swimsuits, for general use
 			return 0
 		else
 			return 1
-
+*/
 //Seiga: Alfonso Oak Telanor
 /obj/item/clothing/glasses/sunglasses/fluff/alfonso
 	name = "cyborg visor"

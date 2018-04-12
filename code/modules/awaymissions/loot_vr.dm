@@ -138,7 +138,7 @@
 					prob(9);/obj/item/weapon/gun/projectile/automatic/mini_uzi,\
 					prob(9);/obj/item/weapon/gun/projectile/pistol,\
 					prob(9);/obj/item/weapon/gun/projectile/shotgun/pump/combat,\
-					prob(9);/obj/item/weapon/twohanded/fireaxe,\
+				/*	prob(9);/obj/item/weapon/twohanded/fireaxe,\*/ //need to fix fireaxes
 					prob(9);/obj/item/weapon/cane/concealed,\
 					prob(9);/obj/item/weapon/gun/energy/gun,\
 					prob(8);/obj/item/weapon/gun/energy/ionrifle,\
@@ -146,7 +146,7 @@
 					prob(8);/obj/item/weapon/gun/energy/gun/eluger,\
 					prob(8);/obj/item/weapon/gun/energy/xray,\
 					prob(8);/obj/item/weapon/gun/projectile/automatic/c20r,\
-					prob(8);/obj/item/weapon/gun/projectile/automatic/stg,\
+				/*	prob(8);/obj/item/weapon/gun/projectile/automatic/stg,\ */
 					prob(8);/obj/item/weapon/melee/energy/sword,\
 				/*	prob(8);/obj/item/weapon/gun/projectile/automatic/m41a,\ */
 					prob(7);/obj/item/weapon/gun/energy/captain,\
