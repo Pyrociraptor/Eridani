@@ -32,6 +32,7 @@
 	burn_mod =  1.1
 */
 
+/*
 /datum/species/human/vatgrown
 	name = "Vatborn"
 	name_plural = "Vatborn"
@@ -50,6 +51,7 @@
 		O_BRAIN =    /obj/item/organ/internal/brain,
 		O_EYES =     /obj/item/organ/internal/eyes
 		)
+*/
 
 /*
 // These guys are going to need full resprites of all the suits/etc so I'm going to

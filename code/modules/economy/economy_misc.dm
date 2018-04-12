@@ -49,7 +49,7 @@
 
 /var/list/economic_species_modifier = list(
 										/datum/species/human							= 10,
-										/datum/species/human/vatgrown						= 10,
+										///datum/species/human/vatgrown						= 10,
 										/datum/species/skrell							= 12,
 										/datum/species/unathi							= 7,
 										/datum/species/tajaran							= 7,
@@ -134,7 +134,7 @@ var/global/economy_init = 0
 		T.amount = 75000
 		T.date = "2nd April, 2555"
 		T.time = "11:24"
-		T.source_terminal = "Biesel GalaxyNet Terminal #277"
+		T.source_terminal = "Eridani GalaxyNet Terminal #277"
 
 		//add the account
 		station_account.transaction_log.Add(T)
@@ -156,7 +156,7 @@ var/global/economy_init = 0
 	T.amount = department_account.money
 	T.date = "2nd April, 2555"
 	T.time = "11:24"
-	T.source_terminal = "Biesel GalaxyNet Terminal #277"
+	T.source_terminal = "Eridani GalaxyNet Terminal #277"
 
 	//add the account
 	department_account.transaction_log.Add(T)
