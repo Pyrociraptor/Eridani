@@ -200,11 +200,16 @@
 	assignment = "Medical Doctor"
 	rank = "Medical Doctor"
 	job_access_type = /datum/job/doctor
-
+/*
 /obj/item/weapon/card/id/medical/chemist
 	assignment = "Chemist"
 	rank = "Chemist"
 	job_access_type = /datum/job/chemist
+*/
+/obj/item/weapon/card/id/medical/labtech
+	assignment = "Lab Technician"
+	rank = "Lab Technician"
+	job_access_type = /datum/job/labtech
 
 /obj/item/weapon/card/id/medical/geneticist
 	assignment = "Geneticist"

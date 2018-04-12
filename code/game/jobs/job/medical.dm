@@ -19,7 +19,7 @@
 			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_maint_tunnels)
 
-	minimum_character_age = 25
+	minimum_character_age = 30
 	minimal_player_age = 10
 	ideal_character_age = 50
 
@@ -31,22 +31,61 @@
 	department = "Medical"
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 5
-	spawn_positions = 3
+	total_positions = 3
+	spawn_positions = 2
 	supervisors = "the chief medical officer"
 	selection_color = "#013D3B"
 	idtype = /obj/item/weapon/card/id/medical/doctor
 	economic_modifier = 7
+	minimum_character_age = 30
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_virology, access_eva)
 	outfit_type = /decl/hierarchy/outfit/job/medical/doctor
 	alt_titles = list(
-		"Surgeon" = /decl/hierarchy/outfit/job/medical/doctor/surgeon,
+		//"Surgeon" = /decl/hierarchy/outfit/job/medical/doctor/surgeon,
 		"Emergency Physician" = /decl/hierarchy/outfit/job/medical/doctor/emergency_physician,
-		"Nurse" = /decl/hierarchy/outfit/job/medical/doctor/nurse,
-		"Virologist" = /decl/hierarchy/outfit/job/medical/doctor/virologist)
+		"Nurse" = /decl/hierarchy/outfit/job/medical/doctor/nurse)
+		//"Virologist" = /decl/hierarchy/outfit/job/medical/doctor/virologist)
 
-//Chemist is a medical job damnit	//YEAH FUCK YOU SCIENCE	-Pete	//Guys, behave -Erro
+/datum/job/surgeon
+	title = "Surgeon"
+	flag = SURGEON
+	department = "Medical"
+	department_flag = MEDSCI
+	faction = "Station"
+	total_positions = 2
+	spawn_positions = 2
+	supervisors = "the chief medical officer"
+	selection_color = "#013D3B"
+	idtype = /obj/item/weapon/card/id/medical/doctor
+	economic_modifier = 7
+	minimum_character_age = 35
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_eva)
+	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_virology, access_eva)
+	outfit_type = /decl/hierarchy/outfit/job/medical/doctor/surgeon
+
+/datum/job/labtech
+	title = "Lab Technician"
+	flag = LABTECH
+	department = "Medical"
+	department_flag = MEDSCI
+	faction = "Station"
+	total_positions = 2
+	spawn_positions = 2
+	supervisors = "the chief medical officer"
+	selection_color = "#013D3B"
+	idtype = /obj/item/weapon/card/id/medical/labtech
+	economic_modifier = 5
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
+	minimal_access = list(access_medical, access_medical_equip, access_chemistry, access_virology)
+	alt_titles = list(
+		"Pharmaceutical Technician",
+		"Microbiologist" = /decl/hierarchy/outfit/job/medical/labtech/micro)
+
+	minimal_player_age = 3
+
+	outfit_type = /decl/hierarchy/outfit/job/medical/labtech
+/*
 /datum/job/chemist
 	title = "Chemist"
 	flag = CHEMIST
@@ -66,6 +105,7 @@
 	minimal_player_age = 3
 
 	outfit_type = /decl/hierarchy/outfit/job/medical/chemist
+*/
 
 /* I'm commenting out Geneticist so you can't actually see it in the job menu, given that you can't play as one - Jon.
 /datum/job/geneticist
