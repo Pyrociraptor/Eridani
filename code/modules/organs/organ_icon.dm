@@ -50,44 +50,51 @@ var/global/list/limb_icon_cache = list()
 	if(eyes) eyes.update_colour()
 
 /obj/item/organ/external/head/get_icon()
-
 	..()
-	overlays.Cut()
+
+	//The overlays are not drawn on the mob, they are used for if the head is removed and becomes an item
+	cut_overlays()
+
+	//Every 'addon' below requires information from species
 	if(!owner || !owner.species)
 		return
-	if(owner.should_have_organ(O_EYES))
+
+	//Eye color/icon
+	var/should_have_eyes = owner.should_have_organ(O_EYES)
+	var/has_eye_color = owner.species.appearance_flags & HAS_EYE_COLOR
+	if((should_have_eyes || has_eye_color) && eye_icon)
 		var/obj/item/organ/internal/eyes/eyes = owner.internal_organs_by_name[O_EYES]
-		if(eye_icon)
-			var/icon/eyes_icon = new/icon(eye_icon_location, eye_icon)
+		var/icon/eyes_icon = new/icon(eye_icon_location, eye_icon)
+		//Should have eyes
+		if(should_have_eyes)
+			//And we have them
 			if(eyes)
 				eyes_icon.Blend(rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3]), ICON_ADD)
+			//They're gone!
 			else
 				eyes_icon.Blend(rgb(128,0,0), ICON_ADD)
-			mob_icon.Blend(eyes_icon, ICON_OVERLAY)
-			overlays |= eyes_icon
+		//We have weird other-sorts of eyes (as we're not supposed to have eye organ, but we have HAS_EYE_COLOR species)
+		else
+			eyes_icon.Blend(rgb(owner.r_eyes, owner.g_eyes, owner.b_eyes), ICON_ADD)
+		add_overlay(eyes_icon)
+		mob_icon.Blend(eyes_icon, ICON_OVERLAY)
 
+	//Lip color/icon
 	if(owner.lip_style && (species && (species.appearance_flags & HAS_LIPS)))
 		var/icon/lip_icon = new/icon('icons/mob/human_face.dmi', "lips_[owner.lip_style]_s")
-		overlays |= lip_icon
+		add_overlay(lip_icon)
 		mob_icon.Blend(lip_icon, ICON_OVERLAY)
 
-	//Head markings.
-	for(var/M in markings)
-		var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
-		var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[organ_tag]")
-		mark_s.Blend(markings[M]["color"], ICON_ADD)
-		overlays |= mark_s //So when it's not on your body, it has icons
-		mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
-		icon_cache_key += "[M][markings[M]["color"]]"
-
+	//Facial hair
 	if(owner.f_style)
 		var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[owner.f_style]
 		if(facial_hair_style && facial_hair_style.species_allowed && (species.get_bodytype(owner) in facial_hair_style.species_allowed))
 			var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
 			if(facial_hair_style.do_colouration)
-				facial_s.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial), ICON_ADD)
-			overlays |= facial_s
+				facial_s.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial), ICON_MULTIPLY) // VOREStation edit
+			add_overlay(facial_s)
 
+	//Head hair
 	if(owner.h_style && !(owner.head && (owner.head.flags_inv & BLOCKHEADHAIR)))
 		var/datum/sprite_accessory/hair/hair_style = hair_styles_list[owner.h_style]
 		if(hair_style && (species.get_bodytype(owner) in hair_style.species_allowed))
@@ -96,7 +103,7 @@ var/global/list/limb_icon_cache = list()
 			if(hair_style.do_colouration && islist(h_col) && h_col.len >= 3)
 				hair_s.Blend(rgb(h_col[1], h_col[2], h_col[3]), ICON_MULTIPLY)
 				hair_s.Blend(hair_s_add, ICON_ADD)
-			overlays |= hair_s
+			add_overlay(hair_s)
 
 	return mob_icon
 
@@ -106,7 +113,7 @@ var/global/list/limb_icon_cache = list()
 	if(owner && owner.gender == MALE)
 		gender = "m"
 
-	icon_cache_key = "[icon_name]_[species ? species.name : "Human"]"
+	icon_cache_key = "[icon_name]_[species ? species.get_bodytype() : "Human"]" //VOREStation Edit
 
 	if(force_icon)
 		mob_icon = new /icon(force_icon, "[icon_name][gendered_icon ? "_[gender]" : ""]")
@@ -132,28 +139,9 @@ var/global/list/limb_icon_cache = list()
 				mob_icon = new /icon(species.get_icobase(owner, (status & ORGAN_MUTATED)), "[icon_name][gender ? "_[gender]" : ""]")
 				apply_colouration(mob_icon)
 
-			//Body markings, actually does not include head this time. Done separately above.
-			if(!istype(src,/obj/item/organ/external/head))
-				for(var/M in markings)
-					var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
-					var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[organ_tag]")
-					mark_s.Blend(markings[M]["color"], ICON_ADD)
-					overlays |= mark_s //So when it's not on your body, it has icons
-					mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
-					icon_cache_key += "[M][markings[M]["color"]]"
-
-			if(body_hair && islist(h_col) && h_col.len >= 3)
-				var/cache_key = "[body_hair]-[icon_name]-[h_col[1]][h_col[2]][h_col[3]]"
-				if(!limb_icon_cache[cache_key])
-					var/icon/I = icon(species.get_icobase(owner), "[icon_name]_[body_hair]")
-					I.Blend(rgb(h_col[1],h_col[2],h_col[3]), ICON_ADD)
-					limb_icon_cache[cache_key] = I
-				mob_icon.Blend(limb_icon_cache[cache_key], ICON_OVERLAY)
-
 	if(model)
 		icon_cache_key += "_model_[model]"
 		apply_colouration(mob_icon)
-
 	dir = EAST
 	icon = mob_icon
 	return mob_icon
@@ -163,9 +151,9 @@ var/global/list/limb_icon_cache = list()
 	if(nonsolid)
 		applying.MapColors("#4D4D4D","#969696","#1C1C1C", "#000000")
 		if(species && species.get_bodytype(owner) != "Human")
-			applying.SetIntensity(1.5) // Unathi, Taj and Skrell have -very- dark base icons.
+			applying.SetIntensity(1) // Unathi, Taj and Skrell have -very- dark base icons. VOREStation edit fixes this and brings the number back to 1
 		else
-			applying.SetIntensity(0.7)
+			applying.SetIntensity(1) //VOREStation edit to make Prometheans not look like shit with mob coloring.
 
 	else if(status & ORGAN_DEAD)
 		icon_cache_key += "_dead"
@@ -178,10 +166,15 @@ var/global/list/limb_icon_cache = list()
 		else
 			applying.Blend(rgb(-s_tone,  -s_tone,  -s_tone), ICON_SUBTRACT)
 		icon_cache_key += "_tone_[s_tone]"
-	else
-		if(s_col && s_col.len >= 3)
-			applying.Blend(rgb(s_col[1], s_col[2], s_col[3]), s_col_blend)
-			icon_cache_key += "_color_[s_col[1]]_[s_col[2]]_[s_col[3]]_[s_col_blend]"
+	else if(s_col && s_col.len >= 3)
+		//VOREStation Edit - Support for species.color_mult
+		if(species && species.color_mult)
+			applying.Blend(rgb(s_col[1], s_col[2], s_col[3]), ICON_MULTIPLY)
+			icon_cache_key += "_color_[s_col[1]]_[s_col[2]]_[s_col[3]]_[ICON_MULTIPLY]"
+		else
+			applying.Blend(rgb(s_col[1], s_col[2], s_col[3]), ICON_ADD)
+			icon_cache_key += "_color_[s_col[1]]_[s_col[2]]_[s_col[3]]_[ICON_ADD]"
+		//VOREStation Edit End
 
 	// Translucency.
 	if(nonsolid) applying += rgb(,,,180) // SO INTUITIVE TY BYOND

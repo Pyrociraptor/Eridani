@@ -47,6 +47,8 @@
 
 	icon = 'icons/mob/Human_face_m.dmi'	  // default icon for all hairs
 	var/icon_add = 'icons/mob/human_face.dmi'
+	var/color_blend_mode = ICON_MULTIPLY
+	species_allowed = list("Human","Skrell", "Unathi", "Tajaran", "Teshari") //This lets all races use the default hairstyles
 
 	bald
 		name = "Bald"
@@ -1213,7 +1215,7 @@
 		icon_state = "bellyhandsfeet_female"
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_TORSO)
 		species_allowed = list("Tajara")
-	
+
 	panda_eye_marks
 		name = "Panda Eye Markings"
 		icon_state = "eyes-panda"
