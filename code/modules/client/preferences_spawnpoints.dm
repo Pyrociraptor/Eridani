@@ -24,7 +24,7 @@ var/list/spawntypes = list()
 
 /datum/spawnpoint/proc/get_spawn_position()
 	return get_turf(pick(turfs))
-
+/*
 /datum/spawnpoint/arrivals
 	display_name = "Arrivals Shuttle"
 	msg = "will arrive to the station shortly by shuttle"
@@ -32,6 +32,7 @@ var/list/spawntypes = list()
 /datum/spawnpoint/arrivals/New()
 	..()
 	turfs = latejoin
+*/
 
 /datum/spawnpoint/gateway
 	display_name = "Gateway"

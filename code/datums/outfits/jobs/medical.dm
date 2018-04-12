@@ -44,6 +44,23 @@
 	backpack = /obj/item/weapon/storage/backpack/virology
 	satchel_one = /obj/item/weapon/storage/backpack/satchel/vir
 
+/decl/hierarchy/outfit/job/medical/labtech
+	name = OUTFIT_JOB_NAME("Lab Technician")
+	uniform = /obj/item/clothing/under/rank/chemist
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/chemist
+	backpack = /obj/item/weapon/storage/backpack/chemistry
+	satchel_one = /obj/item/weapon/storage/backpack/satchel/chem
+	id_type = /obj/item/weapon/card/id/medical/labtech
+	pda_type = /obj/item/device/pda/chemist
+
+/decl/hierarchy/outfit/job/medical/labtech/micro
+	name = OUTFIT_JOB_NAME("Microbiologist")
+	uniform = /obj/item/clothing/under/rank/virologist
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/virologist
+	mask = /obj/item/clothing/mask/surgical
+	backpack = /obj/item/weapon/storage/backpack/virology
+	satchel_one = /obj/item/weapon/storage/backpack/satchel/vir
+
 /decl/hierarchy/outfit/job/medical/doctor/nurse
 	name = OUTFIT_JOB_NAME("Nurse")
 	suit = null
@@ -58,16 +75,16 @@
 	else
 		uniform = /obj/item/clothing/under/rank/medical/scrubs/purple
 	..()
-
+/*
 /decl/hierarchy/outfit/job/medical/chemist
 	name = OUTFIT_JOB_NAME("Chemist")
 	uniform = /obj/item/clothing/under/rank/chemist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/chemist
 	backpack = /obj/item/weapon/storage/backpack/chemistry
 	satchel_one = /obj/item/weapon/storage/backpack/satchel/chem
-	id_type = /obj/item/weapon/card/id/medical/chemist
+	id_type = /obj/item/weapon/card/id/medical/labtech
 	pda_type = /obj/item/device/pda/chemist
-
+*/
 /decl/hierarchy/outfit/job/medical/geneticist
 	name = OUTFIT_JOB_NAME("Geneticist")
 	uniform = /obj/item/clothing/under/rank/geneticist
